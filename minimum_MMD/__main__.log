@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.1.30)  24 MAY 2026 19:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.1.30)  24 MAY 2026 20:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -882,9 +882,25 @@ Package pdftex.def Info: ../figures/statistical_inference_illustration.pdf  used
 (pdftex.def)             Requested size: 112.24164pt x 44.21574pt.
  [6
 
- <../figures/integral_illustration.pdf> <../figures/illustration_sampling.pdf> <../figures/statistical_inference_illustration.pdf>] [7
+ <../figures/integral_illustration.pdf> <../figures/illustration_sampling.pdf> <../figures/statistical_inference_illustration.pdf>]
+<figures/web_apps/rendering.png, id=149, 513.92pt x 513.92pt>
+File: figures/web_apps/rendering.png Graphic file (type png)
+<use figures/web_apps/rendering.png>
+Package pdftex.def Info: figures/web_apps/rendering.png  used on input line 322.
+(pdftex.def)             Requested size: 117.1483pt x 117.1483pt.
+<figures/web_apps/bayesian_ab.png, id=150, 963.6pt x 963.6pt>
+File: figures/web_apps/bayesian_ab.png Graphic file (type png)
+<use figures/web_apps/bayesian_ab.png>
+Package pdftex.def Info: figures/web_apps/bayesian_ab.png  used on input line 322.
+(pdftex.def)             Requested size: 117.14145pt x 117.14145pt.
+<figures/web_apps/reinforcement_learning.png, id=151, 963.6pt x 931.48pt>
+File: figures/web_apps/reinforcement_learning.png Graphic file (type png)
+<use figures/web_apps/reinforcement_learning.png>
+Package pdftex.def Info: figures/web_apps/reinforcement_learning.png  used on input line 322.
+(pdftex.def)             Requested size: 121.18486pt x 117.14537pt.
+ [7
 
-] [8
+ <./figures/web_apps/rendering.png (PNG copy)> <./figures/web_apps/bayesian_ab.png> <./figures/web_apps/reinforcement_learning.png>] [8
 
 ] [9
 
@@ -911,18 +927,18 @@ Package rerunfilecheck Info: File `__main__.out' has not changed.
 (rerunfilecheck)             Checksum: A9BBC5FC1165D4FA0AD0A6B472399D36;161.
  ) 
 Here is how much of TeX's memory you used:
- 29447 strings out of 480247
- 607609 string characters out of 5896151
+ 29463 strings out of 480247
+ 608138 string characters out of 5896151
  898147 words of memory out of 5000000
- 46780 multiletter control sequences out of 15000+600000
+ 46792 multiletter control sequences out of 15000+600000
  483938 words of font info for 82 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  99i,15n,104p,445b,1040s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on __main__.pdf (9 pages, 650976 bytes).
+Output written on __main__.pdf (9 pages, 1734118 bytes).
 PDF statistics:
- 274 PDF objects out of 1000 (max. 8388607)
- 176 compressed objects within 2 object streams
+ 267 PDF objects out of 1000 (max. 8388607)
+ 171 compressed objects within 2 object streams
  21 named destinations out of 1000 (max. 500000)
- 265 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 244 words of extra memory for PDF output out of 10000 (max. 10000000)
 

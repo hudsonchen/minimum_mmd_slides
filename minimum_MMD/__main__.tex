@@ -293,29 +293,31 @@
 
 
 \begin{frame}{Numerical Integration}
-    \begin{block}{Core task}
-        Estimate expectations
-        \[
-            \E_{\Pb}[f(X)] = \int f(x)\,\dd\Pb(x)
-        \]
-        when analytic integration is unavailable.
-    \end{block}
+    % Image sources: Wikimedia Commons files
+    % Cornell Box Octane Render (512px, 16bit).png
+    % Illustration of Bayesian AB test analysis.svg
+    % Reinforcement learning diagram.svg
+    \centering
+    {\large\bfseries Where do high-dimensional integrals appear in computer science?}\\[0.35cm]
 
-    \vspace{0.15cm}
     \begin{columns}[T,onlytextwidth]
-        \column{0.48\textwidth}
-        \begin{itemize}
-            \item \textbf{Machine learning:} estimate risks, losses, and kernel expectations.
-            \item \textbf{Bayesian inference:} compute posterior means and model evidence.
-            \item \textbf{Reinforcement learning:} evaluate expected returns under stochastic policies.
-        \end{itemize}
+        \column{0.31\textwidth}
+        \centering
+        \includegraphics[height=0.48\textheight, width=\linewidth, keepaspectratio]{figures/web_apps/rendering.png}\\[0.12cm]
+        {\bfseries Computer graphics}\\[-0.02cm]
+        {\small Rendering}
 
-        \column{0.48\textwidth}
-        \begin{itemize}
-            \item \textbf{Computer graphics:} render images via light transport integrals.
-            \item \textbf{Probabilistic algorithms:} approximate sums, volumes, and randomized estimators.
-            \item \textbf{Uncertainty quantification:} propagate randomness through simulators.
-        \end{itemize}
+        \column{0.31\textwidth}
+        \centering
+        \includegraphics[height=0.48\textheight, width=\linewidth, keepaspectratio]{figures/web_apps/bayesian_ab.png}\\[0.12cm]
+        {\bfseries Bayesian inference}\\[-0.02cm]
+        {\small Posterior expectations}
+
+        \column{0.31\textwidth}
+        \centering
+        \includegraphics[height=0.48\textheight, width=\linewidth, keepaspectratio]{figures/web_apps/reinforcement_learning.png}\\[0.12cm]
+        {\bfseries Reinforcement learning}\\[-0.02cm]
+        {\small Expected returns}
     \end{columns}
 \end{frame}
 
@@ -327,18 +329,38 @@
         \begin{align*}
             \hat{I} = \sum_{i=1}^n w_i f(x_i).
         \end{align*}
-        \item When $w_1=\cdots=w_n=1/n$, this is Monte Carlo.
-        \item $|\hat{I}_{MC} - I| = \mathcal{O}_P(N^{-1/2})$. Or equivalently, to obtain an $\epsilon$-accurate estimate, we need $N = \mathcal{O}(\epsilon^{-2})$ samples.
+        \item When $w_1=\cdots=w_n=1/n$, this is Monte Carlo. $\hat{I}_{MC} = \frac{1}{n}\sum_{i=1}^n f(x_i)$.
+        \begin{align*}
+            \E\left[|\hat{I}_{MC} - I|\right] = \mathcal{O}(n^{-1/2}).
+        \end{align*}
+        \item Or equivalently, to obtain an $\epsilon$-accurate estimate, we need $n = \mathcal{O}(\epsilon^{-2})$ samples.
     \end{itemize}
     \begin{exampleblock}{}
         \centering
-        \textbf{Question:} Can we do better than $\mathcal{O}(N^{-1/2})$?
+        \textbf{Question:} Can we do better than $\mathcal{O}(n^{-1/2})$?
     \end{exampleblock}
 \end{frame}
 
 \begin{frame}{Numerical Integration}
-    
+    \begin{itemize}
+        \item Suppose $f\in\calH$ is in the RKHS associated with $k$.
+        \item Denote $\hat{\Pb}=\sum_{i=1}^n w_i \delta_{x_i}$ as the weighted empirical distribution.
+        \begin{align*}
+            \left|I - \hat{I} \right|^2 &= \left|\int f(x) \dd \Pb(x) - \sum_{i=1}^n w_i f(x_i)\right|^2
+            \leq \|f\|_{\calH}^2 \cdot
+            \mathrm{MMD}^2(\hat{\Pb}, \Pb) .         \end{align*}
+        \item The right-hand side is the \red{worst-case} error of the quadrature rule. 
+        \item The \blue{optimal} weights that minimize $\mathrm{MMD}(\hat{\Pb}, \Pb)$:
+        \begin{align*}
+            w_{1:n}
+            = \E_{X \sim \Pb}[k(X, x_{1:n})]
+            K(x_{1:n},x_{1:n})^{-1}.
+        \end{align*}
+    \end{itemize}
 \end{frame}
+
+
+
 
 \bibliographystyle{abbrvnat}
 \bibliography{reference}
