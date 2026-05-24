@@ -1,0 +1,273 @@
+%----------------------------------------------------------------------------------------
+%    PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass[aspectratio=169,xcolor=dvipsnames]{beamer}
+\usetheme{SimpleDarkBlue}
+
+\usepackage{hyperref}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{subcaption} 
+\usepackage{tikz}
+\usepackage{natbib}
+
+\usepackage[normalem]{ulem}
+
+\usetikzlibrary{arrows.meta, positioning, shapes, calc}
+
+%----------------------------------------------------------------------------------------
+%    TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title{Minimization of Maximum Mean Discrepancy (MMD)}
+\author{Zonghao (Hudson) Chen}
+
+\date[]{}
+% Date, can be changed to a custom date
+
+\usepackage{amsthm}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[theorem]{Corollary}
+\newtheorem{lem}[theorem]{Lemma}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{rem}[theorem]{Remark}
+\newtheorem{defi}{Definition}
+\newtheorem{ass}{Assumption}
+
+
+
+\definecolor{definitionTitle}{RGB}{34, 102, 102}  % A deep teal color
+\definecolor{definitionBody}{RGB}{10, 10, 10}     % Near-black for text
+
+\setbeamercolor{block title alerted}{bg=brown, fg=white}
+\setbeamercolor{block body alerted}{fg=definitionBody}
+
+% Now redefine the 'defi' environment to use the 'alerted block' style:
+\setbeamertemplate{theorems}[numbered]
+\let\olddefi\defi
+\renewenvironment{defi}[1][]{%
+  \begin{alertblock}{Definition\ifx\\#1\\\else~(#1)\fi}%
+}{%
+  \end{alertblock}%
+}
+
+\definecolor{graytext}{gray}{0.5} % Customize the grey level if needed
+% Save the original versions
+\let\oldcitep\citep
+\let\oldcitet\citet
+
+% Redefine with grey color
+\renewcommand{\citep}[1]{\textcolor{graytext}{\oldcitep{#1}}}
+\renewcommand{\citet}[1]{\textcolor{graytext}{\oldcitet{#1}}}
+\renewcommand{\cite}[1]{\textcolor{graytext}{\oldcitep{#1}}} % you can choose oldcitet if preferred
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\green}[1]{\textcolor{green!60!black}{#1}}
+\newcommand{\orange}[1]{\textcolor{orange}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+
+\newenvironment{talign*}
+ {\let\displaystyle\textstyle\csname align*\endcsname}
+ {\endalign}
+\newenvironment{talign}
+ {\let\displaystyle\textstyle\csname align\endcsname}
+ {\endalign}
+ 
+%----------------------------------------------------------------------------------------
+%    PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\input{include/macros}
+
+\begin{frame}
+    % Print the title page as the first slide
+    \titlepage
+    \vspace{-1.5cm}
+    \begin{center}
+        \textit{Annual student conference, UCL Computer Science, 2026} 
+    \end{center}
+\end{frame}
+
+
+
+
+\section{Personal}
+\begin{frame}{About Me}
+  \begin{columns}[c] % 'c' aligns vertically center
+    % Left column with image
+    \column{0.4\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{figures/personal.png} 
+    \column{0.6\textwidth}
+    \begin{itemize}
+        \item Zonghao Chen 
+        \item 4th year PhD Student at University College London (UCL)
+        \begin{itemize}
+            \item Foundational AI Centre 
+            \item Gatsby Computational Neuroscience Unit 
+        \end{itemize} 
+        \item Graduated from Tsinghua University in 2022
+        \begin{itemize}
+            \item Department of EE 
+        \end{itemize}
+        \item Kernel (nonparametric) methods, causal inference, statistical learning theory
+    \end{itemize}
+  \end{columns}
+\end{frame}
+
+\section{Content}
+\begin{frame}{Content: Minimization of MMD}
+    \begin{itemize}
+        \item What is MMD?
+        \item Minimization of MMD for numerical integration
+        \item Minimization of MMD for sampling / generative modelling 
+        \item Minimization of MMD for statistical inference 
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Background: what is MMD?}
+    \begin{columns}[c]
+        \column{0.50\textwidth}
+        \begin{itemize}
+            \item Given two distributions $\Pb$ and $\Qb$, how to compare them? 
+            \item Compute the difference of their means: $|\E_{\Pb}[X] - \E_{\Qb}[X]|$. 
+            \item Compute the difference of their second moments: $|\E_{\Pb}[X^2] - \E_{\Qb}[X^2]|$.
+            \item The first two moments are not enough! 
+        \end{itemize}
+
+        \column{0.5\textwidth}
+        \centering
+        \begin{tikzpicture}[scale=0.88, every node/.style={font=\scriptsize}]
+            \draw[blue!80!black, very thick] (-0.8,2.35) -- (-0.35,2.35)
+                node[right, black] {$\Pb$};
+            \draw[orange!90!black, very thick] (0.55,2.35) -- (1.0,2.35)
+                node[right, black] {$\Qb$};
+
+            \fill[blue!25, opacity=0.75]
+                plot[smooth, samples=100, domain=-2.7:2.0]
+                (\x,{1.75*exp(-0.5*((\x+0.75)/0.72)^2)});
+            \draw[blue!80!black, very thick]
+                plot[smooth, samples=100, domain=-2.7:2.0]
+                (\x,{1.75*exp(-0.5*((\x+0.75)/0.72)^2)});
+
+            \fill[orange!30, opacity=0.7]
+                plot[smooth, samples=100, domain=-1.2:3.1]
+                (\x,{1.35*exp(-0.5*((\x-0.85)/0.95)^2)});
+            \draw[orange!90!black, very thick]
+                plot[smooth, samples=100, domain=-1.2:3.1]
+                (\x,{1.35*exp(-0.5*((\x-0.85)/0.95)^2)});
+
+            \draw[blue!80!black, dashed, thick] (-0.75,0) -- (-0.75,1.95)
+                node[above] {mean};
+            \draw[orange!90!black, dashed, thick] (0.85,0) -- (0.85,1.55)
+                node[above] {mean};
+
+        \end{tikzpicture}
+    \end{columns}
+    \vspace{0.3cm}
+    \begin{exampleblock}{}
+\centering
+    \textbf{Goal}: Compare $\Pb$ and $\Qb$ with a general $f$, i.e., $|\E_{\Pb}[f(X)] - \E_{\Qb}[f(X)]|$?
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}{Background: Maximum Mean Discrepancy (MMD)}
+    \begin{columns}[c]
+        \column{0.8\textwidth}
+        \begin{itemize}
+            \item Compare $\Pb$ and $\Qb$ by maximizing the difference over a function class $\calH$:
+            \begin{align*}
+                \text{MMD}(\Pb, \Qb)
+                := \sup_{f \in \calH}
+                |\E_{\Pb}[f(X)] - \E_{\Qb}[f(X)]|.
+            \end{align*}
+            \item $\calH$ is a reproducing kernel Hilbert space (RKHS) with kernel $k$.
+            % \item If $\calH = \{f(x)=w^\top x\}$, this reduces to comparing means.
+            \item The RKHS contains functions that are linear combinations of the feature maps $\phi:\calX\to\calH$, $f=\sum_{i=1}^n \alpha_i \phi(x_i)$.
+
+        \end{itemize}
+
+        \column{0.2\textwidth}
+        \centering
+        \begin{tikzpicture}[scale=0.72, every node/.style={font=\scriptsize}]
+            \begin{scope}
+                \draw[->, thick] (-1.55,0) -- (1.75,0) node[right] {$x$};
+                \node[above] at (0.1,0.38) {input space};
+
+                \foreach \x in {-0.9,-0.65,-0.35,-0.1} {
+                    \fill[blue!80!black] (\x,0) circle (2pt);
+                }
+                \foreach \x in {0.45,0.7,1.0,1.25} {
+                    \fill[orange!90!black] (\x,0) circle (2pt);
+                }
+                \node[blue!80!black] at (-0.55,-0.35) {$\Pb$};
+                \node[orange!90!black] at (0.95,-0.35) {$\Qb$};
+            \end{scope}
+            \vspace{0.2cm}
+            \begin{scope}[shift={(0,-2.55)}]
+                \draw[->, thick] (-1.55,0) -- (1.75,0) node[right] {$\phi_1$};
+                \draw[->, thick] (-1.35,-1.1) -- (-1.35,1.25) node[above] {$\phi_2$};
+                \node[above] at (0.15,1.25) {feature space};
+
+                \foreach \p in {(-1.0,0.55),(-0.72,0.82),(-0.35,0.48),(-0.05,0.9)} {
+                    \fill[blue!80!black] \p circle (2pt);
+                }
+                \foreach \p in {(0.25,-0.45),(0.58,-0.2),(0.95,-0.52),(1.25,-0.05)} {
+                    \fill[orange!90!black] \p circle (2pt);
+                }
+            \end{scope}
+        \end{tikzpicture}
+    \end{columns}
+    \begin{thm}
+        MMD admits a closed-form expression:
+        \begin{align*}
+            \mathrm{MMD}^2(\Pb, \Qb)
+            = \E_{X,X'\sim\Pb}[k(X,X')]
+            + \E_{Y,Y'\sim\Qb}[k(Y,Y')] - 2\E_{X\sim\Pb,\,Y\sim\Qb}[k(X,Y)] .
+        \end{align*}
+    \end{thm}
+    \begin{itemize}
+        \item MMD is a probability divergence ($\mathrm{MMD}(\Pb, \Qb)=0 \iff \Pb=\Qb$) if $k$ is characteristic (Gaussian).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \centering
+    \vspace{0.15cm}
+    {\Large\bfseries We now have MMD}\\[0.2cm]
+    {\normalsize A kernel-based way to compare probability distributions $\Pb$ and $\Qb$}\\[0.45cm]
+
+    {\large\bfseries What can we use it for?}\\[0.35cm]
+
+    \begin{columns}[T,onlytextwidth]
+        \column{0.31\textwidth}
+        \centering
+        {\bfseries Numerical Integration}\\[0.12cm]
+        {\Large $\Pb \stackrel{?}{=} \Qb$}\\[0.15cm]
+        \includegraphics[width=\linewidth]{../figures/integral_illustration.pdf}
+
+        \column{0.31\textwidth}
+        \centering
+        {\bfseries Sampling / generative modelling}\\[0.12cm]
+        {\Large $X \sim \Qb_\theta \to \Pb$}\\[0.15cm]
+        \includegraphics[width=\linewidth]{../figures/illustration_sampling.pdf}
+
+        \column{0.31\textwidth}
+        \centering
+        {\bfseries Statistical inference}\\[0.12cm]
+        {\Large $\hat\theta_{\mathrm{MMD}}$}\\[0.15cm]
+        \includegraphics[width=\linewidth]{../figures/statistical_inference_illustration.pdf}
+    \end{columns}
+
+    \vspace{0.3cm}
+    {\small Next: MMD as both a diagnostic and an objective.}
+
+\end{frame}
+
+
+\bibliographystyle{abbrvnat}
+\bibliography{reference}
+
+\end{document}
