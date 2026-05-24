@@ -39,6 +39,9 @@
 
 \definecolor{definitionTitle}{RGB}{34, 102, 102}  % A deep teal color
 \definecolor{definitionBody}{RGB}{10, 10, 10}     % Near-black for text
+\definecolor{mmdGreen}{RGB}{46, 125, 50}
+\definecolor{mmdBlue}{RGB}{25, 96, 170}
+\definecolor{mmdRed}{RGB}{180, 70, 55}
 
 \setbeamercolor{block title alerted}{bg=brown, fg=white}
 \setbeamercolor{block body alerted}{fg=definitionBody}
@@ -65,6 +68,11 @@
 \newcommand{\green}[1]{\textcolor{green!60!black}{#1}}
 \newcommand{\orange}[1]{\textcolor{orange}{#1}}
 \newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\mmdicon}[2]{%
+    \tikz[baseline=(icon.base)]{
+        \node[circle, fill=#1, text=white, inner sep=1.2pt, font=\scriptsize\bfseries] (icon) {#2};
+    }%
+}
 
 \newenvironment{talign*}
  {\let\displaystyle\textstyle\csname align*\endcsname}
@@ -233,39 +241,104 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Background: Maximum Mean Discrepancy (MMD)}
     \centering
     \vspace{0.15cm}
     {\Large\bfseries We now have MMD}\\[0.2cm]
-    {\normalsize A kernel-based way to compare probability distributions $\Pb$ and $\Qb$}\\[0.45cm]
+    {\normalsize A kernel-based way to compare probability distributions $\Pb$ and $\Qb$}\\[0.25cm]
 
-    {\large\bfseries What can we use it for?}\\[0.35cm]
+    \vspace{0.15cm}
+    {\large\bfseries What can we use it for?}\\[0.28cm]
 
     \begin{columns}[T,onlytextwidth]
         \column{0.31\textwidth}
         \centering
-        {\bfseries Numerical Integration}\\[0.12cm]
-        {\Large $\Pb \stackrel{?}{=} \Qb$}\\[0.15cm]
-        \includegraphics[width=\linewidth]{../figures/integral_illustration.pdf}
+        \setlength{\fboxsep}{5pt}
+        \fcolorbox{mmdGreen!65!black}{mmdGreen!8}{%
+            \begin{minipage}{0.88\linewidth}
+                \centering
+                {\Large \mmdicon{mmdGreen!80!black}{$\int$}}\\[0.08cm]
+                {\bfseries Numerical Integration}\\[0.12cm]
+                {\Large $\int f(x) \dd \Pb(x)$}\\[0.15cm]
+                \includegraphics[width=\linewidth]{../figures/integral_illustration.pdf}
+            \end{minipage}
+        }
 
         \column{0.31\textwidth}
         \centering
-        {\bfseries Sampling / generative modelling}\\[0.12cm]
-        {\Large $X \sim \Qb_\theta \to \Pb$}\\[0.15cm]
-        \includegraphics[width=\linewidth]{../figures/illustration_sampling.pdf}
+        \setlength{\fboxsep}{5pt}
+        \fcolorbox{mmdBlue!70!black}{mmdBlue!8}{%
+            \begin{minipage}{0.88\linewidth}
+                \centering
+                {\Large \mmdicon{mmdBlue!80!black}{$\sim$}}\\[0.08cm]
+                {\bfseries Sampling / generative modelling}\\[0.12cm]
+                \includegraphics[width=\linewidth]{../figures/illustration_sampling.pdf}
+            \end{minipage}
+        }
 
         \column{0.31\textwidth}
         \centering
-        {\bfseries Statistical inference}\\[0.12cm]
-        {\Large $\hat\theta_{\mathrm{MMD}}$}\\[0.15cm]
-        \includegraphics[width=\linewidth]{../figures/statistical_inference_illustration.pdf}
+        \setlength{\fboxsep}{5pt}
+        \fcolorbox{mmdRed!70!black}{mmdRed!8}{%
+            \begin{minipage}{0.88\linewidth}
+                \centering
+                {\Large \mmdicon{mmdRed!80!black}{$\theta$}}\\[0.08cm]
+                {\bfseries Statistical inference}\\[0.12cm]
+                {\Large $\hat\theta_{\mathrm{MMD}}$}\\[0.15cm]
+                \includegraphics[width=\linewidth]{../figures/statistical_inference_illustration.pdf}
+            \end{minipage}
+        }
     \end{columns}
-
-    \vspace{0.3cm}
-    {\small Next: MMD as both a diagnostic and an objective.}
-
 \end{frame}
 
+
+\begin{frame}{Numerical Integration}
+    \begin{block}{Core task}
+        Estimate expectations
+        \[
+            \E_{\Pb}[f(X)] = \int f(x)\,\dd\Pb(x)
+        \]
+        when analytic integration is unavailable.
+    \end{block}
+
+    \vspace{0.15cm}
+    \begin{columns}[T,onlytextwidth]
+        \column{0.48\textwidth}
+        \begin{itemize}
+            \item \textbf{Machine learning:} estimate risks, losses, and kernel expectations.
+            \item \textbf{Bayesian inference:} compute posterior means and model evidence.
+            \item \textbf{Reinforcement learning:} evaluate expected returns under stochastic policies.
+        \end{itemize}
+
+        \column{0.48\textwidth}
+        \begin{itemize}
+            \item \textbf{Computer graphics:} render images via light transport integrals.
+            \item \textbf{Probabilistic algorithms:} approximate sums, volumes, and randomized estimators.
+            \item \textbf{Uncertainty quantification:} propagate randomness through simulators.
+        \end{itemize}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Numerical Integration}
+    \begin{itemize}
+        \item Given a function $f$ and a distribution $\Pb$, how to compute $\int f(x) \dd \Pb(x)$?
+        \item Given a set of points $\{x_i\}_{i=1}^n$ and function evaluations $\{f(x_i)\}_{i=1}^n$.
+        \item Quadrature rule:
+        \begin{align*}
+            \hat{I} = \sum_{i=1}^n w_i f(x_i).
+        \end{align*}
+        \item When $w_1=\cdots=w_n=1/n$, this is Monte Carlo.
+        \item $|\hat{I}_{MC} - I| = \mathcal{O}_P(N^{-1/2})$. Or equivalently, to obtain an $\epsilon$-accurate estimate, we need $N = \mathcal{O}(\epsilon^{-2})$ samples.
+    \end{itemize}
+    \begin{exampleblock}{}
+        \centering
+        \textbf{Question:} Can we do better than $\mathcal{O}(N^{-1/2})$?
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Numerical Integration}
+    
+\end{frame}
 
 \bibliographystyle{abbrvnat}
 \bibliography{reference}
