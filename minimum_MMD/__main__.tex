@@ -421,11 +421,11 @@
     \begin{itemize}
         \item This problem can be written as an \blue{optimization} problem on $\calP(\R^d)$, the space of probability distributions.
         \begin{align*}
-            \arg\min_{\Pb \in \calP(\R^d)} D(\Pb \mid \Qb) . 
+            \arg\min_{\Pb \in \calP(\R^d)} D(\Pb, \Qb) . 
         \end{align*}
         \item Here $D$ is a similarity metric or distance, e.g. Kullback–Leibler divergence / MMD. 
         \begin{itemize}
-            \item $D(\Pb_1 | \Pb_2) = 0$ if and only if $\Pb_1=\Pb_2$. 
+            \item $D(\Pb_1 , \Pb_2) = 0$ if and only if $\Pb_1=\Pb_2$. 
         \end{itemize}
         \item How to find the minimum? Gradient descent!
     \end{itemize}
@@ -440,8 +440,57 @@
     \begin{answerblock}
         \centering \textbf{Answer}: Wassserstein gradient !
     \end{answerblock}
-    \vspace{0.15cm}
-    \centering \includegraphics[width=0.70\linewidth]{../plotting/figures/ot_wasserstein_gradient_illustration.pdf.pdf}\\[0.12cm]
+    \vspace{0.25cm}
+    \centering \includegraphics[width=0.80\linewidth]{../plotting/figures/ot_wasserstein_gradient_illustration.pdf}\\[0.12cm]
+\end{frame}
+
+\begin{frame}{Part II: Sampling / Generative modelling}
+    \begin{itemize}
+        \item Unsurprisingly, we use MMD as the divergence.
+    \begin{talign*}
+        \arg\min_{\Pb \in \calP(\R^d)} \mmd^2(\Pb, \Qb) . 
+    \end{talign*}
+        \item A (Wasserstein) gradient descent of $\mmd^2(\Pb, \Qb)$ gives a sequence $\Pb_0, \Pb_1, \ldots$
+        \begin{itemize}
+            \item In the limit, $\Pb_t$ converges to $\Qb$ and $\mmd(\Pb_t, \Qb) \to 0$.
+        \end{itemize}
+    \end{itemize}
+    \vspace{0.25cm}
+    \centering \includegraphics[width=0.85\linewidth]{../plotting/figures/illustration_sampling.pdf}\\[0.12cm]
+    \begin{itemize}
+        \item MMD flow generates more \red{uniform} samples.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Part II: Sampling / Generative modelling}
+    \centering \includegraphics[width=0.80\linewidth]{../plotting/figures/generative_reverse_noising_celeba.pdf}\\[0.12cm]
+
+    \begin{itemize}
+        \item MMD flow does not outperform diffusion-based generative models.
+        \item A novel framework of generative modelling \& sampling.
+    \end{itemize}
+    \vspace{0.2cm}
+    \begin{tikzpicture}[
+        contribution/.style={
+            anchor=west,
+            text width=0.78\linewidth,
+            align=left,
+            font=\scriptsize
+        }
+    ]
+        \node[circle, fill=mmdBlue!80!black, text=white, inner sep=2pt, font=\scriptsize\bfseries] at (0,0) {1};
+        \node[contribution] at (0.42,0)
+            {{\bfseries (De)-regularized Maximum Mean Discrepancy Gradient Flow}. {\scriptsize\textcolor{graytext}{\underline{Z. Chen}, A. Mustafi, P. Glaser, A. Korba, A. Gretton, B. K. Sriperumbudur}} {\scriptsize\bfseries\textcolor{mmdBlue!80!black}{(JMLR 2025)}}};
+        \node[circle, fill=mmdGreen!80!black, text=white, inner sep=2pt, font=\scriptsize\bfseries] at (0,-0.62) {2};
+        \node[contribution] at (0.42,-0.62)
+            {{\bfseries Sobolev Regularized MMD Flow}. {\scriptsize\textcolor{graytext}{C. Tian, B. K. Sriperumbudur, A. Gretton, \underline{Z. Chen}}}};
+        \node[circle, fill=mmdRed!80!black, text=white, inner sep=2pt, font=\scriptsize\bfseries] at (0,-1.24) {3};
+        \node[contribution] at (0.42,-1.24)
+            {{\bfseries Stationary MMD Points}. {\scriptsize\textcolor{graytext}{\underline{Z. Chen}, T. Karvonen, H. Kanagawa, F.-X. Briol, C. J. Oates}} {\scriptsize\bfseries\textcolor{mmdRed!80!black}{(ICML 2026)}}};
+        \node[circle, fill=orange!80!black, text=white, inner sep=2pt, font=\scriptsize\bfseries] at (0,-1.86) {4};
+        \node[contribution] at (0.42,-1.86)
+            {{\bfseries Thinned Mean Field Langevin Dynamics}. {\scriptsize\textcolor{graytext}{\underline{Z. Chen}, H. Kanagawa, F.-X. Briol, C. J. Oates, L. Mackey}} {\scriptsize\bfseries\textcolor{mmdRed!80!black}{(ICML 2026)}}};
+    \end{tikzpicture}
 \end{frame}
 
 
