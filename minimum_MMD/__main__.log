@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.1.30)  24 MAY 2026 20:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.1.30)  25 MAY 2026 14:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -680,24 +680,24 @@ File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
 ) (./__main__.aux)
 \openout1 = `__main__.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 96.
+LaTeX Font Info:    ... okay on input line 96.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -758,7 +758,7 @@ Package grfext Info: Graphics extension search list:
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 88.
+Package hyperref Info: Link coloring OFF on input line 96.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
@@ -768,55 +768,55 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count358
 )
-LaTeX Info: Redefining \ref on input line 88.
-LaTeX Info: Redefining \pageref on input line 88.
-LaTeX Info: Redefining \nameref on input line 88.
+LaTeX Info: Redefining \ref on input line 96.
+LaTeX Info: Redefining \pageref on input line 96.
+LaTeX Info: Redefining \nameref on input line 96.
  (./__main__.out) (./__main__.out)
 \@outlinefile=\write5
 \openout5 = `__main__.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 88.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 96.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 88.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 96.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 88.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 88.
+(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 96.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 96.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 88.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 96.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 88.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 88.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 96.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 96.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 88.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 96.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 88.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 88.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 96.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 96.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 88.
+(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 96.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 88.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 88.
+(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 96.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 96.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 88.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 96.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 88.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 96.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 88.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 96.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 88.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 96.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmr/b/n on input line 88.
+(Font)                  OT1/cmss/b/n --> OT1/cmr/b/n on input line 96.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 88.
+(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 96.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 88.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 96.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 88.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 96.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 88.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 96.
  (/usr/share/texlive/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
 Dictionary: translator-basic-dictionary, Language: English 
 ) (/usr/share/texlive/texmf-dist/tex/latex/translator/translator-bibliography-dictionary-English.dict
@@ -838,13 +838,13 @@ Package caption Info: End \AtBeginDocument code.
 <figures/personal.png, id=43, 1284.8pt x 1713.40125pt>
 File: figures/personal.png Graphic file (type png)
 <use figures/personal.png>
-Package pdftex.def Info: figures/personal.png  used on input line 126.
+Package pdftex.def Info: figures/personal.png  used on input line 134.
 (pdftex.def)             Requested size: 148.11655pt x 197.52066pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 126.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 134.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 126.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 134.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [2
@@ -854,12 +854,12 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ] [4
 
 ]
-Overfull \hbox (5.67862pt too wide) in paragraph at lines 242--242
+Overfull \hbox (5.67862pt too wide) in paragraph at lines 250--250
  [][] 
  []
 
 
-Overfull \vbox (5.97945pt too high) detected at line 242
+Overfull \vbox (5.97945pt too high) detected at line 250
  []
 
 [5
@@ -868,17 +868,17 @@ Overfull \vbox (5.97945pt too high) detected at line 242
 <../figures/integral_illustration.pdf, id=101, 715.47299pt x 281.85298pt>
 File: ../figures/integral_illustration.pdf Graphic file (type pdf)
 <use ../figures/integral_illustration.pdf>
-Package pdftex.def Info: ../figures/integral_illustration.pdf  used on input line 292.
+Package pdftex.def Info: ../figures/integral_illustration.pdf  used on input line 300.
 (pdftex.def)             Requested size: 112.24164pt x 44.21574pt.
 <../figures/illustration_sampling.pdf, id=102, 511.67162pt x 284.13704pt>
 File: ../figures/illustration_sampling.pdf Graphic file (type pdf)
 <use ../figures/illustration_sampling.pdf>
-Package pdftex.def Info: ../figures/illustration_sampling.pdf  used on input line 292.
+Package pdftex.def Info: ../figures/illustration_sampling.pdf  used on input line 300.
 (pdftex.def)             Requested size: 112.24164pt x 62.32823pt.
 <../figures/statistical_inference_illustration.pdf, id=103, 715.47299pt x 281.85298pt>
 File: ../figures/statistical_inference_illustration.pdf Graphic file (type pdf)
 <use ../figures/statistical_inference_illustration.pdf>
-Package pdftex.def Info: ../figures/statistical_inference_illustration.pdf  used on input line 292.
+Package pdftex.def Info: ../figures/statistical_inference_illustration.pdf  used on input line 300.
 (pdftex.def)             Requested size: 112.24164pt x 44.21574pt.
  [6
 
@@ -886,23 +886,46 @@ Package pdftex.def Info: ../figures/statistical_inference_illustration.pdf  used
 <figures/web_apps/rendering.png, id=149, 513.92pt x 513.92pt>
 File: figures/web_apps/rendering.png Graphic file (type png)
 <use figures/web_apps/rendering.png>
-Package pdftex.def Info: figures/web_apps/rendering.png  used on input line 322.
+Package pdftex.def Info: figures/web_apps/rendering.png  used on input line 330.
 (pdftex.def)             Requested size: 117.1483pt x 117.1483pt.
 <figures/web_apps/bayesian_ab.png, id=150, 963.6pt x 963.6pt>
 File: figures/web_apps/bayesian_ab.png Graphic file (type png)
 <use figures/web_apps/bayesian_ab.png>
-Package pdftex.def Info: figures/web_apps/bayesian_ab.png  used on input line 322.
+Package pdftex.def Info: figures/web_apps/bayesian_ab.png  used on input line 330.
 (pdftex.def)             Requested size: 117.14145pt x 117.14145pt.
 <figures/web_apps/reinforcement_learning.png, id=151, 963.6pt x 931.48pt>
 File: figures/web_apps/reinforcement_learning.png Graphic file (type png)
 <use figures/web_apps/reinforcement_learning.png>
-Package pdftex.def Info: figures/web_apps/reinforcement_learning.png  used on input line 322.
+Package pdftex.def Info: figures/web_apps/reinforcement_learning.png  used on input line 330.
 (pdftex.def)             Requested size: 121.18486pt x 117.14537pt.
  [7
 
  <./figures/web_apps/rendering.png (PNG copy)> <./figures/web_apps/bayesian_ab.png> <./figures/web_apps/reinforcement_learning.png>] [8
 
 ] [9
+
+]
+<../figures/kq_smoothness_illustration.pdf, id=208, 874.4996pt x 217.21652pt>
+File: ../figures/kq_smoothness_illustration.pdf Graphic file (type pdf)
+<use ../figures/kq_smoothness_illustration.pdf>
+Package pdftex.def Info: ../figures/kq_smoothness_illustration.pdf  used on input line 384.
+(pdftex.def)             Requested size: 394.98897pt x 98.11111pt.
+ [10
+
+ <../figures/kq_smoothness_illustration.pdf>]
+<../figures/kq_single_expectation_benchmark.pdf, id=238, 512.93481pt x 300.64984pt>
+File: ../figures/kq_single_expectation_benchmark.pdf Graphic file (type pdf)
+<use ../figures/kq_single_expectation_benchmark.pdf>
+Package pdftex.def Info: ../figures/kq_single_expectation_benchmark.pdf  used on input line 406.
+(pdftex.def)             Requested size: 205.72198pt x 120.58351pt.
+ [11
+
+ <../figures/kq_single_expectation_benchmark.pdf>]
+File: ../figures/illustration_sampling.pdf Graphic file (type pdf)
+<use ../figures/illustration_sampling.pdf>
+Package pdftex.def Info: ../figures/illustration_sampling.pdf  used on input line 419.
+(pdftex.def)             Requested size: 164.57507pt x 91.3896pt.
+ [12
 
 ] (./__main__.bbl
 
@@ -927,18 +950,18 @@ Package rerunfilecheck Info: File `__main__.out' has not changed.
 (rerunfilecheck)             Checksum: A9BBC5FC1165D4FA0AD0A6B472399D36;161.
  ) 
 Here is how much of TeX's memory you used:
- 29463 strings out of 480247
- 608138 string characters out of 5896151
- 898147 words of memory out of 5000000
- 46792 multiletter control sequences out of 15000+600000
- 483938 words of font info for 82 fonts, out of 8000000 for 9000
+ 29516 strings out of 480247
+ 609806 string characters out of 5896151
+ 898477 words of memory out of 5000000
+ 46837 multiletter control sequences out of 15000+600000
+ 484232 words of font info for 83 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  99i,15n,104p,445b,1040s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on __main__.pdf (9 pages, 1734118 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on __main__.pdf (12 pages, 1784914 bytes).
 PDF statistics:
- 267 PDF objects out of 1000 (max. 8388607)
- 171 compressed objects within 2 object streams
- 21 named destinations out of 1000 (max. 500000)
- 244 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 373 PDF objects out of 1000 (max. 8388607)
+ 221 compressed objects within 3 object streams
+ 27 named destinations out of 1000 (max. 500000)
+ 326 words of extra memory for PDF output out of 10000 (max. 10000000)
 

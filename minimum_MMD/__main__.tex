@@ -42,9 +42,11 @@
 \definecolor{mmdGreen}{RGB}{46, 125, 50}
 \definecolor{mmdBlue}{RGB}{25, 96, 170}
 \definecolor{mmdRed}{RGB}{180, 70, 55}
+\definecolor{answerBody}{RGB}{225, 244, 244}
 
 \setbeamercolor{block title alerted}{bg=brown, fg=white}
 \setbeamercolor{block body alerted}{fg=definitionBody}
+\setbeamercolor{answer box}{bg=answerBody, fg=black}
 
 % Now redefine the 'defi' environment to use the 'alerted block' style:
 \setbeamertemplate{theorems}[numbered]
@@ -53,6 +55,12 @@
   \begin{alertblock}{Definition\ifx\\#1\\\else~(#1)\fi}%
 }{%
   \end{alertblock}%
+}
+
+\newenvironment{answerblock}{%
+  \begin{beamercolorbox}[wd=\linewidth, sep=0.15em, rounded=true, shadow=true]{answer box}%
+}{%
+  \end{beamercolorbox}%
 }
 
 \definecolor{graytext}{gray}{0.5} % Customize the grey level if needed
@@ -298,7 +306,7 @@
     % Illustration of Bayesian AB test analysis.svg
     % Reinforcement learning diagram.svg
     \centering
-    {\large\bfseries Where do high-dimensional integrals appear in computer science?}\\[0.35cm]
+    {\large\bfseries Where do integrals appear in computer science?}\\[0.35cm]
 
     \begin{columns}[T,onlytextwidth]
         \column{0.31\textwidth}
@@ -339,6 +347,9 @@
         \centering
         \textbf{Question:} Can we do better than $\mathcal{O}(n^{-1/2})$?
     \end{exampleblock}
+    \begin{answerblock}{}
+    \centering \textbf{Answer:} Find better weights $w_1,\ldots,w_n$.
+    \end{answerblock}
 \end{frame}
 
 \begin{frame}{Numerical Integration}
@@ -354,8 +365,56 @@
         \begin{align*}
             w_{1:n}
             = \E_{X \sim \Pb}[k(X, x_{1:n})]
-            K(x_{1:n},x_{1:n})^{-1}.
+            K(x_{1:n},x_{1:n})^{-1} . 
         \end{align*}
+        \item The kernel quadrature (KQ) rule: $\hat{I}_{\mathrm{KQ}} = \sum_{i=1}^n w_i f(x_i)$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Numerical Integration}
+    \begin{answerblock}
+        \centering \textbf{Rate:} KQ achieves $\mathcal{O}(n^{-s/d})$ rate.
+    \end{answerblock}
+    \begin{itemize}
+        \item $s$ is the smoothness of $f$, $d$ is the dimension of input $x$. 
+        \item Better than $\mathcal{O}(n^{-1/2})$ when $s > d/2$.
+    \end{itemize}
+    \centering
+    \includegraphics[width=0.96\linewidth]{../figures/kq_smoothness_illustration.pdf}
+\end{frame}
+
+\begin{frame}{Numerical Integration}
+    \centering
+    \includegraphics[width=0.50\linewidth]{../figures/kq_single_expectation_benchmark.pdf}\\[-0.10cm]
+
+    \vspace{0.20cm}
+    \begin{tikzpicture}[
+        contribution/.style={
+            anchor=west,
+            text width=0.78\linewidth,
+            align=left,
+            font=\small
+        }
+    ]
+        \node[circle, fill=mmdBlue!80!black, text=white, inner sep=2pt, font=\scriptsize\bfseries] at (0,0) {1};
+        \node[contribution] at (0.42,0)
+            {{\bfseries Nested Expectations with Kernel Quadrature}. {\scriptsize\textcolor{graytext}{\underline{Z. Chen}, M. Naslidnyk, F.-X. Briol}} {\scriptsize\bfseries\textcolor{mmdBlue!80!black}{(ICML 2025)}}};
+        \node[circle, fill=mmdGreen!80!black, text=white, inner sep=2pt, font=\scriptsize\bfseries] at (0,-1.35) {2};
+        \node[contribution] at (0.42,-1.35)
+            {{\bfseries Conditional Bayesian Quadrature}. {\scriptsize\textcolor{graytext}{\underline{Z. Chen}, M. Naslidnyk, A. Gretton, F.-X. Briol}} {\scriptsize\bfseries\textcolor{mmdGreen!80!black}{(UAI 2025)}}};
+    \end{tikzpicture}
+\end{frame}
+
+
+\begin{frame}{Sampling / Generative modelling}
+    \centering \includegraphics[width=0.4\linewidth]{../figures/illustration_sampling.pdf}\\[0.15cm]
+    \begin{itemize}
+        \item Given a distribution $\Pb$, how to sample from it?
+        \begin{itemize}
+            \item When $\Pb$ is known up to normalization, this is sampling.
+            \item When $\Pb$ is known up to i.i.d samples, this is generative modelling.
+        \end{itemize}
+        \item MMD minimization: find a distribution $\Qb$ that minimizes $\mathrm{MMD}(\Pb, \Qb)$.
     \end{itemize}
 \end{frame}
 
