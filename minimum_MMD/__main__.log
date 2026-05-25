@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.1.30)  25 MAY 2026 14:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.1.30)  25 MAY 2026 15:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -865,38 +865,38 @@ Overfull \vbox (5.97945pt too high) detected at line 250
 [5
 
 ]
-<../figures/integral_illustration.pdf, id=101, 715.47299pt x 281.85298pt>
-File: ../figures/integral_illustration.pdf Graphic file (type pdf)
-<use ../figures/integral_illustration.pdf>
-Package pdftex.def Info: ../figures/integral_illustration.pdf  used on input line 300.
+<../plotting/figures/integral_illustration.pdf, id=101, 715.47299pt x 281.85298pt>
+File: ../plotting/figures/integral_illustration.pdf Graphic file (type pdf)
+<use ../plotting/figures/integral_illustration.pdf>
+Package pdftex.def Info: ../plotting/figures/integral_illustration.pdf  used on input line 300.
 (pdftex.def)             Requested size: 112.24164pt x 44.21574pt.
-<../figures/illustration_sampling.pdf, id=102, 511.67162pt x 284.13704pt>
-File: ../figures/illustration_sampling.pdf Graphic file (type pdf)
-<use ../figures/illustration_sampling.pdf>
-Package pdftex.def Info: ../figures/illustration_sampling.pdf  used on input line 300.
-(pdftex.def)             Requested size: 112.24164pt x 62.32823pt.
-<../figures/statistical_inference_illustration.pdf, id=103, 715.47299pt x 281.85298pt>
-File: ../figures/statistical_inference_illustration.pdf Graphic file (type pdf)
-<use ../figures/statistical_inference_illustration.pdf>
-Package pdftex.def Info: ../figures/statistical_inference_illustration.pdf  used on input line 300.
+<../plotting/figures/sampling_generative_illustration.pdf, id=102, 788.947pt x 311.30176pt>
+File: ../plotting/figures/sampling_generative_illustration.pdf Graphic file (type pdf)
+<use ../plotting/figures/sampling_generative_illustration.pdf>
+Package pdftex.def Info: ../plotting/figures/sampling_generative_illustration.pdf  used on input line 300.
+(pdftex.def)             Requested size: 112.24164pt x 44.28496pt.
+<../plotting/figures/statistical_inference_illustration.pdf, id=103, 715.47299pt x 281.85298pt>
+File: ../plotting/figures/statistical_inference_illustration.pdf Graphic file (type pdf)
+<use ../plotting/figures/statistical_inference_illustration.pdf>
+Package pdftex.def Info: ../plotting/figures/statistical_inference_illustration.pdf  used on input line 300.
 (pdftex.def)             Requested size: 112.24164pt x 44.21574pt.
  [6
 
- <../figures/integral_illustration.pdf> <../figures/illustration_sampling.pdf> <../figures/statistical_inference_illustration.pdf>]
-<figures/web_apps/rendering.png, id=149, 513.92pt x 513.92pt>
+ <../plotting/figures/integral_illustration.pdf> <../plotting/figures/sampling_generative_illustration.pdf> <../plotting/figures/statistical_inference_illustration.pdf>]
+<figures/web_apps/rendering.png, id=165, 513.92pt x 513.92pt>
 File: figures/web_apps/rendering.png Graphic file (type png)
 <use figures/web_apps/rendering.png>
-Package pdftex.def Info: figures/web_apps/rendering.png  used on input line 330.
+Package pdftex.def Info: figures/web_apps/rendering.png  used on input line 326.
 (pdftex.def)             Requested size: 117.1483pt x 117.1483pt.
-<figures/web_apps/bayesian_ab.png, id=150, 963.6pt x 963.6pt>
+<figures/web_apps/bayesian_ab.png, id=166, 963.6pt x 963.6pt>
 File: figures/web_apps/bayesian_ab.png Graphic file (type png)
 <use figures/web_apps/bayesian_ab.png>
-Package pdftex.def Info: figures/web_apps/bayesian_ab.png  used on input line 330.
+Package pdftex.def Info: figures/web_apps/bayesian_ab.png  used on input line 326.
 (pdftex.def)             Requested size: 117.14145pt x 117.14145pt.
-<figures/web_apps/reinforcement_learning.png, id=151, 963.6pt x 931.48pt>
+<figures/web_apps/reinforcement_learning.png, id=167, 963.6pt x 931.48pt>
 File: figures/web_apps/reinforcement_learning.png Graphic file (type png)
 <use figures/web_apps/reinforcement_learning.png>
-Package pdftex.def Info: figures/web_apps/reinforcement_learning.png  used on input line 330.
+Package pdftex.def Info: figures/web_apps/reinforcement_learning.png  used on input line 326.
 (pdftex.def)             Requested size: 121.18486pt x 117.14537pt.
  [7
 
@@ -905,27 +905,51 @@ Package pdftex.def Info: figures/web_apps/reinforcement_learning.png  used on in
 ] [9
 
 ]
-<../figures/kq_smoothness_illustration.pdf, id=208, 874.4996pt x 217.21652pt>
-File: ../figures/kq_smoothness_illustration.pdf Graphic file (type pdf)
-<use ../figures/kq_smoothness_illustration.pdf>
-Package pdftex.def Info: ../figures/kq_smoothness_illustration.pdf  used on input line 384.
+<../plotting/figures/kq_smoothness_illustration.pdf, id=224, 874.4996pt x 217.21652pt>
+File: ../plotting/figures/kq_smoothness_illustration.pdf Graphic file (type pdf)
+<use ../plotting/figures/kq_smoothness_illustration.pdf>
+Package pdftex.def Info: ../plotting/figures/kq_smoothness_illustration.pdf  used on input line 380.
 (pdftex.def)             Requested size: 394.98897pt x 98.11111pt.
  [10
 
- <../figures/kq_smoothness_illustration.pdf>]
-<../figures/kq_single_expectation_benchmark.pdf, id=238, 512.93481pt x 300.64984pt>
-File: ../figures/kq_single_expectation_benchmark.pdf Graphic file (type pdf)
-<use ../figures/kq_single_expectation_benchmark.pdf>
-Package pdftex.def Info: ../figures/kq_single_expectation_benchmark.pdf  used on input line 406.
+ <../plotting/figures/kq_smoothness_illustration.pdf>]
+<../plotting/figures/kq_single_expectation_benchmark.pdf, id=254, 512.93481pt x 300.64984pt>
+File: ../plotting/figures/kq_single_expectation_benchmark.pdf Graphic file (type pdf)
+<use ../plotting/figures/kq_single_expectation_benchmark.pdf>
+Package pdftex.def Info: ../plotting/figures/kq_single_expectation_benchmark.pdf  used on input line 402.
 (pdftex.def)             Requested size: 205.72198pt x 120.58351pt.
  [11
 
- <../figures/kq_single_expectation_benchmark.pdf>]
-File: ../figures/illustration_sampling.pdf Graphic file (type pdf)
-<use ../figures/illustration_sampling.pdf>
-Package pdftex.def Info: ../figures/illustration_sampling.pdf  used on input line 419.
-(pdftex.def)             Requested size: 164.57507pt x 91.3896pt.
+ <../plotting/figures/kq_single_expectation_benchmark.pdf>]
+File: ../plotting/figures/sampling_generative_illustration.pdf Graphic file (type pdf)
+<use ../plotting/figures/sampling_generative_illustration.pdf>
+Package pdftex.def Info: ../plotting/figures/sampling_generative_illustration.pdf  used on input line 414.
+(pdftex.def)             Requested size: 288.00952pt x 113.64082pt.
  [12
+
+] [13
+
+]
+
+LaTeX Warning: File `../plotting/figures/ot_wasserstein_gradient_illustration.pdf.pdf' not found on input line 445.
+
+
+/home/zongchen/mini_mmd/minimum_MMD/__main__.tex:445: Package pdftex.def Error: File `../plotting/figures/ot_wasserstein_gradient_illustration.pdf.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.445 \end{frame}
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \vbox (138.44998pt too high) detected at line 445
+ []
+
+[14
 
 ] (./__main__.bbl
 
@@ -950,18 +974,18 @@ Package rerunfilecheck Info: File `__main__.out' has not changed.
 (rerunfilecheck)             Checksum: A9BBC5FC1165D4FA0AD0A6B472399D36;161.
  ) 
 Here is how much of TeX's memory you used:
- 29516 strings out of 480247
- 609806 string characters out of 5896151
- 898477 words of memory out of 5000000
- 46837 multiletter control sequences out of 15000+600000
- 484232 words of font info for 83 fonts, out of 8000000 for 9000
+ 29582 strings out of 480247
+ 613148 string characters out of 5896151
+ 898549 words of memory out of 5000000
+ 46884 multiletter control sequences out of 15000+600000
+ 484400 words of font info for 84 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  99i,15n,104p,445b,1040s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on __main__.pdf (12 pages, 1784914 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on __main__.pdf (14 pages, 1969646 bytes).
 PDF statistics:
- 373 PDF objects out of 1000 (max. 8388607)
- 221 compressed objects within 3 object streams
- 27 named destinations out of 1000 (max. 500000)
- 326 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 439 PDF objects out of 1000 (max. 8388607)
+ 250 compressed objects within 3 object streams
+ 31 named destinations out of 1000 (max. 500000)
+ 428 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -268,7 +268,7 @@
                 {\Large \mmdicon{mmdGreen!80!black}{$\int$}}\\[0.08cm]
                 {\bfseries Numerical Integration}\\[0.12cm]
                 {\Large $\int f(x) \dd \Pb(x)$}\\[0.15cm]
-                \includegraphics[width=\linewidth]{../figures/integral_illustration.pdf}
+                \includegraphics[width=\linewidth]{../plotting/figures/integral_illustration.pdf}
             \end{minipage}
         }
 
@@ -280,7 +280,7 @@
                 \centering
                 {\Large \mmdicon{mmdBlue!80!black}{$\sim$}}\\[0.08cm]
                 {\bfseries Sampling / generative modelling}\\[0.12cm]
-                \includegraphics[width=\linewidth]{../figures/illustration_sampling.pdf}
+                \includegraphics[width=\linewidth]{../plotting/figures/sampling_generative_illustration.pdf}
             \end{minipage}
         }
 
@@ -293,18 +293,14 @@
                 {\Large \mmdicon{mmdRed!80!black}{$\theta$}}\\[0.08cm]
                 {\bfseries Statistical inference}\\[0.12cm]
                 {\Large $\hat\theta_{\mathrm{MMD}}$}\\[0.15cm]
-                \includegraphics[width=\linewidth]{../figures/statistical_inference_illustration.pdf}
+                \includegraphics[width=\linewidth]{../plotting/figures/statistical_inference_illustration.pdf}
             \end{minipage}
         }
     \end{columns}
 \end{frame}
 
 
-\begin{frame}{Numerical Integration}
-    % Image sources: Wikimedia Commons files
-    % Cornell Box Octane Render (512px, 16bit).png
-    % Illustration of Bayesian AB test analysis.svg
-    % Reinforcement learning diagram.svg
+\begin{frame}{Part I: Numerical Integration}
     \centering
     {\large\bfseries Where do integrals appear in computer science?}\\[0.35cm]
 
@@ -329,7 +325,7 @@
     \end{columns}
 \end{frame}
 
-\begin{frame}{Numerical Integration}
+\begin{frame}{Part I: Numerical Integration}
     \begin{itemize}
         \item Given a function $f$ and a distribution $\Pb$, how to compute $\int f(x) \dd \Pb(x)$?
         \item Given a set of points $\{x_i\}_{i=1}^n$ and function evaluations $\{f(x_i)\}_{i=1}^n$.
@@ -352,7 +348,7 @@
     \end{answerblock}
 \end{frame}
 
-\begin{frame}{Numerical Integration}
+\begin{frame}{Part I: Numerical Integration}
     \begin{itemize}
         \item Suppose $f\in\calH$ is in the RKHS associated with $k$.
         \item Denote $\hat{\Pb}=\sum_{i=1}^n w_i \delta_{x_i}$ as the weighted empirical distribution.
@@ -371,7 +367,7 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Numerical Integration}
+\begin{frame}{Part I: Numerical Integration}
     \begin{answerblock}
         \centering \textbf{Rate:} KQ achieves $\mathcal{O}(n^{-s/d})$ rate.
     \end{answerblock}
@@ -380,12 +376,12 @@
         \item Better than $\mathcal{O}(n^{-1/2})$ when $s > d/2$.
     \end{itemize}
     \centering
-    \includegraphics[width=0.96\linewidth]{../figures/kq_smoothness_illustration.pdf}
+    \includegraphics[width=0.96\linewidth]{../plotting/figures/kq_smoothness_illustration.pdf}
 \end{frame}
 
-\begin{frame}{Numerical Integration}
+\begin{frame}{Part I: Numerical Integration}
     \centering
-    \includegraphics[width=0.50\linewidth]{../figures/kq_single_expectation_benchmark.pdf}\\[-0.10cm]
+    \includegraphics[width=0.50\linewidth]{../plotting/figures/kq_single_expectation_benchmark.pdf}\\[-0.10cm]
 
     \vspace{0.20cm}
     \begin{tikzpicture}[
@@ -406,19 +402,47 @@
 \end{frame}
 
 
-\begin{frame}{Sampling / Generative modelling}
-    \centering \includegraphics[width=0.4\linewidth]{../figures/illustration_sampling.pdf}\\[0.15cm]
+\begin{frame}{Part II: Sampling / Generative modelling}
+    \centering \includegraphics[width=0.70\linewidth]{../plotting/figures/sampling_generative_illustration.pdf}\\[0.12cm]
     \begin{itemize}
-        \item Given a distribution $\Pb$, how to sample from it?
+        \item Given a target distribution $\Qb$, how to draw samples $\{x_i\}_{i=1}^n$ from it?
         \begin{itemize}
-            \item When $\Pb$ is known up to normalization, this is sampling.
-            \item When $\Pb$ is known up to i.i.d samples, this is generative modelling.
+            \item When $\Qb$ is known up to normalization, this is sampling.
+            \item When $\Qb$ is known up to i.i.d samples, this is generative modelling.
         \end{itemize}
-        \item MMD minimization: find a distribution $\Qb$ that minimizes $\mathrm{MMD}(\Pb, \Qb)$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Part II: Sampling / Generative modelling}
+    \begin{exampleblock}{}
+    \centering
+        \textbf{Problem}: How to learn a target probability distribution $\Qb$ on $\R^d$.
+    \end{exampleblock}
+    \begin{itemize}
+        \item This problem can be written as an \blue{optimization} problem on $\calP(\R^d)$, the space of probability distributions.
+        \begin{align*}
+            \arg\min_{\Pb \in \calP(\R^d)} D(\Pb \mid \Qb) . 
+        \end{align*}
+        \item Here $D$ is a similarity metric or distance, e.g. Kullback–Leibler divergence / MMD. 
+        \begin{itemize}
+            \item $D(\Pb_1 | \Pb_2) = 0$ if and only if $\Pb_1=\Pb_2$. 
+        \end{itemize}
+        \item How to find the minimum? Gradient descent!
     \end{itemize}
 \end{frame}
 
 
+\begin{frame}{Part II: Sampling / Generative modelling}
+    \begin{exampleblock}{}
+    \centering
+        \textbf{Question}: Wait... How to define gradients on $\calP(\R^d)$?
+    \end{exampleblock}
+    \begin{answerblock}
+        \centering \textbf{Answer}: Wassserstein gradient !
+    \end{answerblock}
+    \vspace{0.15cm}
+    \centering \includegraphics[width=0.70\linewidth]{../plotting/figures/ot_wasserstein_gradient_illustration.pdf.pdf}\\[0.12cm]
+\end{frame}
 
 
 \bibliographystyle{abbrvnat}
