@@ -463,7 +463,7 @@
         \end{minipage}
     }
 
-    \vspace{0.05cm}
+    \vspace{0.10cm}
 
     \fcolorbox{mmdBlue!70!black}{mmdBlue!6}{%
         \begin{minipage}[t][0.405\textheight][t]{0.95\linewidth}
@@ -561,8 +561,9 @@
 
 \begin{frame}{Part II: Sampling / Generative modelling}
     \begin{exampleblock}{}
-        \centering \textbf{Challenge:}  Non-convexity of the squared MMD objective. 
+        \centering \textbf{Challenge:}  Non-convexity of the squared MMD objective: $\lim_{t\to\infty}\mmd^2(\Pb_t, \Qb) > 0$. 
     \end{exampleblock}
+    \vspace{0.25cm}
     \centering
     \setlength{\fboxsep}{2pt}
     \fcolorbox{mmdBlue!70!black}{mmdBlue!6}{%
@@ -579,20 +580,15 @@
         \end{minipage}
     }
 
-    \vspace{0.06cm}
+    \vspace{0.10cm}
 
     \fcolorbox{mmdGreen!70!black}{mmdGreen!6}{%
         \begin{minipage}[t][0.29\textheight][t]{0.95\linewidth}
             \centering
-            {\footnotesize\bfseries SrMMD: Sobolev Regularized MMD Gradient Flow~\textcolor{mmdGreen!80!black}{(Arxiv)}}\\[0.02cm]
-            {\scriptsize\textcolor{graytext}{C. Tian, B. K. Sriperumbudur, A. Gretton, \underline{Z. Chen}}}\\[0.04cm]
+            {\bfseries Sobolev Regularized MMD Gradient Flow~\textcolor{mmdGreen!80!black}{(Arxiv)}}\\[0.02cm]
+            {\footnotesize\textcolor{graytext}{C. Tian, B. K. Sriperumbudur, A. Gretton, \underline{Z. Chen}}}\\[0.04cm]
 
             \raggedright
-            \scriptsize
-            \setlength\topsep{1pt}
-            \setlength\partopsep{0pt}
-            \setlength\parsep{0pt}
-            \setlength\itemsep{1pt}
             \begin{itemize}
                 \item Gradient regularization on the critic.
                 \item Convergence in MMD: $\lim_{t\to\infty}\mathrm{MMD}(\Pb_t, \Qb)=0$.
@@ -607,36 +603,26 @@
     \fcolorbox{mmdRed!70!black}{mmdRed!6}{%
         \begin{minipage}[t][0.31\textheight][t]{0.95\linewidth}
             \centering
-            {\footnotesize\bfseries Stationary MMD Points~\textcolor{mmdRed!80!black}{(ICML 2026)}}\\[0.02cm]
-            {\scriptsize\textcolor{graytext}{\underline{Z. Chen}, T. Karvonen, H. Kanagawa, F.-X. Briol, C. J. Oates}}\\[0.04cm]
+            {\bfseries Stationary MMD Points~\textcolor{mmdRed!80!black}{(ICML 2026)}}\\[0.02cm]
+            {\footnotesize\textcolor{graytext}{\underline{Z. Chen}, T. Karvonen, H. Kanagawa, F.-X. Briol, C. J. Oates}}\\[0.04cm]
 
             \raggedright
-            \scriptsize
-            \setlength\topsep{1pt}
-            \setlength\partopsep{0pt}
-            \setlength\parsep{0pt}
-            \setlength\itemsep{1pt}
             \begin{itemize}
-                \item Prove that samples from MMD flow are better for numerical integration. 
-                \item IID samples: $\mathcal{O}(n^{-1/2})$, MMD points: $\mathcal{O}(n^{-1})$.
+                \item Prove that samples from MMD flow are better for numerical integration than IID samples. 
+                \item IID samples: $\mathcal{O}(n^{-1/2})$, MMD flow points: $o(n^{-1/2})$.
             \end{itemize}
         \end{minipage}
     }
 
-    \vspace{0.06cm}
+    \vspace{0.10cm}
 
     \fcolorbox{orange!80!black}{orange!7}{%
         \begin{minipage}[t][0.31\textheight][t]{0.95\linewidth}
             \centering
-            {\footnotesize\bfseries TMFLD: Thinned Mean Field Langevin Dynamics~\textcolor{orange!80!black}{(ICML 2026)}}\\[0.02cm]
-            {\scriptsize\textcolor{graytext}{\underline{Z. Chen}, H. Kanagawa, F.-X. Briol, C. J. Oates, L. Mackey}}\\[0.04cm]
+            {\bfseries Thinned Mean Field Langevin Dynamics~\textcolor{orange!80!black}{(ICML 2026)}}\\[0.02cm]
+            {\footnotesize\textcolor{graytext}{\underline{Z. Chen}, H. Kanagawa, F.-X. Briol, C. J. Oates, L. Mackey}}\\[0.04cm]
 
             \raggedright
-            \scriptsize
-            \setlength\topsep{1pt}
-            \setlength\partopsep{0pt}
-            \setlength\parsep{0pt}
-            \setlength\itemsep{1pt}
             \begin{itemize}
                 \item Computational cost of MMD flow is $\calO(n^2)$ due to pair-wise interaction.
                 \item Reduce cost to $\mathcal{O}(n^{1.5})$ without sacrificing the sample quality.
@@ -682,8 +668,6 @@
                         minimum width=0.95cm,
                         minimum height=0.56cm
                     ] (x) at (1.25,-0.56) {$x$};
-                    \draw[-{Latex[length=2mm]}, thick, shorten <=1pt, shorten >=1pt] (theta.south east) -- (sim.north west);
-                    \draw[-{Latex[length=2mm]}, thick, shorten <=1pt, shorten >=1pt] (sim.south east) -- (x.north west);
                     \draw[-{Latex[length=2mm]}, thick, dashed]
                         (x.south) .. controls (1.05,-1.32) and (-1.3,-1.28) ..
                         node[pos=0.52, below] {$p(\theta|x)$} (theta.south west);
@@ -772,6 +756,63 @@
         \end{block}
     \end{columns}
 \end{frame}
+
+\begin{frame}{Part III: Statistical inference}
+    \begin{itemize}
+        \item Minimum MMD estimator
+        \begin{align*}
+            \hat\theta_{\mathrm{MMD}}
+            &= \arg\min_{\theta\in\Theta} \mathrm{MMD}^2(\Pb_\theta, \Qb) \\
+            &= \arg\min_{\theta\in\Theta}
+            \Big\{
+            \E_{x,x'\sim\Pb_\theta}[k(x,x')]
+            -2\E_{x\sim\Pb_\theta, y\sim\Qb}[k(x,y)]
+            + \mathrm{const}
+            \Big\}.
+        \end{align*}
+
+    \end{itemize}
+
+    \vspace{0.10cm}
+    \begin{columns}[T,onlytextwidth]
+        \column{0.48\textwidth}
+        \begin{exampleblock}{}
+            \centering \textbf{Challenge 1:} Likelihood-free inference?
+        \end{exampleblock}
+        
+        \begin{answerblock}
+            \centering {\Large\checkmark} Only requires samples from $\Pb_\theta$ and $\Qb$.\\
+        \end{answerblock}
+
+        \column{0.48\textwidth}
+        \begin{exampleblock}{}
+            \centering \textbf{Challenge 2:} Robustness to outliers?
+        \end{exampleblock}
+        \begin{answerblock}
+            \centering {\Large\checkmark} Bounded effects under bounded kernels. \\
+        \end{answerblock}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Part III: Statistical inference}
+    \begin{exampleblock}{}
+        \centering \textbf{Question:} How to reliably find the minimum MMD estimator $\hat\theta_{\mathrm{MMD}}$?
+    \end{exampleblock}
+    \fcolorbox{mmdBlue!70!black}{mmdBlue!6}{%
+    \begin{minipage}[t][0.29\textheight][t]{0.95\linewidth}
+        \centering
+        {\bfseries On Optimization of Minimum MMD Estimators~\textcolor{mmdBlue!80!black}{(JMLR 2025)}}\\[0.02cm]
+        {\footnotesize\textcolor{graytext}{S. S. Kang, L. Sharrock, X. Cheng, F.-X. Briol, \underline{Z. Chen}}}\\[0.04cm]
+
+        \raggedright
+        \begin{itemize}
+            \item DrMMD interpolates between MMD and $\chi^2$ divergence.
+            \item Convergence in KL divergence: $\lim_{t\to\infty}\mathrm{KL}(\Pb_t, \Qb)=0$. 
+        \end{itemize}
+    \end{minipage}%
+    }
+\end{frame}
+
 
 \bibliographystyle{abbrvnat}
 \bibliography{reference}
