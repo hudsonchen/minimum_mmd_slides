@@ -14,7 +14,7 @@
 
 \usepackage[normalem]{ulem}
 
-\usetikzlibrary{arrows.meta, positioning, shapes, calc}
+\usetikzlibrary{arrows.meta, positioning, shapes, calc, decorations.pathreplacing}
 
 %----------------------------------------------------------------------------------------
 %    TITLE PAGE
@@ -188,13 +188,73 @@
 \end{frame}
 
 \section{Content}
-\begin{frame}{Content: Minimization of MMD}
-    \begin{itemize}
-        \item What is MMD?
-        \item Minimization of MMD for numerical integration
-        \item Minimization of MMD for sampling / generative modelling 
-        \item Minimization of MMD for statistical inference 
-    \end{itemize}
+\begin{frame}{Research timeline}
+    \centering
+    {\large\bfseries A research timeline from the start of my PhD}\\[0.28cm]
+
+    \begin{tikzpicture}[
+        x=1cm,
+        y=1cm,
+        timeline/.style={line width=1.2pt, -{Latex[length=2.4mm]}, mmdBlue!75!black},
+        tick/.style={mmdBlue!75!black, line width=0.8pt},
+        eventBase/.style={
+            rounded corners=2pt,
+            line width=0.7pt,
+            text width=3.0cm,
+            align=center,
+            inner sep=4pt,
+            font=\scriptsize
+        },
+        eventBlue/.style={eventBase, draw=mmdBlue!75!black, fill=mmdBlue!8},
+        eventGreen/.style={eventBase, draw=mmdGreen!75!black, fill=mmdGreen!8},
+        eventRed/.style={eventBase, draw=mmdRed!75!black, fill=mmdRed!8},
+        dotBlue/.style={circle, fill=mmdBlue!80!black, draw=white, line width=0.5pt, minimum size=5pt, inner sep=0pt},
+        dotGreen/.style={circle, fill=mmdGreen!80!black, draw=white, line width=0.5pt, minimum size=5pt, inner sep=0pt},
+        dotRed/.style={circle, fill=mmdRed!80!black, draw=white, line width=0.5pt, minimum size=5pt, inner sep=0pt}
+    ]
+        \draw[timeline] (0,0) -- (11.6,0);
+
+        \foreach \x/\label in {0/{09/2022},2.1/{2023},4.4/{2024},7.1/{2025},9.7/{2026}} {
+            \draw[tick] (\x,0.12) -- (\x,-0.12);
+            \node[font=\scriptsize, text=mmdBlue!80!black] at (\x,-0.42) {\label};
+        }
+
+        \node[dotBlue] at (0,0) {};
+        \node[eventBlue, text width=2.35cm] (phdstart) at (0,1.15)
+            {\bfseries PhD starts\\[-0.02cm]
+             \textcolor{graytext}{UCL, Sep 2022}};
+        \draw[mmdBlue!60!black, line width=0.6pt] (0,0.08) -- (phdstart.south);
+
+        \node[dotGreen] at (2.6,0) {};
+        \node[eventGreen] (integration) at (2.6,-1.10)
+            {\bfseries Kernel-based\\
+             numerical integration};
+        \draw[mmdGreen!60!black, line width=0.6pt] (2.6,-0.08) -- (integration.north);
+
+        \node[dotBlue] at (5.7,0) {};
+        \node[eventBlue] (sampling) at (5.7,1.28)
+            {\bfseries Sampling / Generative\\
+             modelling via MMD flows};
+        \draw[mmdBlue!60!black, line width=0.6pt] (5.7,0.08) -- (sampling.south);
+
+        \node[dotRed] at (8.8,0) {};
+        \node[eventRed] (inference) at (8.8,-1.32)
+            {\bfseries Minimum MMD estimators\\
+             for inference};
+        \draw[mmdRed!60!black, line width=0.6pt] (8.8,-0.08) -- (inference.north);
+
+        \node[font=\scriptsize\bfseries, text=mmdBlue!80!black, align=center] at (11.25,0.48)
+            {Today};
+
+        \draw[
+            decorate,
+            decoration={brace, mirror, amplitude=8pt},
+            line width=1.1pt,
+            mmdBlue!80!black
+        ] (1.25,-1.95) -- (10.15,-1.95)
+            node[midway, yshift=-0.62cm, font=\large\bfseries, text=mmdBlue!85!black]
+            {Minimization of Maximum Mean Discrepancy (MMD)};
+    \end{tikzpicture}
 \end{frame}
 
 \begin{frame}{Background: what is MMD?}
@@ -444,49 +504,62 @@
     \centering
     \setlength{\fboxsep}{2pt}
     \fcolorbox{mmdGreen!70!black}{mmdGreen!6}{%
-        \begin{minipage}[t][0.405\textheight][t]{0.95\linewidth}
+        \begin{minipage}[t][0.285\textheight][t]{0.95\linewidth}
             \centering
             {\bfseries Conditional Bayesian Quadrature~\textcolor{mmdGreen!80!black}{(UAI 2025)}}\\[0.02cm]
             {\footnotesize\textcolor{graytext}{\underline{Z. Chen}, M. Naslidnyk, A. Gretton, F.-X. Briol}}\\[0.04cm]
 
             \raggedright
             \begin{itemize}
+                \setlength\itemsep{0pt}
                 \item Extension to conditional expectations:
                 $I(\theta)= \E_{X \sim p(\cdot \mid \theta)}[g(X,\theta)]$. 
-                \item A weighted average over $T$ outer and $N$ inner samples:
-                \begin{talign*}
-                    \hat{I}_{\mathrm{CBQ}}(\theta)
-                    &:= \sum_{t=1}^T \sum_{n=1}^N
-                    w_{n,t} g(x_n^{(t)},\theta_t).
-                \end{talign*}
+                \item Weighted rule:
+                $\hat{I}_{\mathrm{CBQ}}(\theta)
+                := \sum_{t=1}^T \sum_{n=1}^N
+                w_{n,t} g(x_n^{(t)},\theta_t)$.
             \end{itemize}
         \end{minipage}
     }
 
-    \vspace{0.10cm}
+    \vspace{0.07cm}
 
     \fcolorbox{mmdBlue!70!black}{mmdBlue!6}{%
-        \begin{minipage}[t][0.405\textheight][t]{0.95\linewidth}
+        \begin{minipage}[t][0.285\textheight][t]{0.95\linewidth}
             \centering
             {\bfseries Nested Expectations with Kernel Quadrature~\textcolor{mmdBlue!80!black}{(ICML 2025)}}\\[0.02cm]
             {\footnotesize\textcolor{graytext}{\underline{Z. Chen}, M. Naslidnyk, F.-X. Briol}}\\[0.04cm]
 
             \raggedright
             \begin{itemize}
+                \setlength\itemsep{0pt}
                 \item Extension to nested expectations: $I := \E_{\theta \sim \Qb}
 \left[f\left(\E_{X \sim \Pb_\theta}[g(X,\theta)]\right)\right].$
-                \item A weighted average over $T$ outer and $N$ inner samples:
-                \begin{talign*}
-                    \hat{I}_{\mathrm{NKQ}}
-                    &= \sum_{t=1}^T w_t^\Theta
-                    f\left(\sum_{n=1}^N
-                    w_{n,t}^{\calX}g(x_n^{(t)},\theta_t)\right).
-                \end{talign*}
+                \item Weighted rule:
+                $\hat{I}_{\mathrm{NKQ}}
+                = \sum_{t=1}^T w_t^\Theta
+                f\left(\sum_{n=1}^N
+                w_{n,t}^{\calX}g(x_n^{(t)},\theta_t)\right)$.
+            \end{itemize}
+        \end{minipage}
+    }
+
+    \vspace{0.07cm}
+
+    \fcolorbox{mmdBlue!70!black}{mmdBlue!6}{%
+        \begin{minipage}[t][0.195\textheight][t]{0.95\linewidth}
+            \centering
+            {\bfseries BayesSum: Bayesian Quadrature in Discrete Spaces~\textcolor{mmdBlue!80!black}{(ProbNum 2026)}}\\[0.02cm]
+            {\footnotesize\textcolor{graytext}{S. S. Kang, F.-X. Briol, T. Karvonen, Z. Chen}}\\[0.04cm]
+
+            \raggedright
+            \begin{itemize}
+                \setlength\itemsep{0pt}
+                \item Extension to sums: $I=\mathbb{E}_{X \sim \mathbb{P}}[f(X)]=\sum_{x \in \mathcal{X}} f(x) p(x)$. 
             \end{itemize}
         \end{minipage}
     }
 \end{frame}
-
 
 \parttitleframe{Sampling / Generative Modelling}
 
