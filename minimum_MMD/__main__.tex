@@ -81,6 +81,28 @@
         \node[circle, fill=#1, text=white, inner sep=1.2pt, font=\scriptsize\bfseries] (icon) {#2};
     }%
 }
+\newcommand{\bookicon}[1]{%
+    \tikz[baseline=-0.5ex, scale=0.18]{
+        \fill[#1!18] (0,0) rectangle (1.55,1.75);
+        \fill[#1!28] (1.55,0) rectangle (3.1,1.75);
+        \draw[#1!80!black, line width=0.45pt, rounded corners=0.4pt]
+            (0,0) rectangle (1.55,1.75)
+            (1.55,0) rectangle (3.1,1.75);
+        \draw[#1!80!black, line width=0.45pt] (1.55,0) -- (1.55,1.75);
+        \draw[#1!70!black, line width=0.3pt] (0.35,1.25) -- (1.18,1.25);
+        \draw[#1!70!black, line width=0.3pt] (1.92,1.25) -- (2.75,1.25);
+        \draw[#1!70!black, line width=0.3pt] (0.35,0.85) -- (1.18,0.85);
+        \draw[#1!70!black, line width=0.3pt] (1.92,0.85) -- (2.75,0.85);
+    }%
+}
+\newcommand{\parttitleframe}[1]{%
+    \begin{frame}[plain]
+        \centering
+        \vfill
+        {\Huge\bfseries #1}
+        \vfill
+    \end{frame}
+}
 
 \newenvironment{talign*}
  {\let\displaystyle\textstyle\csname align*\endcsname}
@@ -111,26 +133,58 @@
 
 \section{Personal}
 \begin{frame}{About Me}
-  \begin{columns}[c] % 'c' aligns vertically center
-    % Left column with image
-    \column{0.4\textwidth}
-    \centering
-    \includegraphics[width=0.9\linewidth]{figures/personal.png} 
-    \column{0.6\textwidth}
-    \begin{itemize}
-        \item Zonghao Chen 
-        \item 4th year PhD Student at University College London (UCL)
-        \begin{itemize}
-            \item Foundational AI Centre 
-            \item Gatsby Computational Neuroscience Unit 
-        \end{itemize} 
-        \item Graduated from Tsinghua University in 2022
-        \begin{itemize}
-            \item Department of EE 
-        \end{itemize}
-        \item Kernel (nonparametric) methods, causal inference, statistical learning theory
-    \end{itemize}
-  \end{columns}
+    \vspace{-0.25cm}
+    \begin{columns}[T,onlytextwidth]
+        \column{0.34\textwidth}
+        \begin{minipage}[c][0.68\textheight][c]{\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \node[
+                    draw=mmdBlue!55!black,
+                    line width=0.8pt,
+                    rounded corners=4pt,
+                    inner sep=2.5pt
+                ] {
+                    \includegraphics[width=0.86\linewidth,height=0.58\textheight,keepaspectratio]{figures/personal.png}
+                };
+            \end{tikzpicture}
+        \end{minipage}
+
+        \column{0.62\textwidth}
+        {\Large\bfseries Zonghao (Hudson) Chen}\\[-0.04cm]
+        {\small\color{graytext}4th year PhD student, University College London}\\[0.22cm]
+
+        \begin{beamercolorbox}[wd=\linewidth, sep=0.33em, rounded=true]{answer box}
+            \small
+            \begin{tabular}{@{}p{0.44\linewidth}p{0.46\linewidth}@{}}
+                Foundational AI Centre & Fran\c{c}ois-Xavier Briol\\
+                Gatsby Unit & Arthur Gretton
+            \end{tabular}
+        \end{beamercolorbox}
+
+        \vspace{0.18cm}
+        \begin{beamercolorbox}[wd=\linewidth, sep=0.33em, rounded=true]{answer box}
+            \small
+            Tsinghua Uni., B.Eng. in Electronic Engineering, 2022
+        \end{beamercolorbox}
+
+        \vspace{0.18cm}
+        \begin{beamercolorbox}[wd=\linewidth, sep=0.33em, rounded=true]{answer box}
+            {\bfseries Research Interests}\\[0.04cm]
+            \small
+            \vspace{-0.24cm}
+            \begin{itemize}
+                \setlength\topsep{0pt}
+                \setlength\partopsep{0pt}
+                \setlength\parsep{0pt}
+                \setlength\itemsep{0.02cm}
+                \item Kernel and nonparametric methods
+                \item Causal inference
+                \item Statistical learning theory
+            \end{itemize}
+            \vspace{-0.26cm}
+        \end{beamercolorbox}
+    \end{columns}
 \end{frame}
 
 \section{Content}
@@ -300,6 +354,8 @@
 \end{frame}
 
 
+\parttitleframe{Numerical Integration}
+
 \begin{frame}{Part I: Numerical Integration}
     \centering
     {\large\bfseries Where do integrals appear in computer science?}\\[0.35cm]
@@ -381,26 +437,58 @@
 
 \begin{frame}{Part I: Numerical Integration}
     \centering
-    \includegraphics[width=0.50\linewidth]{../plotting/figures/kq_single_expectation_benchmark.pdf}\\[-0.10cm]
-
-    \vspace{0.20cm}
-    \begin{tikzpicture}[
-        contribution/.style={
-            anchor=west,
-            text width=0.78\linewidth,
-            align=left,
-            font=\small
-        }
-    ]
-        \node[circle, fill=mmdBlue!80!black, text=white, inner sep=2pt, font=\scriptsize\bfseries] at (0,0) {1};
-        \node[contribution] at (0.42,0)
-            {{\bfseries Nested Expectations with Kernel Quadrature}. {\scriptsize\textcolor{graytext}{\underline{Z. Chen}, M. Naslidnyk, F.-X. Briol}} {\scriptsize\bfseries\textcolor{mmdBlue!80!black}{(ICML 2025)}}};
-        \node[circle, fill=mmdGreen!80!black, text=white, inner sep=2pt, font=\scriptsize\bfseries] at (0,-1.35) {2};
-        \node[contribution] at (0.42,-1.35)
-            {{\bfseries Conditional Bayesian Quadrature}. {\scriptsize\textcolor{graytext}{\underline{Z. Chen}, M. Naslidnyk, A. Gretton, F.-X. Briol}} {\scriptsize\bfseries\textcolor{mmdGreen!80!black}{(UAI 2025)}}};
-    \end{tikzpicture}
+    \includegraphics[width=0.62\linewidth]{../plotting/figures/kq_single_expectation_benchmark.pdf}
 \end{frame}
 
+\begin{frame}{Part I: Numerical Integration}
+    \centering
+    \setlength{\fboxsep}{2pt}
+    \fcolorbox{mmdGreen!70!black}{mmdGreen!6}{%
+        \begin{minipage}[t][0.405\textheight][t]{0.95\linewidth}
+            \centering
+            {\bfseries Conditional Bayesian Quadrature~\textcolor{mmdGreen!80!black}{(UAI 2025)}}\\[0.02cm]
+            {\footnotesize\textcolor{graytext}{\underline{Z. Chen}, M. Naslidnyk, A. Gretton, F.-X. Briol}}\\[0.04cm]
+
+            \raggedright
+            \begin{itemize}
+                \item Extension to conditional expectations:
+                $I(\theta)= \E_{X \sim p(\cdot \mid \theta)}[g(X,\theta)]$. 
+                \item A weighted average over $T$ outer and $N$ inner samples:
+                \begin{talign*}
+                    \hat{I}_{\mathrm{CBQ}}(\theta)
+                    &:= \sum_{t=1}^T \sum_{n=1}^N
+                    w_{n,t} g(x_n^{(t)},\theta_t).
+                \end{talign*}
+            \end{itemize}
+        \end{minipage}
+    }
+
+    \vspace{0.05cm}
+
+    \fcolorbox{mmdBlue!70!black}{mmdBlue!6}{%
+        \begin{minipage}[t][0.405\textheight][t]{0.95\linewidth}
+            \centering
+            {\bfseries Nested Expectations with Kernel Quadrature~\textcolor{mmdBlue!80!black}{(ICML 2025)}}\\[0.02cm]
+            {\footnotesize\textcolor{graytext}{\underline{Z. Chen}, M. Naslidnyk, F.-X. Briol}}\\[0.04cm]
+
+            \raggedright
+            \begin{itemize}
+                \item Extension to nested expectations: $I := \E_{\theta \sim \Qb}
+\left[f\left(\E_{X \sim \Pb_\theta}[g(X,\theta)]\right)\right].$
+                \item A weighted average over $T$ outer and $N$ inner samples:
+                \begin{talign*}
+                    \hat{I}_{\mathrm{NKQ}}
+                    &= \sum_{t=1}^T w_t^\Theta
+                    f\left(\sum_{n=1}^N
+                    w_{n,t}^{\calX}g(x_n^{(t)},\theta_t)\right).
+                \end{talign*}
+            \end{itemize}
+        \end{minipage}
+    }
+\end{frame}
+
+
+\parttitleframe{Sampling / Generative Modelling}
 
 \begin{frame}{Part II: Sampling / Generative modelling}
     \centering \includegraphics[width=0.70\linewidth]{../plotting/figures/sampling_generative_illustration.pdf}\\[0.12cm]
@@ -469,30 +557,221 @@
         \item MMD flow does not outperform diffusion-based generative models.
         \item A novel framework of generative modelling \& sampling.
     \end{itemize}
-    \vspace{0.2cm}
-    \begin{tikzpicture}[
-        contribution/.style={
-            anchor=west,
-            text width=0.78\linewidth,
-            align=left,
-            font=\scriptsize
-        }
-    ]
-        \node[circle, fill=mmdBlue!80!black, text=white, inner sep=2pt, font=\scriptsize\bfseries] at (0,0) {1};
-        \node[contribution] at (0.42,0)
-            {{\bfseries (De)-regularized Maximum Mean Discrepancy Gradient Flow}. {\scriptsize\textcolor{graytext}{\underline{Z. Chen}, A. Mustafi, P. Glaser, A. Korba, A. Gretton, B. K. Sriperumbudur}} {\scriptsize\bfseries\textcolor{mmdBlue!80!black}{(JMLR 2025)}}};
-        \node[circle, fill=mmdGreen!80!black, text=white, inner sep=2pt, font=\scriptsize\bfseries] at (0,-0.62) {2};
-        \node[contribution] at (0.42,-0.62)
-            {{\bfseries Sobolev Regularized MMD Flow}. {\scriptsize\textcolor{graytext}{C. Tian, B. K. Sriperumbudur, A. Gretton, \underline{Z. Chen}}}};
-        \node[circle, fill=mmdRed!80!black, text=white, inner sep=2pt, font=\scriptsize\bfseries] at (0,-1.24) {3};
-        \node[contribution] at (0.42,-1.24)
-            {{\bfseries Stationary MMD Points}. {\scriptsize\textcolor{graytext}{\underline{Z. Chen}, T. Karvonen, H. Kanagawa, F.-X. Briol, C. J. Oates}} {\scriptsize\bfseries\textcolor{mmdRed!80!black}{(ICML 2026)}}};
-        \node[circle, fill=orange!80!black, text=white, inner sep=2pt, font=\scriptsize\bfseries] at (0,-1.86) {4};
-        \node[contribution] at (0.42,-1.86)
-            {{\bfseries Thinned Mean Field Langevin Dynamics}. {\scriptsize\textcolor{graytext}{\underline{Z. Chen}, H. Kanagawa, F.-X. Briol, C. J. Oates, L. Mackey}} {\scriptsize\bfseries\textcolor{mmdRed!80!black}{(ICML 2026)}}};
-    \end{tikzpicture}
 \end{frame}
 
+\begin{frame}{Part II: Sampling / Generative modelling}
+    \begin{exampleblock}{}
+        \centering \textbf{Challenge:}  Non-convexity of the squared MMD objective. 
+    \end{exampleblock}
+    \centering
+    \setlength{\fboxsep}{2pt}
+    \fcolorbox{mmdBlue!70!black}{mmdBlue!6}{%
+        \begin{minipage}[t][0.29\textheight][t]{0.95\linewidth}
+            \centering
+            {\bfseries (De)-regularized MMD Gradient Flow~\textcolor{mmdBlue!80!black}{(JMLR 2025)}}\\[0.02cm]
+            {\footnotesize\textcolor{graytext}{\underline{Z. Chen}, A. Mustafi, P. Glaser, A. Korba, A. Gretton, B. K. Sriperumbudur}}\\[0.04cm]
+
+            \raggedright
+            \begin{itemize}
+                \item DrMMD interpolates between MMD and $\chi^2$ divergence.
+                \item Convergence in KL divergence: $\lim_{t\to\infty}\mathrm{KL}(\Pb_t, \Qb)=0$. 
+            \end{itemize}
+        \end{minipage}
+    }
+
+    \vspace{0.06cm}
+
+    \fcolorbox{mmdGreen!70!black}{mmdGreen!6}{%
+        \begin{minipage}[t][0.29\textheight][t]{0.95\linewidth}
+            \centering
+            {\footnotesize\bfseries SrMMD: Sobolev Regularized MMD Gradient Flow~\textcolor{mmdGreen!80!black}{(Arxiv)}}\\[0.02cm]
+            {\scriptsize\textcolor{graytext}{C. Tian, B. K. Sriperumbudur, A. Gretton, \underline{Z. Chen}}}\\[0.04cm]
+
+            \raggedright
+            \scriptsize
+            \setlength\topsep{1pt}
+            \setlength\partopsep{0pt}
+            \setlength\parsep{0pt}
+            \setlength\itemsep{1pt}
+            \begin{itemize}
+                \item Gradient regularization on the critic.
+                \item Convergence in MMD: $\lim_{t\to\infty}\mathrm{MMD}(\Pb_t, \Qb)=0$.
+            \end{itemize}
+        \end{minipage}
+    }
+\end{frame}
+
+\begin{frame}{Part II: Sampling / Generative modelling}
+    \centering
+    \setlength{\fboxsep}{2pt}
+    \fcolorbox{mmdRed!70!black}{mmdRed!6}{%
+        \begin{minipage}[t][0.31\textheight][t]{0.95\linewidth}
+            \centering
+            {\footnotesize\bfseries Stationary MMD Points~\textcolor{mmdRed!80!black}{(ICML 2026)}}\\[0.02cm]
+            {\scriptsize\textcolor{graytext}{\underline{Z. Chen}, T. Karvonen, H. Kanagawa, F.-X. Briol, C. J. Oates}}\\[0.04cm]
+
+            \raggedright
+            \scriptsize
+            \setlength\topsep{1pt}
+            \setlength\partopsep{0pt}
+            \setlength\parsep{0pt}
+            \setlength\itemsep{1pt}
+            \begin{itemize}
+                \item Prove that samples from MMD flow are better for numerical integration. 
+                \item IID samples: $\mathcal{O}(n^{-1/2})$, MMD points: $\mathcal{O}(n^{-1})$.
+            \end{itemize}
+        \end{minipage}
+    }
+
+    \vspace{0.06cm}
+
+    \fcolorbox{orange!80!black}{orange!7}{%
+        \begin{minipage}[t][0.31\textheight][t]{0.95\linewidth}
+            \centering
+            {\footnotesize\bfseries TMFLD: Thinned Mean Field Langevin Dynamics~\textcolor{orange!80!black}{(ICML 2026)}}\\[0.02cm]
+            {\scriptsize\textcolor{graytext}{\underline{Z. Chen}, H. Kanagawa, F.-X. Briol, C. J. Oates, L. Mackey}}\\[0.04cm]
+
+            \raggedright
+            \scriptsize
+            \setlength\topsep{1pt}
+            \setlength\partopsep{0pt}
+            \setlength\parsep{0pt}
+            \setlength\itemsep{1pt}
+            \begin{itemize}
+                \item Computational cost of MMD flow is $\calO(n^2)$ due to pair-wise interaction.
+                \item Reduce cost to $\mathcal{O}(n^{1.5})$ without sacrificing the sample quality.
+            \end{itemize}
+        \end{minipage}
+    }
+\end{frame}
+
+\parttitleframe{Statistical Inference}
+
+\begin{frame}{Part III: Statistical inference}
+    \centering
+    {\large\bfseries Where does statistical inference appear in computer science?}\\[0.35cm]
+
+    \begin{columns}[T,onlytextwidth]
+        \column{0.31\textwidth}
+        \centering
+        \fcolorbox{mmdBlue!70!black}{mmdBlue!8}{%
+            \begin{minipage}[c][0.46\textheight][c]{0.84\linewidth}
+                \centering
+                \begin{tikzpicture}[scale=0.62, every node/.style={font=\scriptsize}]
+                    \node[
+                        rounded corners=3pt,
+                        fill=mmdBlue!18,
+                        draw=mmdBlue!80!black,
+                        thick,
+                        minimum width=0.95cm,
+                        minimum height=0.56cm
+                    ] (theta) at (-1.25,0.72) {$\theta$};
+                    \node[
+                        rounded corners=3pt,
+                        fill=mmdGreen!16,
+                        draw=mmdGreen!80!black,
+                        thick,
+                        minimum width=1.38cm,
+                        minimum height=0.56cm
+                    ] (sim) at (0,0.08) {simulator};
+                    \node[
+                        rounded corners=3pt,
+                        fill=mmdRed!16,
+                        draw=mmdRed!80!black,
+                        thick,
+                        minimum width=0.95cm,
+                        minimum height=0.56cm
+                    ] (x) at (1.25,-0.56) {$x$};
+                    \draw[-{Latex[length=2mm]}, thick, shorten <=1pt, shorten >=1pt] (theta.south east) -- (sim.north west);
+                    \draw[-{Latex[length=2mm]}, thick, shorten <=1pt, shorten >=1pt] (sim.south east) -- (x.north west);
+                    \draw[-{Latex[length=2mm]}, thick, dashed]
+                        (x.south) .. controls (1.05,-1.32) and (-1.3,-1.28) ..
+                        node[pos=0.52, below] {$p(\theta|x)$} (theta.south west);
+                \end{tikzpicture}\\[0.14cm]
+                {\bfseries Simulation-based\\inference}\\[0.02cm]
+                {\small Infer parameters from simulator outputs.}
+            \end{minipage}
+        }
+
+        \column{0.31\textwidth}
+        \centering
+        \fcolorbox{mmdRed!70!black}{mmdRed!8}{%
+            \begin{minipage}[c][0.46\textheight][c]{0.84\linewidth}
+                \centering
+                \begin{tikzpicture}[scale=0.72, every node/.style={font=\scriptsize}]
+                    \draw[very thick, mmdBlue!80!black] (-1.45,-0.75) -- (-1.45,1.1) -- (-0.15,1.1);
+                    \draw[very thick, mmdRed!80!black] (0.15,-0.75) -- (1.45,-0.75) -- (1.45,1.1);
+                    \node[font=\footnotesize\bfseries, mmdBlue!80!black] at (-0.75,0.35) {$H_0$};
+                    \node[font=\footnotesize\bfseries, mmdRed!80!black] at (0.75,0.35) {$H_1$};
+                    \draw[-{Latex[length=2mm]}, thick] (-1.65,-0.95) -- (1.65,-0.95) node[right] {data};
+                    \draw[dashed, thick] (0,-1.02) -- (0,1.28);
+                \end{tikzpicture}\\[0.15cm]
+                {\bfseries Hypothesis testing}\\[-0.02cm]
+                {\small Is the data compatible with a class of models?}
+            \end{minipage}
+        }
+
+        \column{0.31\textwidth}
+        \centering
+        \fcolorbox{mmdGreen!65!black}{mmdGreen!8}{%
+            \begin{minipage}[c][0.46\textheight][c]{0.84\linewidth}
+                \centering
+                \begin{tikzpicture}[scale=0.72, every node/.style={font=\scriptsize}]
+                    \draw[-{Latex[length=2mm]}, thick] (-1.65,-1.0) -- (1.65,-1.0) node[right] {$x$};
+                    \draw[-{Latex[length=2mm]}, thick] (-1.65,-1.0) -- (-1.65,1.25) node[above] {$y$};
+                    \fill[mmdGreen!18] plot[smooth, samples=80, domain=-1.35:1.35]
+                        (\x,{0.55*sin(1.5*\x r)+0.45})
+                        -- plot[smooth, samples=80, domain=1.35:-1.35]
+                        (\x,{0.55*sin(1.5*\x r)-0.45}) -- cycle;
+                    \draw[very thick, mmdGreen!80!black] plot[smooth, samples=80, domain=-1.35:1.35]
+                        (\x,{0.55*sin(1.5*\x r)});
+                    \foreach \x/\y in {-1.2/-0.6,-0.55/-0.35,0.15/0.1,0.85/0.62,1.25/0.48} {
+                        \fill[mmdBlue!80!black] (\x,\y) circle (2.4pt);
+                    }
+                \end{tikzpicture}\\[0.15cm]
+                {\bfseries Uncertainty}\\[-0.02cm]
+                {\small How confident should a prediction be?}
+            \end{minipage}
+        }
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Part III: Statistical inference}
+    \begin{itemize}
+        \item Given a parametric model $\{\Pb_\theta\}_{\theta\in\Theta\subseteq\R^p}$. 
+        \item Infer the parameter $\theta$ that best explains an unknown data distribution $\Qb$.
+        \item Maximum likelihood estimation is the most popular:
+        \begin{align*}
+            \hat\theta_{\mathrm{MLE}} = \arg\max_{\theta\in\Theta} \E_{X\sim\Qb}[\log p_\theta(X)]. 
+        \end{align*}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Part III: Statistical inference}
+    \centering
+    {\large\bfseries What is not captured by maximum likelihood?}\\[0.2cm]
+
+    \begin{columns}[T,onlytextwidth]
+        \column{0.48\textwidth}
+        \begin{block}{Likelihood-free simulators}
+            When $\Pb_\theta$ is a scientific simulator: we can sample $x\sim p_\theta(x)$,
+            but cannot evaluate the density $p_\theta(x)$.
+
+            \par\vspace{0.18cm}
+            \centering
+            \includegraphics[width=0.92\linewidth,trim=0 170bp 0 170bp,clip]{figures/tsunami_simulator.png}
+        \end{block}
+
+        \column{0.48\textwidth}
+        \begin{block}{Robustness}
+            A few contaminated observations can strongly move the fitted parameter.
+            
+            \par\vspace{0.30cm}
+            \centering
+            \includegraphics[width=0.95\linewidth]{../plotting/figures/statistical_inference_outlier_illustration.pdf}
+        \end{block}
+    \end{columns}
+\end{frame}
 
 \bibliographystyle{abbrvnat}
 \bibliography{reference}
