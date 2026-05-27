@@ -507,7 +507,7 @@
         \begin{minipage}[t][0.285\textheight][t]{0.95\linewidth}
             \centering
             {\bfseries Conditional Bayesian Quadrature~\textcolor{mmdGreen!80!black}{(UAI 2025)}}\\[0.02cm]
-            {\footnotesize\textcolor{graytext}{\underline{Z. Chen}, M. Naslidnyk, A. Gretton, F.-X. Briol}}\\[0.04cm]
+            {\tiny\textcolor{graytext}{\underline{Z. Chen}, M. Naslidnyk, A. Gretton, F.-X. Briol}}\\[0.04cm]
 
             \raggedright
             \begin{itemize}
@@ -528,7 +528,7 @@
         \begin{minipage}[t][0.285\textheight][t]{0.95\linewidth}
             \centering
             {\bfseries Nested Expectations with Kernel Quadrature~\textcolor{mmdBlue!80!black}{(ICML 2025)}}\\[0.02cm]
-            {\footnotesize\textcolor{graytext}{\underline{Z. Chen}, M. Naslidnyk, F.-X. Briol}}\\[0.04cm]
+            {\tiny\textcolor{graytext}{\underline{Z. Chen}, M. Naslidnyk, F.-X. Briol}}\\[0.04cm]
 
             \raggedright
             \begin{itemize}
@@ -550,7 +550,7 @@
         \begin{minipage}[t][0.195\textheight][t]{0.95\linewidth}
             \centering
             {\bfseries BayesSum: Bayesian Quadrature in Discrete Spaces~\textcolor{mmdBlue!80!black}{(ProbNum 2026)}}\\[0.02cm]
-            {\footnotesize\textcolor{graytext}{S. S. Kang, F.-X. Briol, T. Karvonen, Z. Chen}}\\[0.04cm]
+            {\tiny\textcolor{graytext}{S. S. Kang, F.-X. Briol, T. Karvonen, Z. Chen}}\\[0.04cm]
 
             \raggedright
             \begin{itemize}
@@ -643,7 +643,7 @@
         \begin{minipage}[t][0.29\textheight][t]{0.95\linewidth}
             \centering
             {\bfseries (De)-regularized MMD Gradient Flow~\textcolor{mmdBlue!80!black}{(JMLR 2025)}}\\[0.02cm]
-            {\footnotesize\textcolor{graytext}{\underline{Z. Chen}, A. Mustafi, P. Glaser, A. Korba, A. Gretton, B. K. Sriperumbudur}}\\[0.04cm]
+            {\tiny\textcolor{graytext}{\underline{Z. Chen}, A. Mustafi, P. Glaser, A. Korba, A. Gretton, B. K. Sriperumbudur}}\\[0.04cm]
 
             \raggedright
             \begin{itemize}
@@ -659,7 +659,7 @@
         \begin{minipage}[t][0.29\textheight][t]{0.95\linewidth}
             \centering
             {\bfseries Sobolev Regularized MMD Gradient Flow~\textcolor{mmdGreen!80!black}{(Arxiv)}}\\[0.02cm]
-            {\footnotesize\textcolor{graytext}{C. Tian, B. K. Sriperumbudur, A. Gretton, \underline{Z. Chen}}}\\[0.04cm]
+            {\tiny\textcolor{graytext}{C. Tian, B. K. Sriperumbudur, A. Gretton, \underline{Z. Chen}}}\\[0.04cm]
 
             \raggedright
             \begin{itemize}
@@ -677,7 +677,7 @@
         \begin{minipage}[t][0.31\textheight][t]{0.95\linewidth}
             \centering
             {\bfseries Stationary MMD Points~\textcolor{mmdRed!80!black}{(ICML 2026)}}\\[0.02cm]
-            {\footnotesize\textcolor{graytext}{\underline{Z. Chen}, T. Karvonen, H. Kanagawa, F.-X. Briol, C. J. Oates}}\\[0.04cm]
+            {\tiny\textcolor{graytext}{\underline{Z. Chen}, T. Karvonen, H. Kanagawa, F.-X. Briol, C. J. Oates}}\\[0.04cm]
 
             \raggedright
             \begin{itemize}
@@ -693,7 +693,7 @@
         \begin{minipage}[t][0.31\textheight][t]{0.95\linewidth}
             \centering
             {\bfseries Thinned Mean Field Langevin Dynamics~\textcolor{orange!80!black}{(ICML 2026)}}\\[0.02cm]
-            {\footnotesize\textcolor{graytext}{\underline{Z. Chen}, H. Kanagawa, F.-X. Briol, C. J. Oates, L. Mackey}}\\[0.04cm]
+            {\tiny\textcolor{graytext}{\underline{Z. Chen}, H. Kanagawa, F.-X. Briol, C. J. Oates, L. Mackey}}\\[0.04cm]
 
             \raggedright
             \begin{itemize}
@@ -871,21 +871,61 @@
     \begin{exampleblock}{}
         \centering \textbf{Question:} How to reliably find the minimum MMD estimator $\hat\theta_{\mathrm{MMD}}$?
     \end{exampleblock}
+    \vspace{0.25cm}
     \fcolorbox{mmdBlue!70!black}{mmdBlue!6}{%
     \begin{minipage}[t][0.29\textheight][t]{0.95\linewidth}
         \centering
-        {\bfseries On Optimization of Minimum MMD Estimators~\textcolor{mmdBlue!80!black}{(JMLR 2025)}}\\[0.02cm]
-        {\footnotesize\textcolor{graytext}{S. S. Kang, L. Sharrock, X. Cheng, F.-X. Briol, \underline{Z. Chen}}}\\[0.04cm]
+        {\bfseries On Optimization of Minimum MMD Estimators~\textcolor{mmdBlue!80!black}{(Arxiv)}}\\[0.02cm]
+        {\tiny\textcolor{graytext}{S. S. Kang, L. Sharrock, X. Cheng, F.-X. Briol, \underline{Z. Chen}}}\\[0.04cm]
 
         \raggedright
         \begin{itemize}
-            \item DrMMD interpolates between MMD and $\chi^2$ divergence.
-            \item Convergence in KL divergence: $\lim_{t\to\infty}\mathrm{KL}(\Pb_t, \Qb)=0$. 
+            \item A preconditioned  method / natural gradient type method. 
+            \item Adaptive kernel lengthscale.
         \end{itemize}
     \end{minipage}%
     }
 \end{frame}
 
+\begin{frame}{Part IV: What next?}
+    \centering
+    {\large\bfseries Minimum MMD for counterfactual inference}\\[0.05cm]
+
+    \begin{exampleblock}{}
+        \centering
+        \textbf{Question:} What would have happened under a different intervention?
+    \end{exampleblock}
+
+    \vspace{0cm}
+    \begin{block}{}
+        \begin{columns}[T,onlytextwidth]
+            \column{0.46\textwidth}
+            \begin{itemize}
+                \setlength\itemsep{0cm}
+                \item Treatment $A$. 
+                \item Counterfactual outcome: $Y(a)$ under treatment $A=a$.
+                \item Missing data/inference problem. 
+            \end{itemize}
+
+            \column{0.50\textwidth}
+            \centering
+            \includegraphics[width=0.58\linewidth]{figures/counterfactual_inference.png}
+        \end{columns}
+    \end{block}
+
+    \vspace{0.28cm}
+    {\setlength{\fboxsep}{0.30em}%
+    \fcolorbox{mmdBlue!70!black}{mmdBlue!5}{%
+    \begin{minipage}{0.945\linewidth}
+        \raggedright
+        {\footnotesize\bfseries Conformal Counterfactual Inference under Hidden Confounding~\textcolor{mmdBlue!80!black}{(KDD 2024)}}\par\vspace{-0.08cm}
+        {\tiny\textcolor{graytext}{\underline{Z. Chen}, R. Guo, J.-F. Ton, Y. Liu}}\par\vspace{0.02cm}
+        {\footnotesize\bfseries Neural Networks for NPIV: Optimization and Generalization~\textcolor{mmdBlue!80!black}{(Arxiv)}}\par\vspace{-0.08cm}
+        {\tiny\textcolor{graytext}{\underline{Z. Chen}, A. Nitanda, A. Gretton, T. Suzuki}}\par\vspace{0.02cm}
+        {\footnotesize\bfseries NPIV with Observed Covariates~\textcolor{mmdBlue!80!black}{(Arxiv)}}\par\vspace{-0.08cm}
+        {\tiny\textcolor{graytext}{Z. Shen, \underline{Z. Chen}, D. Meunier, I. Steinwart, A. Gretton, Z. Li}}
+    \end{minipage}}}
+\end{frame}
 
 \bibliographystyle{abbrvnat}
 \bibliography{reference}
