@@ -136,7 +136,7 @@
     \vspace{-0.25cm}
     \begin{columns}[T,onlytextwidth]
         \column{0.34\textwidth}
-        \begin{minipage}[c][0.68\textheight][c]{\linewidth}
+        \begin{minipage}[t][0.68\textheight][t]{\linewidth}
             \centering
             \begin{tikzpicture}
                 \node[
@@ -307,14 +307,12 @@
     \begin{columns}[c]
         \column{0.8\textwidth}
         \begin{itemize}
-            \item Compare $\Pb$ and $\Qb$ by maximizing the difference over a function class $\calH$:
+            \item $\calH$ is a reproducing kernel Hilbert space (RKHS) with kernel $k$.
             \begin{align*}
                 \text{MMD}(\Pb, \Qb)
                 := \sup_{f \in \calH}
                 |\E_{\Pb}[f(X)] - \E_{\Qb}[f(X)]|.
             \end{align*}
-            \item $\calH$ is a reproducing kernel Hilbert space (RKHS) with kernel $k$.
-            % \item If $\calH = \{f(x)=w^\top x\}$, this reduces to comparing means.
             \item The RKHS contains functions that are linear combinations of the feature maps $\phi:\calX\to\calH$, $f=\sum_{i=1}^n \alpha_i \phi(x_i)$.
 
         \end{itemize}
@@ -367,17 +365,17 @@
     \centering
     \vspace{0.15cm}
     {\Large\bfseries We now have MMD}\\[0.2cm]
-    {\normalsize A kernel-based way to compare probability distributions $\Pb$ and $\Qb$}\\[0.25cm]
+    {\normalsize A kernel-based way to compare probability distributions $\Pb$ and $\Qb$.}\\[0.25cm]
 
     \vspace{0.15cm}
     {\large\bfseries What can we use it for?}\\[0.28cm]
 
-    \begin{columns}[T,onlytextwidth]
+    \begin{columns}[b,onlytextwidth]
         \column{0.31\textwidth}
         \centering
         \setlength{\fboxsep}{5pt}
         \fcolorbox{mmdGreen!65!black}{mmdGreen!8}{%
-            \begin{minipage}{0.88\linewidth}
+            \begin{minipage}[t][0.40\textheight][t]{0.88\linewidth}
                 \centering
                 {\Large \mmdicon{mmdGreen!80!black}{$\int$}}\\[0.08cm]
                 {\bfseries Numerical Integration}\\[0.12cm]
@@ -390,7 +388,7 @@
         \centering
         \setlength{\fboxsep}{5pt}
         \fcolorbox{mmdBlue!70!black}{mmdBlue!8}{%
-            \begin{minipage}{0.88\linewidth}
+            \begin{minipage}[t][0.40\textheight][t]{0.88\linewidth}
                 \centering
                 {\Large \mmdicon{mmdBlue!80!black}{$\sim$}}\\[0.08cm]
                 {\bfseries Sampling / generative modelling}\\[0.12cm]
@@ -402,7 +400,7 @@
         \centering
         \setlength{\fboxsep}{5pt}
         \fcolorbox{mmdRed!70!black}{mmdRed!8}{%
-            \begin{minipage}{0.88\linewidth}
+            \begin{minipage}[t][0.40\textheight][t]{0.88\linewidth}
                 \centering
                 {\Large \mmdicon{mmdRed!80!black}{$\theta$}}\\[0.08cm]
                 {\bfseries Statistical inference}\\[0.12cm]
@@ -485,10 +483,10 @@
 
 \begin{frame}{Part I: Numerical Integration}
     \begin{answerblock}
-        \centering \textbf{Rate:} KQ achieves $\mathcal{O}(n^{-s/d})$ rate.
+        \centering \textbf{Rate:} KQ achieves \green{$\mathcal{O}(n^{-s/d})$} rate.
     \end{answerblock}
     \begin{itemize}
-        \item $s$ is the smoothness of $f$, $d$ is the dimension of input $x$. 
+        \item \red{$s$} is the smoothness of $f$, $d$ is the dimension of input $x$. 
         \item Better than $\mathcal{O}(n^{-1/2})$ when $s > d/2$.
     \end{itemize}
     \centering
@@ -506,7 +504,7 @@
     \fcolorbox{mmdGreen!70!black}{mmdGreen!6}{%
         \begin{minipage}[t][0.285\textheight][t]{0.95\linewidth}
             \centering
-            {\bfseries Conditional Bayesian Quadrature~\textcolor{mmdGreen!80!black}{(UAI 2025)}}\\[0.02cm]
+            {\bfseries Conditional Bayesian Quadrature~\textcolor{mmdGreen!80!black}{(UAI 2025)}}\\[-0.10cm]
             {\tiny\textcolor{graytext}{\underline{Z. Chen}, M. Naslidnyk, A. Gretton, F.-X. Briol}}\\[0.04cm]
 
             \raggedright
@@ -527,7 +525,7 @@
     \fcolorbox{mmdBlue!70!black}{mmdBlue!6}{%
         \begin{minipage}[t][0.285\textheight][t]{0.95\linewidth}
             \centering
-            {\bfseries Nested Expectations with Kernel Quadrature~\textcolor{mmdBlue!80!black}{(ICML 2025)}}\\[0.02cm]
+            {\bfseries Nested Expectations with Kernel Quadrature~\textcolor{mmdBlue!80!black}{(ICML 2025)}}\\[-0.10cm]
             {\tiny\textcolor{graytext}{\underline{Z. Chen}, M. Naslidnyk, F.-X. Briol}}\\[0.04cm]
 
             \raggedright
@@ -546,10 +544,10 @@
 
     \vspace{0.07cm}
 
-    \fcolorbox{mmdBlue!70!black}{mmdBlue!6}{%
+    \fcolorbox{mmdGreen!70!black}{mmdGreen!6}{%
         \begin{minipage}[t][0.195\textheight][t]{0.95\linewidth}
             \centering
-            {\bfseries BayesSum: Bayesian Quadrature in Discrete Spaces~\textcolor{mmdBlue!80!black}{(ProbNum 2026)}}\\[0.02cm]
+            {\bfseries BayesSum: Bayesian Quadrature in Discrete Spaces~\textcolor{mmdGreen!80!black}{(ProbNum 2026)}}\\[-0.10cm]
             {\tiny\textcolor{graytext}{S. S. Kang, F.-X. Briol, T. Karvonen, Z. Chen}}\\[0.04cm]
 
             \raggedright
@@ -569,7 +567,7 @@
         \item Given a target distribution $\Qb$, how to draw samples $\{x_i\}_{i=1}^n$ from it?
         \begin{itemize}
             \item When $\Qb$ is known up to normalization, this is sampling.
-            \item When $\Qb$ is known up to i.i.d samples, this is generative modelling.
+            \item When $\Qb$ is known with i.i.d samples, this is generative modelling.
         \end{itemize}
     \end{itemize}
 \end{frame}
@@ -642,7 +640,7 @@
     \fcolorbox{mmdBlue!70!black}{mmdBlue!6}{%
         \begin{minipage}[t][0.29\textheight][t]{0.95\linewidth}
             \centering
-            {\bfseries (De)-regularized MMD Gradient Flow~\textcolor{mmdBlue!80!black}{(JMLR 2025)}}\\[0.02cm]
+            {\bfseries (De)-regularized MMD Gradient Flow~\textcolor{mmdBlue!80!black}{(JMLR 2025)}}\\[-0.10cm]
             {\tiny\textcolor{graytext}{\underline{Z. Chen}, A. Mustafi, P. Glaser, A. Korba, A. Gretton, B. K. Sriperumbudur}}\\[0.04cm]
 
             \raggedright
@@ -658,7 +656,7 @@
     \fcolorbox{mmdGreen!70!black}{mmdGreen!6}{%
         \begin{minipage}[t][0.29\textheight][t]{0.95\linewidth}
             \centering
-            {\bfseries Sobolev Regularized MMD Gradient Flow~\textcolor{mmdGreen!80!black}{(Arxiv)}}\\[0.02cm]
+            {\bfseries Sobolev Regularized MMD Gradient Flow~\textcolor{mmdGreen!80!black}{(Arxiv)}}\\[-0.10cm]
             {\tiny\textcolor{graytext}{C. Tian, B. K. Sriperumbudur, A. Gretton, \underline{Z. Chen}}}\\[0.04cm]
 
             \raggedright
@@ -676,12 +674,12 @@
     \fcolorbox{mmdRed!70!black}{mmdRed!6}{%
         \begin{minipage}[t][0.31\textheight][t]{0.95\linewidth}
             \centering
-            {\bfseries Stationary MMD Points~\textcolor{mmdRed!80!black}{(ICML 2026)}}\\[0.02cm]
+            {\bfseries Stationary MMD Points~\textcolor{mmdRed!80!black}{(ICML 2026)}}\\[-0.10cm]
             {\tiny\textcolor{graytext}{\underline{Z. Chen}, T. Karvonen, H. Kanagawa, F.-X. Briol, C. J. Oates}}\\[0.04cm]
 
             \raggedright
             \begin{itemize}
-                \item Prove that samples from MMD flow are better for numerical integration than IID samples. 
+                \item Samples from MMD flow are better for numerical integration than IID samples. 
                 \item IID samples: $\mathcal{O}(n^{-1/2})$, MMD flow points: $o(n^{-1/2})$.
             \end{itemize}
         \end{minipage}
@@ -692,7 +690,7 @@
     \fcolorbox{orange!80!black}{orange!7}{%
         \begin{minipage}[t][0.31\textheight][t]{0.95\linewidth}
             \centering
-            {\bfseries Thinned Mean Field Langevin Dynamics~\textcolor{orange!80!black}{(ICML 2026)}}\\[0.02cm]
+            {\bfseries Thinned Mean Field Langevin Dynamics~\textcolor{orange!80!black}{(ICML 2026)}}\\[-0.10cm]
             {\tiny\textcolor{graytext}{\underline{Z. Chen}, H. Kanagawa, F.-X. Briol, C. J. Oates, L. Mackey}}\\[0.04cm]
 
             \raggedright
@@ -745,7 +743,7 @@
                         (x.south) .. controls (1.05,-1.32) and (-1.3,-1.28) ..
                         node[pos=0.52, below] {$p(\theta|x)$} (theta.south west);
                 \end{tikzpicture}\\[0.14cm]
-                {\bfseries Simulation-based\\inference}\\[0.02cm]
+                {\bfseries Simulation-based\\inference}\\[-0.10cm]
                 {\small Infer parameters from simulator outputs.}
             \end{minipage}
         }
@@ -875,7 +873,7 @@
     \fcolorbox{mmdBlue!70!black}{mmdBlue!6}{%
     \begin{minipage}[t][0.29\textheight][t]{0.95\linewidth}
         \centering
-        {\bfseries On Optimization of Minimum MMD Estimators~\textcolor{mmdBlue!80!black}{(Arxiv)}}\\[0.02cm]
+        {\bfseries On Optimization of Minimum MMD Estimators~\textcolor{mmdBlue!80!black}{(Arxiv)}}\\[-0.10cm]
         {\tiny\textcolor{graytext}{S. S. Kang, L. Sharrock, X. Cheng, F.-X. Briol, \underline{Z. Chen}}}\\[0.04cm]
 
         \raggedright
@@ -886,6 +884,8 @@
     \end{minipage}%
     }
 \end{frame}
+
+\parttitleframe{What next: causal inference.}
 
 \begin{frame}{Part IV: What next?}
     \centering
@@ -925,6 +925,20 @@
         {\footnotesize\bfseries NPIV with Observed Covariates~\textcolor{mmdBlue!80!black}{(Arxiv)}}\par\vspace{-0.08cm}
         {\tiny\textcolor{graytext}{Z. Shen, \underline{Z. Chen}, D. Meunier, I. Steinwart, A. Gretton, Z. Li}}
     \end{minipage}}}
+\end{frame}
+
+\parttitleframe{Summary}
+
+\begin{frame}{Summary}
+    \begin{itemize}
+        \item MMD is a powerful tool for comparing probability distributions.
+        \begin{align*}
+            \text{MMD}(\Pb, \Qb) := \sup_{f \in \calH}
+            |\E_{\Pb}[f(X)] - \E_{\Qb}[f(X)]|.
+        \end{align*}
+        \item Minimization of MMD in numerical integration, sampling/generative modelling, and statistical inference. 
+        \item Future work: causal inference?
+    \end{itemize}
 \end{frame}
 
 \bibliographystyle{abbrvnat}
