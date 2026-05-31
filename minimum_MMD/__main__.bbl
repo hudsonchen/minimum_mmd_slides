@@ -1,8 +1,53 @@
-\begin{thebibliography}{0}
-\providecommand{\natexlab}[1]{#1}
-\providecommand{\url}[1]{\texttt{#1}}
-\expandafter\ifx\csname urlstyle\endcsname\relax
-  \providecommand{\doi}[1]{doi: #1}\else
-  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{GBR{\etalchar{+}}12}
+
+\bibitem[AKSG19]{arbel2019maximum}
+Michael Arbel, Anna Korba, Adil Salim, and Arthur Gretton.
+\newblock Maximum mean discrepancy gradient flow.
+\newblock In H.~Wallach, H.~Larochelle, A.~Beygelzimer, F.~d'Alché Buc,
+  E.~Fox, and R.~Garnett, editors, {\em Advances in Neural Information
+  Processing Systems}, volume~32. Curran Associates, Inc., 2019.
+
+\bibitem[GBG25]{galashov2024deep}
+Alexandre Galashov, Valentin~De Bortoli, and Arthur Gretton.
+\newblock Deep {MMD} gradient flow without adversarial training.
+\newblock In {\em The Thirteenth International Conference on Learning
+  Representations}, 2025.
+
+\bibitem[GBR{\etalchar{+}}12]{gretton2012kernel}
+Arthur Gretton, Karsten~M. Borgwardt, Malte~J. Rasch, Bernhard Sch{\"o}lkopf,
+  and Alexander Smola.
+\newblock A kernel two-sample test.
+\newblock {\em Journal of Machine Learning Research}, 13(1):723--773, 2012.
+
+\bibitem[MSR19]{mroueh2019sobolev}
+Youssef Mroueh, Tom Sercu, and Anant Raj.
+\newblock Sobolev descent.
+\newblock In {\em The 22nd International Conference on Artificial Intelligence
+  and Statistics}, pages 2976--2985. PMLR, 2019.
+
+\bibitem[OT11]{ohta2011displacement}
+Shin-ichi Ohta and Asuka Takatsu.
+\newblock Displacement convexity of generalized relative entropies.
+\newblock {\em Advances in Mathematics}, 228(3):1742--1787, 2011.
+
+\bibitem[Ott01]{otto2001geometry}
+Felix Otto.
+\newblock The geometry of dissipative evolution equations: the porous medium
+  equation.
+\newblock 2001.
+
+\bibitem[SFL11]{sriperumbudur2011universality}
+Bharath~K. Sriperumbudur, Kenji Fukumizu, and Gert R.~G. Lanckriet.
+\newblock Universality, characteristic kernels and {RKHS} embedding of
+  measures.
+\newblock {\em Journal of Machine Learning Research}, 12(7):2389--2410, 2011.
+
+\bibitem[XKS22]{xu2022accurate}
+Lantian Xu, Anna Korba, and Dejan Slepcev.
+\newblock Accurate quantization of measures via interacting particle-based
+  optimization.
+\newblock In {\em International Conference on Machine Learning}, pages
+  24576--24595. PMLR, 2022.
 
 \end{thebibliography}

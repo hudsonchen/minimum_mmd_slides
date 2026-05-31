@@ -66,8 +66,21 @@
 \headcommand {\beamer@framepages {30}{30}}
 \headcommand {\slideentry {2}{0}{29}{31/31}{}{0}}
 \headcommand {\beamer@framepages {31}{31}}
-\headcommand {\beamer@partpages {1}{31}}
-\headcommand {\beamer@subsectionpages {3}{31}}
-\headcommand {\beamer@sectionpages {3}{31}}
-\headcommand {\beamer@documentpages {31}}
-\headcommand {\gdef \inserttotalframenumber {31}}
+\headcommand {\slideentry {2}{0}{30}{32/32}{}{0}}
+\headcommand {\beamer@framepages {32}{32}}
+\headcommand {\slideentry {2}{0}{31}{33/33}{}{0}}
+\headcommand {\beamer@framepages {33}{33}}
+\headcommand {\slideentry {2}{0}{32}{34/34}{}{0}}
+\headcommand {\beamer@framepages {34}{34}}
+\headcommand {\slideentry {2}{0}{33}{35/35}{}{0}}
+\headcommand {\beamer@framepages {35}{35}}
+\headcommand {\slideentry {2}{0}{34}{36/36}{}{0}}
+\headcommand {\beamer@framepages {36}{36}}
+\headcommand {\beamer@sectionpages {3}{36}}
+\headcommand {\beamer@subsectionpages {3}{36}}
+\headcommand {\sectionentry {3}{\translate {References}}{37}{\translate {References}}{0}}
+\headcommand {\beamer@partpages {1}{38}}
+\headcommand {\beamer@subsectionpages {3}{38}}
+\headcommand {\beamer@sectionpages {3}{38}}
+\headcommand {\beamer@documentpages {38}}
+\headcommand {\gdef \inserttotalframenumber {36}}

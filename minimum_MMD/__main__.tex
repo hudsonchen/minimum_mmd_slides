@@ -31,6 +31,7 @@
 \newtheorem{cor}[theorem]{Corollary}
 \newtheorem{lem}[theorem]{Lemma}
 \newtheorem{prop}[theorem]{Proposition}
+\newtheorem*{prop*}{Proposition}
 \newtheorem{rem}[theorem]{Remark}
 \newtheorem{defi}{Definition}
 \newtheorem{ass}{Assumption}
@@ -68,10 +69,10 @@
 \let\oldcitep\citep
 \let\oldcitet\citet
 
-% Redefine with grey color
-\renewcommand{\citep}[1]{\textcolor{graytext}{\oldcitep{#1}}}
-\renewcommand{\citet}[1]{\textcolor{graytext}{\oldcitet{#1}}}
-\renewcommand{\cite}[1]{\textcolor{graytext}{\oldcitep{#1}}} % you can choose oldcitet if preferred
+% Render slide citations as compact grey alphabetic labels.
+\renewcommand{\citep}[1]{{\scriptsize\textcolor{graytext}{\oldcitep{#1}}}}
+\renewcommand{\citet}[1]{{\scriptsize\textcolor{graytext}{\oldcitet{#1}}}}
+\renewcommand{\cite}[1]{{\scriptsize\textcolor{graytext}{\oldcitep{#1}}}}
 \newcommand{\red}[1]{\textcolor{red}{#1}}
 \newcommand{\green}[1]{\textcolor{green!60!black}{#1}}
 \newcommand{\orange}[1]{\textcolor{orange}{#1}}
@@ -170,7 +171,7 @@
 
         \vspace{0.18cm}
         \begin{beamercolorbox}[wd=\linewidth, sep=0.33em, rounded=true]{answer box}
-            {\bfseries Research Interests}\\[0.04cm]
+            {\bfseries Research Interests}\\[-0.10cm]
             \small
             \vspace{-0.24cm}
             \begin{itemize}
@@ -303,7 +304,7 @@
 \end{exampleblock}
 \end{frame}
 
-\begin{frame}{Background: Maximum Mean Discrepancy (MMD)}
+\begin{frame}{Background: Maximum Mean Discrepancy (MMD)~\citep{gretton2012kernel}}
     \begin{columns}[c]
         \column{0.8\textwidth}
         \begin{itemize}
@@ -357,7 +358,7 @@
         \end{align*}
     \end{thm}
     \begin{itemize}
-        \item MMD is a probability divergence ($\mathrm{MMD}(\Pb, \Qb)=0 \iff \Pb=\Qb$) if $k$ is characteristic (Gaussian).
+        \item MMD is a probability divergence ($\mathrm{MMD}(\Pb, \Qb)=0 \iff \Pb=\Qb$) if $k$ is characteristic (Gaussian)~\citep{sriperumbudur2011universality}.
     \end{itemize}
 \end{frame}
 
@@ -404,7 +405,7 @@
                 \centering
                 {\Large \mmdicon{mmdRed!80!black}{$\theta$}}\\[0.08cm]
                 {\bfseries Statistical inference}\\[0.12cm]
-                {\Large $\hat\theta_{\mathrm{MMD}}$}\\[0.15cm]
+                {\Large $\theta_{\mathrm{MMD}}$}\\[0.15cm]
                 \includegraphics[width=\linewidth]{../plotting/figures/statistical_inference_illustration.pdf}
             \end{minipage}
         }
@@ -496,16 +497,111 @@
 \begin{frame}{Part I: Numerical Integration}
     \centering
     \includegraphics[width=0.62\linewidth]{../plotting/figures/kq_single_expectation_benchmark.pdf}
+    \begin{itemize}
+        \item $s=4$ and $d=1$. 
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Part I: Numerical Integration}
+    \centering
+    \begin{itemize}
+        \item Nested expectation: $\displaystyle
+        I := \E_{\theta \sim \Qb}
+        \left[
+            f\left(\E_{X \sim \Pb_\theta}[g(X,\theta)]\right)
+        \right]$
+    \end{itemize}
+        
+    \vspace{0.15cm}
+    \begin{tikzpicture}[
+        scale=0.92,
+        transform shape,
+        outer/.style={circle, draw=mmdBlue!80!black, fill=mmdBlue!10, minimum size=6.5mm, font=\small},
+        inner/.style={rounded corners=2pt, draw=mmdGreen!70!black, fill=mmdGreen!10, minimum width=2.35cm, minimum height=0.58cm, align=center, font=\small},
+        evalbox/.style={rounded corners=2pt, draw=mmdRed!70!black, fill=mmdRed!8, minimum width=2.35cm, minimum height=0.58cm, align=center, font=\small},
+        conn/.style={-{Latex[length=1.8mm]}, line width=0.7pt, mmdBlue!75!black},
+        rowlabel/.style={font=\small\bfseries, text=mmdBlue!80!black, align=right, anchor=east}
+    ]
+        \node[rowlabel] at (-1.45,0.90) {outer samples};
+        \node[outer] (th1) at (0,0.90) {$\theta_1$};
+        \node[outer] (th2) at (2.50,0.90) {$\theta_2$};
+        \node at (4.00,0.90) {$\cdots$};
+        \node[outer] (thT) at (5.50,0.90) {$\theta_T$};
+
+        \node[rowlabel] at (-1.45,-0.03) {inner samples};
+        \node[inner] (x1) at (0,-0.03) {$x_{1:N}^{(1)} \sim \Pb_{\theta_1}$};
+        \node[inner] (x2) at (2.50,-0.03) {$x_{1:N}^{(2)} \sim \Pb_{\theta_2}$};
+        \node at (4.00,-0.03) {$\cdots$};
+        \node[inner] (xT) at (5.50,-0.03) {$x_{1:N}^{(T)} \sim \Pb_{\theta_T}$};
+
+        \node[rowlabel] at (-1.45,-0.84) {function evaluates};
+        \node[evalbox] (g1) at (0,-0.84) {$g(x,\theta_1)$};
+        \node[evalbox] (g2) at (2.50,-0.84) {$g(x,\theta_2)$};
+        \node at (4.00,-0.84) {$\cdots$};
+        \node[evalbox] (gT) at (5.50,-0.84) {$g(x,\theta_T)$};
+        \node[font=\small\bfseries, text=mmdBlue!80!black] at (2.45,-1.54)
+        {Total simulator evaluations: $N \times T$};
+    \end{tikzpicture}
+
+    \vspace{-0.15cm}
+    \begin{columns}[T,onlytextwidth]
+        \column{0.48\textwidth}
+        \fcolorbox{mmdGreen!70!black}{mmdGreen!10}{%
+        \begin{minipage}{0.94\linewidth}
+            \vspace{0.10cm}
+            {\centering\small\bfseries Stage I: inner KQ\par}\vspace{-0.25cm}
+            \[
+                \widehat{J}_{\mathrm{KQ}}(\theta_t)
+                =
+                \sum_{n=1}^{N}
+                w^{\calX}_{n,t} g(x_n^{(t)},\theta_t)
+            \]
+            \vspace{-0.10cm}
+        \end{minipage}}
+
+        \column{0.48\textwidth}
+        \fcolorbox{mmdBlue!80!black}{mmdBlue!10}{%
+        \begin{minipage}{0.94\linewidth}
+            \vspace{0.10cm}
+            {\centering\small\bfseries Stage II: outer KQ\par}\vspace{-0.25cm}
+            \[
+                \widehat{I}_{\mathrm{NKQ}}
+                =
+                \sum_{t=1}^{T}
+                w_t^{\Theta} f\left(\hat{J}^{\mathrm{KQ}}(\theta_t)\right)
+            \]
+            \vspace{-0.10cm}
+        \end{minipage}}
+    \end{columns}
+
+    \vspace{0.15cm}
+    \begin{tabular}{@{}c@{\hspace{0.24cm}}c@{}}
+        {\bfseries Cost to achieve error $|I-\widehat{I}|\leq\Delta$:}
+        &
+        \resizebox{0.56\linewidth}{!}{%
+        \begin{tabular}{@{}c@{\hspace{0.45cm}}c@{}}
+            \toprule
+            \textbf{NMC}: $\mathcal{O}(\Delta^{-4})$ or $\mathcal{O}(\Delta^{-3})$
+            &
+            \textbf{NQMC}: $\mathcal{O}(\Delta^{-2.5})$
+            \\
+            \textbf{MLMC}: $\mathcal{O}(\Delta^{-2})$
+            &
+            \textbf{NKQ}: $\tilde{\mathcal{O}}(\Delta^{-d_{\calX}/s_{\calX}-d_{\Theta}/s_{\Theta}})$
+            \\
+            \bottomrule
+        \end{tabular}}
+    \end{tabular}
 \end{frame}
 
 \begin{frame}{Part I: Numerical Integration}
     \centering
     \setlength{\fboxsep}{2pt}
     \fcolorbox{mmdGreen!70!black}{mmdGreen!6}{%
-        \begin{minipage}[t][0.285\textheight][t]{0.95\linewidth}
+        \begin{minipage}[t][0.26\textheight][t]{0.95\linewidth}
             \centering
             {\bfseries Conditional Bayesian Quadrature~\textcolor{mmdGreen!80!black}{(UAI 2025)}}\\[-0.10cm]
-            {\tiny\textcolor{graytext}{\underline{Z. Chen}, M. Naslidnyk, A. Gretton, F.-X. Briol}}\\[0.04cm]
+            {\tiny\textcolor{graytext}{\underline{Z. Chen}, M. Naslidnyk, A. Gretton, F.-X. Briol}}\\[-0.10cm]
 
             \raggedright
             \begin{itemize}
@@ -520,19 +616,19 @@
         \end{minipage}
     }
 
-    \vspace{0.07cm}
+    \vspace{0.15cm}
 
     \fcolorbox{mmdBlue!70!black}{mmdBlue!6}{%
-        \begin{minipage}[t][0.285\textheight][t]{0.95\linewidth}
+        \begin{minipage}[t][0.26\textheight][t]{0.95\linewidth}
             \centering
             {\bfseries Nested Expectations with Kernel Quadrature~\textcolor{mmdBlue!80!black}{(ICML 2025)}}\\[-0.10cm]
-            {\tiny\textcolor{graytext}{\underline{Z. Chen}, M. Naslidnyk, F.-X. Briol}}\\[0.04cm]
+            {\tiny\textcolor{graytext}{\underline{Z. Chen}, M. Naslidnyk, F.-X. Briol}}\\[-0.10cm]
 
             \raggedright
             \begin{itemize}
                 \setlength\itemsep{0pt}
                 \item Extension to nested expectations: $I := \E_{\theta \sim \Qb}
-\left[f\left(\E_{X \sim \Pb_\theta}[g(X,\theta)]\right)\right].$
+\left[f\left(\E_{X \sim \Pb_\theta}[g(X,\theta)]\right)\right]$. 
                 \item Weighted rule:
                 $\hat{I}_{\mathrm{NKQ}}
                 = \sum_{t=1}^T w_t^\Theta
@@ -542,13 +638,13 @@
         \end{minipage}
     }
 
-    \vspace{0.07cm}
+    \vspace{0.15cm}
 
     \fcolorbox{mmdGreen!70!black}{mmdGreen!6}{%
-        \begin{minipage}[t][0.195\textheight][t]{0.95\linewidth}
+        \begin{minipage}[t][0.16\textheight][t]{0.95\linewidth}
             \centering
             {\bfseries BayesSum: Bayesian Quadrature in Discrete Spaces~\textcolor{mmdGreen!80!black}{(ProbNum 2026)}}\\[-0.10cm]
-            {\tiny\textcolor{graytext}{S. S. Kang, F.-X. Briol, T. Karvonen, Z. Chen}}\\[0.04cm]
+            {\tiny\textcolor{graytext}{S. S. Kang, F.-X. Briol, T. Karvonen, Z. Chen}}\\[-0.10cm]
 
             \raggedright
             \begin{itemize}
@@ -559,7 +655,42 @@
     }
 \end{frame}
 
-\parttitleframe{Sampling / Generative Modelling}
+\begin{frame}[plain]
+    \centering
+    \vspace{0.20cm}
+    {\Huge\bfseries Sampling / Generative Modelling}\\[0.28cm]
+
+    \begin{tikzpicture}[
+        x=1cm,
+        y=1cm,
+        panel/.style={rounded corners=2pt, line width=0.8pt},
+        paneltitle/.style={font=\bfseries, text=mmdBlue!85!black},
+        note/.style={font=\small, align=center, text=black},
+        loc/.style={circle, fill=mmdRed!82!black, draw=white, line width=0.45pt, minimum size=4.2pt, inner sep=0pt},
+        weightcircle/.style={circle, draw=none, fill=mmdGreen!55, opacity=0.32, inner sep=0pt},
+        equalweight/.style={circle, draw=none, fill=mmdBlue!55, opacity=0.30, inner sep=0pt}
+    ]
+        \node[paneltitle] at (-3.50,1.52) {Quadrature};
+        \node[note] at (-3.50,1.02) {fixed locations, choose weights};
+        \draw[panel, draw=mmdGreen!65!black, fill=mmdGreen!3] (-5.55,-1.25) rectangle (-1.45,0.75);
+
+        \foreach \x/\y/\r in {-4.72/-0.70/0.17,-4.18/0.10/0.34,-3.52/-0.42/0.58,-2.80/0.25/0.28,-2.18/-0.55/0.12} {
+            \node[weightcircle, minimum size=\r cm] at ({\x+0.04},{\y-0.04}) {};
+            \node[weightcircle, fill=mmdGreen!65, opacity=0.22, minimum size=\r cm] at (\x,\y) {};
+            \node[loc] at (\x,\y) {};
+        }
+
+        \node[paneltitle] at (3.50,1.52) {Sampling / generation};
+        \node[note] at (3.50,1.02) {equal weights, choose locations};
+        \draw[panel, draw=mmdBlue!65!black, fill=mmdBlue!3] (1.45,-1.25) rectangle (5.55,0.75);
+
+        \foreach \x/\y in {2.08/-0.72,2.72/-0.12,3.28/-0.58,3.88/0.18,4.70/-0.42} {
+            \node[equalweight, minimum size=0.34cm] at ({\x+0.04},{\y-0.04}) {};
+            \node[equalweight, fill=mmdBlue!70, opacity=0.18, minimum size=0.34cm] at (\x,\y) {};
+            \node[loc] at (\x,\y) {};
+        }
+    \end{tikzpicture}
+\end{frame}
 
 \begin{frame}{Part II: Sampling / Generative modelling}
     \centering \includegraphics[width=0.70\linewidth]{../plotting/figures/sampling_generative_illustration.pdf}\\[0.12cm]
@@ -597,7 +728,7 @@
         \textbf{Question}: Wait... How to define gradients on $\calP(\R^d)$?
     \end{exampleblock}
     \begin{answerblock}
-        \centering \textbf{Answer}: Wassserstein gradient !
+        \centering \textbf{Answer}: Wassserstein gradient !~\citep{otto2001geometry}
     \end{answerblock}
     \vspace{0.25cm}
     \centering \includegraphics[width=0.80\linewidth]{../plotting/figures/ot_wasserstein_gradient_illustration.pdf}\\[0.12cm]
@@ -609,9 +740,9 @@
     \begin{talign*}
         \arg\min_{\Pb \in \calP(\R^d)} \mmd^2(\Pb, \Qb) . 
     \end{talign*}
-        \item A (Wasserstein) gradient descent of $\mmd^2(\Pb, \Qb)$ gives a sequence $\Pb_0, \Pb_1, \ldots$
+        \item A (Wasserstein) gradient descent of $\mmd^2(\Pb, \Qb)$ gives a sequence of distributions: $\Pb_0, \Pb_1, \ldots, \Pb_t$~\citep{arbel2019maximum}.
         \begin{itemize}
-            \item In the limit, $\Pb_t$ converges to $\Qb$ and $\mmd(\Pb_t, \Qb) \to 0$.
+            \item In the limit, $\Pb_t$ converges to $\Qb$ and $\mmd(\Pb_t, \Qb) \to 0$ (or not?). 
         \end{itemize}
     \end{itemize}
     \vspace{0.25cm}
@@ -625,7 +756,7 @@
     \centering \includegraphics[width=0.80\linewidth]{../plotting/figures/generative_reverse_noising_celeba.pdf}\\[0.12cm]
 
     \begin{itemize}
-        \item MMD flow does not outperform diffusion-based generative models.
+        \item MMD flow does not outperform diffusion-based generative models~\citep{galashov2024deep}.
         \item A novel framework of generative modelling \& sampling.
     \end{itemize}
 \end{frame}
@@ -634,14 +765,31 @@
     \begin{exampleblock}{}
         \centering \textbf{Challenge:}  Non-convexity of the squared MMD objective: $\lim_{t\to\infty}\mmd^2(\Pb_t, \Qb) > 0$. 
     \end{exampleblock}
-    \vspace{0.25cm}
+    \begin{itemize}
+        \item $\chi^2(\mu\|\pi)$ is convex in $\mu$~\citep{ohta2011displacement}, yet hard to implement.  
+        \item DrMMD \blue{interpolates} between MMD ($\lambda=\infty$) and $\chi^2$ ($\lambda=0$).
+    \end{itemize}
+    \begin{align*}
+        \operatorname{DrMMD}(\mu, \pi)=\sup_{f \in \mathcal{H}:\|f\|_{L_2(\mu)}^2+\lambda\|f\|_{\mathcal{H}}^2 \leq 1} \int f \mathrm{~d}(\mu-\pi) .
+    \end{align*}
+    \vspace{-0.15cm}
+    \begin{itemize}
+        \item DrMMD flow converges in KL divergence: $\lim_{t\to\infty}\mathrm{KL}(\Pb_t, \Qb)=0$.
+        \begin{itemize}
+            \item When $\pi$ is `Gaussian-like'. 
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Part II: Sampling / Generative modelling}
     \centering
     \setlength{\fboxsep}{2pt}
     \fcolorbox{mmdBlue!70!black}{mmdBlue!6}{%
-        \begin{minipage}[t][0.29\textheight][t]{0.95\linewidth}
+        \begin{minipage}[t][0.23\textheight][t]{0.95\linewidth}
             \centering
             {\bfseries (De)-regularized MMD Gradient Flow~\textcolor{mmdBlue!80!black}{(JMLR 2025)}}\\[-0.10cm]
-            {\tiny\textcolor{graytext}{\underline{Z. Chen}, A. Mustafi, P. Glaser, A. Korba, A. Gretton, B. K. Sriperumbudur}}\\[0.04cm]
+            {\tiny\textcolor{graytext}{\underline{Z. Chen}, A. Mustafi, P. Glaser, A. Korba, A. Gretton, B. K. Sriperumbudur}}\\[-0.10cm]
 
             \raggedright
             \begin{itemize}
@@ -651,58 +799,131 @@
         \end{minipage}
     }
 
-    \vspace{0.10cm}
+    \vspace{0.20cm}
 
     \fcolorbox{mmdGreen!70!black}{mmdGreen!6}{%
-        \begin{minipage}[t][0.29\textheight][t]{0.95\linewidth}
+        \begin{minipage}[t][0.50\textheight][t]{0.95\linewidth}
             \centering
             {\bfseries Sobolev Regularized MMD Gradient Flow~\textcolor{mmdGreen!80!black}{(Arxiv)}}\\[-0.10cm]
-            {\tiny\textcolor{graytext}{C. Tian, B. K. Sriperumbudur, A. Gretton, \underline{Z. Chen}}}\\[0.04cm]
+            {\tiny\textcolor{graytext}{C. Tian, B. K. Sriperumbudur, A. Gretton, \underline{Z. Chen}}}\\[-0.10cm]
 
             \raggedright
             \begin{itemize}
-                \item Gradient regularization on the critic.
+                \item Gradient regularization on the critic~\citep{mroueh2019sobolev}.
+                \begin{align*}
+                    \operatorname{SrMMD}(\mu, \pi)=\sup _{f \in \mathcal{H}:\|\nabla f\|_{L_2^d(\mu)}^2+\lambda\|f\|_{\mathcal{H}}^2 \leq 1} \int f \mathrm{~d}(\mu-\pi) .
+                \end{align*}
                 \item Convergence in MMD: $\lim_{t\to\infty}\mathrm{MMD}(\Pb_t, \Qb)=0$.
+                \item No conditions on $\pi$. 
             \end{itemize}
         \end{minipage}
     }
 \end{frame}
 
 \begin{frame}{Part II: Sampling / Generative modelling}
+    \begin{exampleblock}{}
+        \centering \textbf{Empirical observation:} \\
+        (Wasserstein) gradient flows give samples more \red{uniform} than i.i.d samples~\citep{xu2022accurate}.
+    \end{exampleblock}
+    \centering \includegraphics[width=0.75\linewidth]{../plotting/figures/sampling_four_panel_summary.pdf}\\[0.12cm]
+    \begin{itemize}
+        \item However, theoretical rate can hardly beat Monte Carlo: $n^{-1/2}$.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Part II: Sampling / Generative modelling}
+    \begin{itemize}
+        \item For any $i\in\{1, \ldots, n\}$:  
+    \begin{align*}
+        \nabla_{x_i} \operatorname{MMD}^2\left(\mu, \frac{1}{n} \sum_{j=1}^n \delta_{x_j}\right)=0 
+        \Longleftrightarrow \frac{1}{n} \sum_{j=1}^n \nabla_1 k\left(x_i, x_j\right)-\int \nabla_1 k\left(x_i, y\right) \mathrm{d} \mu(y)=0. 
+    \end{align*}
+        \item Exact integration on $x \mapsto \nabla_1 k\left(x_i, x\right)$.
+    \end{itemize}
+    \begin{exampleblock}{}
+        \centering \textbf{Exact integration subspace:} 
+        \vspace{-0.20cm}
+        \begin{align*}
+        \mathcal{G}_n := \operatorname{span}\Bigl\{
+        \nabla_1 k(x_i,\cdot) : i\in\{1, \ldots, n\}. \Bigr\} \subset \mathcal{H}.
+        \end{align*}
+    \end{exampleblock}
+    \begin{itemize}
+        \item As $n\to\infty$, $\mathcal{G}_n$ approximates the whole RKHS $\calH$ up to constant functions.
+        \item Stationary MMD points achieve \blue{$o(n^{-1/2})$} rate for numerical integration. 
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Part II: Sampling / Generative modelling}
     \centering
     \setlength{\fboxsep}{2pt}
     \fcolorbox{mmdRed!70!black}{mmdRed!6}{%
-        \begin{minipage}[t][0.31\textheight][t]{0.95\linewidth}
+        \begin{minipage}[t][0.25\textheight][t]{0.95\linewidth}
             \centering
             {\bfseries Stationary MMD Points~\textcolor{mmdRed!80!black}{(ICML 2026)}}\\[-0.10cm]
-            {\tiny\textcolor{graytext}{\underline{Z. Chen}, T. Karvonen, H. Kanagawa, F.-X. Briol, C. J. Oates}}\\[0.04cm]
+            {\tiny\textcolor{graytext}{\underline{Z. Chen}, T. Karvonen, H. Kanagawa, F.-X. Briol, C. J. Oates}}\\[-0.10cm]
 
             \raggedright
             \begin{itemize}
                 \item Samples from MMD flow are better for numerical integration than IID samples. 
-                \item IID samples: $\mathcal{O}(n^{-1/2})$, MMD flow points: $o(n^{-1/2})$.
+                \item IID samples: $\mathcal{O}(n^{-1/2})$, stationary MMD points: $o(n^{-1/2})$.
             \end{itemize}
         \end{minipage}
     }
 
-    \vspace{0.10cm}
+    \vspace{0.20cm}
 
     \fcolorbox{orange!80!black}{orange!7}{%
-        \begin{minipage}[t][0.31\textheight][t]{0.95\linewidth}
+        \begin{minipage}[t][0.32\textheight][t]{0.95\linewidth}
             \centering
             {\bfseries Thinned Mean Field Langevin Dynamics~\textcolor{orange!80!black}{(ICML 2026)}}\\[-0.10cm]
-            {\tiny\textcolor{graytext}{\underline{Z. Chen}, H. Kanagawa, F.-X. Briol, C. J. Oates, L. Mackey}}\\[0.04cm]
+            {\tiny\textcolor{graytext}{\underline{Z. Chen}, H. Kanagawa, F.-X. Briol, C. J. Oates, L. Mackey}}\\[-0.10cm]
 
             \raggedright
             \begin{itemize}
                 \item Computational cost of MMD flow is $\calO(n^2)$ due to pair-wise interaction.
                 \item Reduce cost to $\mathcal{O}(n^{1.5})$ without sacrificing the sample quality.
+                \item Kernel thinning! 
             \end{itemize}
         \end{minipage}
     }
 \end{frame}
 
-\parttitleframe{Statistical Inference}
+\begin{frame}[plain]
+    \centering
+    \vspace{0.10cm}
+    {\Huge\bfseries Statistical Inference}\\[0.28cm]
+
+    \begin{columns}[T,onlytextwidth]
+        \column{0.48\textwidth}
+        \fcolorbox{mmdBlue!75!black}{mmdBlue!7}{%
+        \begin{minipage}[t][0.3\textheight][t]{0.94\linewidth}
+            \vspace{0.50cm}
+            \centering
+            {\Large\bfseries MMD flow}\\[-0.40cm]
+            \[
+                \arg\min_{\Pb \in \calP(\R^d)}
+                \mathrm{MMD}^2(\Pb,\Qb)
+            \]
+        \end{minipage}}
+
+        \column{0.48\textwidth}
+        \fcolorbox{mmdGreen!70!black}{mmdGreen!7}{%
+        \begin{minipage}[t][0.3\textheight][t]{0.94\linewidth}
+            \vspace{0.50cm}
+            \centering
+            {\Large \bfseries Minimum MMD inference}\\[-0.40cm]
+            \[
+                \theta_{\mathrm{MMD}}
+                =
+                \arg\min_{\theta \in \Theta}
+                \mathrm{MMD}^2(\Pb_\theta,\Qb)
+            \]
+        \end{minipage}}
+    \end{columns}
+\end{frame}
 
 \begin{frame}{Part III: Statistical inference}
     \centering
@@ -797,7 +1018,7 @@
         \item Infer the parameter $\theta$ that best explains an unknown data distribution $\Qb$.
         \item Maximum likelihood estimation is the most popular:
         \begin{align*}
-            \hat\theta_{\mathrm{MLE}} = \arg\max_{\theta\in\Theta} \E_{X\sim\Qb}[\log p_\theta(X)]. 
+            \theta_{\mathrm{MLE}} = \arg\max_{\theta\in\Theta} \E_{X\sim\Qb}[\log p_\theta(X)]. 
         \end{align*}
     \end{itemize}
 \end{frame}
@@ -830,9 +1051,9 @@
 
 \begin{frame}{Part III: Statistical inference}
     \begin{itemize}
-        \item Minimum MMD estimator
+        \item Minimum MMD estimator~\citep{briol2019statistical,cherief2022finite}
         \begin{align*}
-            \hat\theta_{\mathrm{MMD}}
+            \theta_{\mathrm{MMD}}
             &= \arg\min_{\theta\in\Theta} \mathrm{MMD}^2(\Pb_\theta, \Qb) \\
             &= \arg\min_{\theta\in\Theta}
             \Big\{
@@ -867,14 +1088,48 @@
 
 \begin{frame}{Part III: Statistical inference}
     \begin{exampleblock}{}
-        \centering \textbf{Question:} How to reliably find the minimum MMD estimator $\hat\theta_{\mathrm{MMD}}$?
+        \centering \textbf{Question:} How to reliably find $\theta_{\mathrm{MMD}}$?
     \end{exampleblock}
-    \vspace{0.25cm}
+    \begin{columns}[T,onlytextwidth]
+        \column{0.66\textwidth}
+        \begin{itemize}
+            \setlength\itemsep{0.12cm}
+            \item MMD flow:
+            \[
+                \Pb_{t+1}
+                =
+                (\Id - \gamma \nabla f_{\Pb_t,\Qb})_{\#}\Pb_t .
+            \]
+            \item MMD flow converges globally.
+            \begin{itemize}
+                \item Adaptive lengthscale, DrMMD, SrMMD, etc.
+            \end{itemize}
+            \item Consider $\Pb_\theta=(T_\theta)_{\#}\rho$:
+            \[
+                \Pb_{\theta_{t+1}} = (T_{\theta_t - \gamma \Delta \theta_t})_\# \rho .
+            \]
+            \item Choose $\Pb_{\theta_{t+1}}$ closest to the MMD flow iterate $\Pb_{t+1}$.
+            \item $\lim_{t\to\infty} \mmd(\Pb_{\theta_t}, \Qb) = \min_{\theta} \mmd_{\ell}(\Pb_{\theta}, \Qb)$. 
+        \end{itemize}
+
+        \column{0.33\textwidth}
+        \begin{minipage}[c][0.64\textheight][c]{\linewidth}
+            \centering
+            \includegraphics[
+                width=\linewidth,
+                keepaspectratio
+            ]{../plotting/figures/illustration_simple.pdf}
+        \end{minipage}
+    \end{columns}
+\end{frame}
+
+
+\begin{frame}{Part III: Statistical inference}
     \fcolorbox{mmdBlue!70!black}{mmdBlue!6}{%
     \begin{minipage}[t][0.29\textheight][t]{0.95\linewidth}
         \centering
         {\bfseries On Optimization of Minimum MMD Estimators~\textcolor{mmdBlue!80!black}{(Arxiv)}}\\[-0.10cm]
-        {\tiny\textcolor{graytext}{S. S. Kang, L. Sharrock, X. Cheng, F.-X. Briol, \underline{Z. Chen}}}\\[0.04cm]
+        {\tiny\textcolor{graytext}{S. S. Kang, L. Sharrock, X. Cheng, F.-X. Briol, \underline{Z. Chen}}}\\[-0.10cm]
 
         \raggedright
         \begin{itemize}
@@ -939,9 +1194,10 @@
         \item Minimization of MMD in numerical integration, sampling/generative modelling, and statistical inference. 
         \item Future work: causal inference?
     \end{itemize}
+
 \end{frame}
 
-\bibliographystyle{abbrvnat}
+\bibliographystyle{alpha}
 \bibliography{reference}
 
 \end{document}
