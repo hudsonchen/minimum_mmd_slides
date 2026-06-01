@@ -836,7 +836,7 @@
         \item For any $i\in\{1, \ldots, n\}$:  
     \begin{align*}
         \nabla_{x_i} \operatorname{MMD}^2\left(\mu, \frac{1}{n} \sum_{j=1}^n \delta_{x_j}\right)=0 
-        \Longleftrightarrow \frac{1}{n} \sum_{j=1}^n \nabla_1 k\left(x_i, x_j\right)-\int \nabla_1 k\left(x_i, y\right) \mathrm{d} \mu(y)=0. 
+        \Longrightarrow \frac{1}{n} \sum_{j=1}^n \nabla_1 k\left(x_i, x_j\right)-\int \nabla_1 k\left(x_i, y\right) \mathrm{d} \mu(y)=0. 
     \end{align*}
         \item Exact integration on $x \mapsto \nabla_1 k\left(x_i, x\right)$.
     \end{itemize}
@@ -1108,7 +1108,7 @@
                 \Pb_{\theta_{t+1}} = (T_{\theta_t - \gamma \Delta \theta_t})_\# \rho .
             \]
             \item Choose $\Pb_{\theta_{t+1}}$ closest to the MMD flow iterate $\Pb_{t+1}$.
-            \item $\lim_{t\to\infty} \mmd(\Pb_{\theta_t}, \Qb) = \min_{\theta} \mmd_{\ell}(\Pb_{\theta}, \Qb)$. 
+            \item $\lim_{t\to\infty} \mmd(\Pb_{\theta_t}, \Qb) = \min_{\theta} \mmd(\Pb_{\theta}, \Qb)$. 
         \end{itemize}
 
         \column{0.33\textwidth}
@@ -1177,7 +1177,7 @@
         {\footnotesize\bfseries Neural Networks for NPIV: Optimization and Generalization~\textcolor{mmdBlue!80!black}{(Arxiv)}}\par\vspace{-0.08cm}
         {\tiny\textcolor{graytext}{\underline{Z. Chen}, A. Nitanda, A. Gretton, T. Suzuki}}\par\vspace{0.02cm}
         {\footnotesize\bfseries NPIV with Observed Covariates~\textcolor{mmdBlue!80!black}{(Arxiv)}}\par\vspace{-0.08cm}
-        {\tiny\textcolor{graytext}{Z. Shen, \underline{Z. Chen}, D. Meunier, I. Steinwart, A. Gretton, Z. Li}}
+        {\tiny\textcolor{graytext}{Z. Shen*, \underline{Z. Chen}*, D. Meunier, I. Steinwart, A. Gretton, Z. Li}}
     \end{minipage}}}
 \end{frame}
 
