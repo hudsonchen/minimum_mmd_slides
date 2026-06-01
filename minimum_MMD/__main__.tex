@@ -27,6 +27,7 @@
 
 \usepackage{amsthm}
 \newtheorem{thm}{Theorem}
+\newtheorem*{thm*}{Theorem}
 \newtheorem{cor}[theorem]{Corollary}
 \newtheorem{lem}[theorem]{Lemma}
 \newtheorem{prop}[theorem]{Proposition}
@@ -124,7 +125,7 @@
     \titlepage
     \vspace{-1.5cm}
     \begin{center}
-        \textit{Annual student conference, UCL Computer Science, 2026} 
+        % \textit{Annual student conference, UCL Computer Science, 2026} 
     \end{center}
 \end{frame}
 
@@ -170,9 +171,9 @@
 
         \vspace{0.18cm}
         \begin{beamercolorbox}[wd=\linewidth, sep=0.33em, rounded=true]{answer box}
-            {\bfseries Research Interests}\\[-0.10cm]
+            {\bfseries Research Interests}\\
             \small
-            \vspace{-0.24cm}
+            \vspace{-0.14cm}
             \begin{itemize}
                 \setlength\topsep{0pt}
                 \setlength\partopsep{0pt}
@@ -348,14 +349,14 @@
             \end{scope}
         \end{tikzpicture}
     \end{columns}
-    \begin{thm}
+    \begin{thm*}
         MMD admits a closed-form expression:
         \begin{align*}
             \mathrm{MMD}^2(\Pb, \Qb)
             = \E_{X,X'\sim\Pb}[k(X,X')]
             + \E_{Y,Y'\sim\Qb}[k(Y,Y')] - 2\E_{X\sim\Pb,\,Y\sim\Qb}[k(X,Y)] .
         \end{align*}
-    \end{thm}
+    \end{thm*}
     \begin{itemize}
         \item MMD is a probability divergence ($\mathrm{MMD}(\Pb, \Qb)=0 \iff \Pb=\Qb$) if $k$ is characteristic (Gaussian)~\citep{sriperumbudur2011universality}.
     \end{itemize}
@@ -471,10 +472,9 @@
             \leq \|f\|_{\calH}^2 \cdot
             \mathrm{MMD}^2(\hat{\Pb}, \Pb) .         \end{align*}
         \item The right-hand side is the \red{worst-case} error of the quadrature rule. 
-        \item The \blue{optimal} weights that minimize $\mathrm{MMD}(\hat{\Pb}, \Pb)$:
         \begin{align*}
-            w_{1:n}
-            = \E_{X \sim \Pb}[k(X, x_{1:n})]
+            w_{1:n} &:= \arg\min_{w_{1:n}\in\R^n} \mmd\left(\sum_{i=1}^n w_i \delta_{x_i}, \Pb\right), \\ 
+            w_{1:n} &= \E_{X \sim \Pb}[k(X, x_{1:n})]
             K(x_{1:n},x_{1:n})^{-1} . 
         \end{align*}
         \item The kernel quadrature (KQ) rule: $\hat{I}_{\mathrm{KQ}} = \sum_{i=1}^n w_i f(x_i)$.
@@ -1190,7 +1190,21 @@
             \text{MMD}(\Pb, \Qb) := \sup_{f \in \calH}
             |\E_{\Pb}[f(X)] - \E_{\Qb}[f(X)]|.
         \end{align*}
-        \item Minimization of MMD in numerical integration, sampling/generative modelling, and statistical inference. 
+        \item Minimization of MMD in numerical integration
+        \begin{align*}
+            \arg\min_{w_{1:n}\in\R^n} \mmd\left(\sum_{i=1}^n w_i \delta_{x_i}, \Pb\right)
+        \end{align*}
+        
+        sampling/generative modelling, 
+        \begin{align*}
+            \arg\min_{\Pb \in \calP(\R^d)} \mmd^2(\Pb, \Qb) 
+        \end{align*}
+        
+        and statistical inference. 
+        \begin{align*}
+            \arg\min_{\theta \in \Theta}
+                \mathrm{MMD}^2(\Pb_\theta,\Qb)
+        \end{align*}
         \item Future work: causal inference?
     \end{itemize}
 
