@@ -141,6 +141,47 @@
         \end{itemize}
         \item Future work: MiniMMD for causal inference.
     \end{itemize}
+
+    \vspace{0.10cm}
+    \begin{columns}[b,onlytextwidth]
+        \column{0.31\textwidth}
+        \centering
+        \setlength{\fboxsep}{5pt}
+        \fcolorbox{mmdGreen!65!black}{mmdGreen!8}{%
+            \begin{minipage}[t][0.34\textheight][t]{0.88\linewidth}
+                \centering
+                {\Large \mmdicon{mmdGreen!80!black}{$\int$}}\\[0.08cm]
+                {\bfseries Numerical Integration}\\[0.12cm]
+                {\large $\int f(x) \dd \Pb(x)$}\\[0.12cm]
+                \includegraphics[width=\linewidth]{../plotting/figures/integral_illustration.pdf}
+            \end{minipage}
+        }
+
+        \column{0.31\textwidth}
+        \centering
+        \setlength{\fboxsep}{5pt}
+        \fcolorbox{mmdBlue!70!black}{mmdBlue!8}{%
+            \begin{minipage}[t][0.34\textheight][t]{0.88\linewidth}
+                \centering
+                {\Large \mmdicon{mmdBlue!80!black}{$\sim$}}\\[0.08cm]
+                {\bfseries Sampling / generative modelling}\\[0.12cm]
+                \includegraphics[width=\linewidth]{../plotting/figures/sampling_generative_illustration.pdf}
+            \end{minipage}
+        }
+
+        \column{0.31\textwidth}
+        \centering
+        \setlength{\fboxsep}{5pt}
+        \fcolorbox{mmdRed!70!black}{mmdRed!8}{%
+            \begin{minipage}[t][0.34\textheight][t]{0.88\linewidth}
+                \centering
+                {\Large \mmdicon{mmdRed!80!black}{$\theta$}}\\[0.08cm]
+                {\bfseries Statistical inference}\\[0.12cm]
+                {\large $\theta_{\mathrm{MMD}}$}\\[0.12cm]
+                \includegraphics[width=\linewidth]{../plotting/figures/statistical_inference_illustration.pdf}
+            \end{minipage}
+        }
+    \end{columns}
 \end{frame}
 
 % \section{Personal}
@@ -359,11 +400,11 @@
         \end{tikzpicture}
     \end{columns}
     \begingroup
-    \setbeamercolor{block title}{fg=black!35,bg=black!8}
-    \setbeamercolor{block body}{fg=black!35,bg=black!3}
-    \setbeamercolor{itemize item}{fg=black!35}
-    \setbeamercolor{normal text}{fg=black!35}
-    \color{black!35}
+    \setbeamercolor{block title}{fg=black!25,bg=black!5}
+    \setbeamercolor{block body}{fg=black!25,bg=black!2}
+    \setbeamercolor{itemize item}{fg=black!25}
+    \setbeamercolor{normal text}{fg=black!25}
+    \color{black!25}
     \begin{thm*}
         MMD admits a closed-form expression:
         \begin{align*}
@@ -373,7 +414,7 @@
         \end{align*}
     \end{thm*}
     \begin{itemize}
-        \item \textcolor{black!35}{MMD is a probability divergence ($\mathrm{MMD}(\Pb, \Qb)=0 \iff \Pb=\Qb$) if $k$ is characteristic (Gaussian)~\citep{sriperumbudur2011universality}.}
+        \item \textcolor{black!25}{MMD is a probability divergence ($\mathrm{MMD}(\Pb, \Qb)=0 \iff \Pb=\Qb$) if $k$ is characteristic (Gaussian)~\citep{sriperumbudur2011universality}.}
     \end{itemize}
     \endgroup
 \end{frame}
@@ -547,17 +588,17 @@
             \mathrm{MMD}^2(\hat{\Pb}, \Pb) .         \end{align*}
     \end{itemize}
     \begingroup
-    \setbeamercolor{itemize item}{fg=black!35}
-    \setbeamercolor{normal text}{fg=black!35}
-    \color{black!35}
+    \setbeamercolor{itemize item}{fg=black!25}
+    \setbeamercolor{normal text}{fg=black!25}
+    \color{black!25}
     \begin{itemize}
-        \item \textcolor{black!35}{The right-hand side is the worst-case error of the quadrature rule.}
+        \item \textcolor{black!25}{The right-hand side is the worst-case error of the quadrature rule.}
         \begin{align*}
-            \color{black!35}w_{1:n} &\color{black!35}:= \arg\min_{w_{1:n}\in\R^n} \mmd\left(\sum_{i=1}^n w_i \delta_{x_i}, \Pb\right), \\ 
-            \color{black!35}w_{1:n} &\color{black!35}= \E_{X \sim \Pb}[k(X, x_{1:n})]
+            \color{black!25}w_{1:n} &\color{black!25}:= \arg\min_{w_{1:n}\in\R^n} \mmd\left(\sum_{i=1}^n w_i \delta_{x_i}, \Pb\right), \\ 
+            \color{black!25}w_{1:n} &\color{black!25}= \E_{X \sim \Pb}[k(X, x_{1:n})]
             K(x_{1:n},x_{1:n})^{-1} . 
         \end{align*}
-        \item \textcolor{black!35}{The kernel quadrature (KQ) rule: $\hat{I}_{\mathrm{KQ}} = \sum_{i=1}^n w_i f(x_i)$.}
+        \item \textcolor{black!25}{The kernel quadrature (KQ) rule: $\hat{I}_{\mathrm{KQ}} = \sum_{i=1}^n w_i f(x_i)$.}
     \end{itemize}
     \endgroup
 \end{frame}
@@ -643,10 +684,10 @@
 
     \vspace{-0.15cm}
     \begingroup
-    \color{black!35}
+    \color{black!25}
     \begin{columns}[T,onlytextwidth]
         \column{0.48\textwidth}
-        \fcolorbox{black!15}{black!3}{%
+        \fcolorbox{black!10}{black!2}{%
         \begin{minipage}{0.94\linewidth}
             \vspace{0.10cm}
             {\centering\small\bfseries Stage I: inner KQ\par}\vspace{-0.25cm}
@@ -660,7 +701,7 @@
         \end{minipage}}
 
         \column{0.48\textwidth}
-        \fcolorbox{black!15}{black!3}{%
+        \fcolorbox{black!10}{black!2}{%
         \begin{minipage}{0.94\linewidth}
             \vspace{0.10cm}
             {\centering\small\bfseries Stage II: outer KQ\par}\vspace{-0.25cm}
@@ -1024,6 +1065,34 @@
     \end{itemize}
 \end{frame}
 
+
+\begin{frame}{Part II: Sampling / Generative modelling}
+    \begin{itemize}
+        \item For any $i\in\{1, \ldots, n\}$:  
+    \begin{align*}
+        \nabla_{x_i} \operatorname{MMD}^2\left(\mu, \frac{1}{n} \sum_{j=1}^n \delta_{x_j}\right)=0 
+        \Longrightarrow \frac{1}{n} \sum_{j=1}^n \nabla_1 k\left(x_i, x_j\right)-\int \nabla_1 k\left(x_i, y\right) \mathrm{d} \mu(y)=0. 
+    \end{align*}
+        \item Exact integration on $x \mapsto \nabla_1 k\left(x_i, x\right)$.
+    \end{itemize}
+    \begin{exampleblock}{}
+        \centering \textbf{Exact integration subspace:} 
+        \vspace{-0.20cm}
+        \begin{align*}
+        \mathcal{G}_n := \operatorname{span}\Bigl\{
+        \nabla_1 k(x_i,\cdot) : i\in\{1, \ldots, n\}. \Bigr\} \subset \mathcal{H}.
+        \end{align*}
+    \end{exampleblock}
+    \begingroup
+    \setbeamercolor{itemize item}{fg=black!25}
+    \setbeamercolor{normal text}{fg=black!25}
+    \color{black!25}
+    \begin{itemize}
+        \item \textcolor{black!25}{As $n\to\infty$, $\mathcal{G}_n$ approximates the whole RKHS $\calH$ up to constant functions.}
+        \item \textcolor{black!25}{Stationary MMD points achieve $o(n^{-1/2})$ rate for numerical integration.}
+    \end{itemize}
+    \endgroup
+\end{frame}
 
 \begin{frame}{Part II: Sampling / Generative modelling}
     \begin{itemize}
