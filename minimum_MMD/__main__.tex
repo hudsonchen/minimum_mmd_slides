@@ -130,7 +130,18 @@
 \end{frame}
 
 
-
+\begin{frame}{Overview}
+    \begin{itemize}
+        \item What is Maximum mean discrepancy (MMD)?
+        \item Minimization of MMD (miniMMD)
+        \begin{itemize}
+            \item for numerical integration.
+            \item for sampling / generative modelling.
+            \item for statistical inference.
+        \end{itemize}
+        \item Future work: MiniMMD for causal inference.
+    \end{itemize}
+\end{frame}
 
 % \section{Personal}
 % \begin{frame}{About Me}
@@ -300,6 +311,70 @@
 \centering
     \textbf{Goal}: Compare $\Pb$ and $\Qb$ with a general $f$, i.e., $|\E_{\Pb}[f(X)] - \E_{\Qb}[f(X)]|$?
 \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Background: Maximum Mean Discrepancy (MMD)~\citep{gretton2012kernel}}
+    \begin{columns}[c]
+        \column{0.8\textwidth}
+        \begin{itemize}
+            \item $\calH$ is a reproducing kernel Hilbert space (RKHS) with kernel $k$.
+            \begin{align*}
+                \text{MMD}(\Pb, \Qb)
+                := \sup_{f \in \calH}
+                |\E_{\Pb}[f(X)] - \E_{\Qb}[f(X)]|.
+            \end{align*}
+            \item The RKHS contains functions that are linear combinations of the feature maps $\phi:\calX\to\calH$, $f=\sum_{i=1}^n \alpha_i \phi(x_i)$.
+
+        \end{itemize}
+
+        \column{0.2\textwidth}
+        \centering
+        \begin{tikzpicture}[scale=0.72, every node/.style={font=\scriptsize}]
+            \begin{scope}
+                \draw[->, thick] (-1.55,0) -- (1.75,0) node[right] {$x$};
+                \node[above] at (0.1,0.38) {input space};
+
+                \foreach \x in {-0.9,-0.65,-0.35,-0.1} {
+                    \fill[blue!80!black] (\x,0) circle (2pt);
+                }
+                \foreach \x in {0.45,0.7,1.0,1.25} {
+                    \fill[orange!90!black] (\x,0) circle (2pt);
+                }
+                \node[blue!80!black] at (-0.55,-0.35) {$\Pb$};
+                \node[orange!90!black] at (0.95,-0.35) {$\Qb$};
+            \end{scope}
+            \vspace{0.2cm}
+            \begin{scope}[shift={(0,-2.55)}]
+                \draw[->, thick] (-1.55,0) -- (1.75,0) node[right] {$\phi_1$};
+                \draw[->, thick] (-1.35,-1.1) -- (-1.35,1.25) node[above] {$\phi_2$};
+                \node[above] at (0.15,1.25) {feature space};
+
+                \foreach \p in {(-1.0,0.55),(-0.72,0.82),(-0.35,0.48),(-0.05,0.9)} {
+                    \fill[blue!80!black] \p circle (2pt);
+                }
+                \foreach \p in {(0.25,-0.45),(0.58,-0.2),(0.95,-0.52),(1.25,-0.05)} {
+                    \fill[orange!90!black] \p circle (2pt);
+                }
+            \end{scope}
+        \end{tikzpicture}
+    \end{columns}
+    \begingroup
+    \setbeamercolor{block title}{fg=graytext,bg=graytext!20}
+    \setbeamercolor{block body}{fg=graytext,bg=graytext!8}
+    \setbeamercolor{itemize item}{fg=graytext}
+    \color{graytext}
+    \begin{thm*}
+        MMD admits a closed-form expression:
+        \begin{align*}
+            \mathrm{MMD}^2(\Pb, \Qb)
+            = \E_{X,X'\sim\Pb}[k(X,X')]
+            + \E_{Y,Y'\sim\Qb}[k(Y,Y')] - 2\E_{X\sim\Pb,\,Y\sim\Qb}[k(X,Y)] .
+        \end{align*}
+    \end{thm*}
+    \begin{itemize}
+        \item MMD is a probability divergence ($\mathrm{MMD}(\Pb, \Qb)=0 \iff \Pb=\Qb$) if $k$ is characteristic (Gaussian)~\citep{sriperumbudur2011universality}.
+    \end{itemize}
+    \endgroup
 \end{frame}
 
 \begin{frame}{Background: Maximum Mean Discrepancy (MMD)~\citep{gretton2012kernel}}
