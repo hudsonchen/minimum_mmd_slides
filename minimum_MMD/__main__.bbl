@@ -1,5 +1,5 @@
 \newcommand{\etalchar}[1]{$^{#1}$}
-\begin{thebibliography}{GBR{\etalchar{+}}12}
+\begin{thebibliography}{BOG{\etalchar{+}}19}
 
 \bibitem[AKSG19]{arbel2019maximum}
 Michael Arbel, Anna Korba, Adil Salim, and Arthur Gretton.
@@ -20,6 +20,12 @@ Arved Bartuska, Andr{\'e}~Gustavo Carlon, Luis Espath, Sebastian Krumscheid,
 \newblock Double-loop randomized quasi-{M}onte {C}arlo estimator for nested
   integration.
 \newblock {\em arXiv preprint arXiv:2302.14119}, 2023.
+
+\bibitem[BOG{\etalchar{+}}19]{briol2019probabilistic}
+Fran{\c{c}}ois-Xavier Briol, Chris~J. Oates, Mark Girolami, Michael~A. Osborne,
+  and Dino Sejdinovic.
+\newblock Probabilistic integration: A role in statistical computation?
+\newblock {\em Statistical Science}, 34(1):1--22, 2019.
 
 \bibitem[CAA22]{cherief2022finite}
 Badr-Eddine Ch{'e}rief-Abdellatif and Pierre Alquier.
@@ -74,11 +80,22 @@ Tom Rainforth, Rob Cornish, Hongseok Yang, Andrew Warrington, and Frank Wood.
   Proceedings of Machine Learning Research}, pages 4267--4276. PMLR, 10--15 Jul
   2018.
 
+\bibitem[RG02]{rasmussen2002bayesian}
+Carl~Edward Rasmussen and Zoubin Ghahramani.
+\newblock Bayesian {M}onte {C}arlo.
+\newblock In {\em Advances in Neural Information Processing Systems},
+  volume~15, 2002.
+
 \bibitem[SFL11]{sriperumbudur2011universality}
 Bharath~K. Sriperumbudur, Kenji Fukumizu, and Gert R.~G. Lanckriet.
 \newblock Universality, characteristic kernels and {RKHS} embedding of
   measures.
 \newblock {\em Journal of Machine Learning Research}, 12(7):2389--2410, 2011.
+
+\bibitem[SV06]{sommariva2006numerical}
+Alvise Sommariva and Marco Vianello.
+\newblock Numerical cubature on scattered data by radial basis functions.
+\newblock {\em Computing}, 76:295--310, 2006.
 
 \bibitem[XKS22]{xu2022accurate}
 Lantian Xu, Anna Korba, and Dejan Slepcev.
