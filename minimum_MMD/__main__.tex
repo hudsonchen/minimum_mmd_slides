@@ -132,131 +132,129 @@
 
 
 
-\section{Personal}
-\begin{frame}{About Me}
-    \vspace{-0.25cm}
-    \begin{columns}[T,onlytextwidth]
-        \column{0.34\textwidth}
-        \begin{minipage}[t][0.68\textheight][t]{\linewidth}
-            \centering
-            \begin{tikzpicture}
-                \node[
-                    draw=mmdBlue!55!black,
-                    line width=0.8pt,
-                    rounded corners=4pt,
-                    inner sep=2.5pt
-                ] {
-                    \includegraphics[width=0.86\linewidth,height=0.58\textheight,keepaspectratio]{figures/personal.png}
-                };
-            \end{tikzpicture}
-        \end{minipage}
+% \section{Personal}
+% \begin{frame}{About Me}
+%     \vspace{-0.25cm}
+%     \begin{columns}[T,onlytextwidth]
+%         \column{0.34\textwidth}
+%         \begin{minipage}[t][0.68\textheight][t]{\linewidth}
+%             \centering
+%             \begin{tikzpicture}
+%                 \node[
+%                     draw=mmdBlue!55!black,
+%                     line width=0.8pt,
+%                     rounded corners=4pt,
+%                     inner sep=2.5pt
+%                 ] {
+%                     \includegraphics[width=0.86\linewidth,height=0.58\textheight,keepaspectratio]{figures/personal.png}
+%                 };
+%             \end{tikzpicture}
+%         \end{minipage}
 
-        \column{0.62\textwidth}
-        {\Large\bfseries Zonghao (Hudson) Chen}\\[-0.04cm]
-        {\small\color{graytext}4th year PhD student, University College London}\\[0.22cm]
+%         \column{0.62\textwidth}
+%         {\Large\bfseries Zonghao (Hudson) Chen}\\[-0.04cm]
+%         {\small\color{graytext}4th year PhD student, University College London}\\[0.22cm]
 
-        \begin{beamercolorbox}[wd=\linewidth, sep=0.33em, rounded=true]{answer box}
-            \small
-            \begin{tabular}{@{}p{0.44\linewidth}p{0.46\linewidth}@{}}
-                Foundational AI Centre & Fran\c{c}ois-Xavier Briol\\
-                Gatsby Unit & Arthur Gretton
-            \end{tabular}
-        \end{beamercolorbox}
+%         \begin{beamercolorbox}[wd=\linewidth, sep=0.33em, rounded=true]{answer box}
+%             \small
+%             \begin{tabular}{@{}p{0.44\linewidth}p{0.46\linewidth}@{}}
+%                 Foundational AI Centre & Fran\c{c}ois-Xavier Briol\\
+%                 Gatsby Unit & Arthur Gretton
+%             \end{tabular}
+%         \end{beamercolorbox}
 
-        \vspace{0.18cm}
-        \begin{beamercolorbox}[wd=\linewidth, sep=0.33em, rounded=true]{answer box}
-            \small
-            Tsinghua Uni., B.Eng. in Electronic Engineering, 2022
-        \end{beamercolorbox}
+%         \vspace{0.18cm}
+%         \begin{beamercolorbox}[wd=\linewidth, sep=0.33em, rounded=true]{answer box}
+%             \small
+%             Tsinghua Uni., B.Eng. in Electronic Engineering, 2022
+%         \end{beamercolorbox}
 
-        \vspace{0.18cm}
-        \begin{beamercolorbox}[wd=\linewidth, sep=0.33em, rounded=true]{answer box}
-            {\bfseries Research Interests}\\
-            \small
-            \vspace{-0.14cm}
-            \begin{itemize}
-                \setlength\topsep{0pt}
-                \setlength\partopsep{0pt}
-                \setlength\parsep{0pt}
-                \setlength\itemsep{0.02cm}
-                \item Kernel and nonparametric methods
-                \item Causal inference
-                \item Statistical learning theory
-            \end{itemize}
-            \vspace{-0.26cm}
-        \end{beamercolorbox}
-    \end{columns}
-\end{frame}
+%         \vspace{0.18cm}
+%         \begin{beamercolorbox}[wd=\linewidth, sep=0.33em, rounded=true]{answer box}
+%             {\bfseries Research Interests}\\
+%             \small
+%             \vspace{-0.14cm}
+%             \begin{itemize}
+%                 \setlength\topsep{0pt}
+%                 \setlength\partopsep{0pt}
+%                 \setlength\parsep{0pt}
+%                 \setlength\itemsep{0.02cm}
+%                 \item Kernel and nonparametric methods
+%                 \item Causal inference
+%                 \item Statistical learning theory
+%             \end{itemize}
+%             \vspace{-0.26cm}
+%         \end{beamercolorbox}
+%     \end{columns}
+% \end{frame}
 
-\section{Content}
-\begin{frame}{Research timeline}
-    \centering
-    {\large\bfseries A research timeline from the start of my PhD}\\[0.28cm]
+% \section{Content}
+% \begin{frame}{Research timeline}
 
-    \begin{tikzpicture}[
-        x=1cm,
-        y=1cm,
-        timeline/.style={line width=1.2pt, -{Latex[length=2.4mm]}, mmdBlue!75!black},
-        tick/.style={mmdBlue!75!black, line width=0.8pt},
-        eventBase/.style={
-            rounded corners=2pt,
-            line width=0.7pt,
-            text width=3.0cm,
-            align=center,
-            inner sep=4pt,
-            font=\scriptsize
-        },
-        eventBlue/.style={eventBase, draw=mmdBlue!75!black, fill=mmdBlue!8},
-        eventGreen/.style={eventBase, draw=mmdGreen!75!black, fill=mmdGreen!8},
-        eventRed/.style={eventBase, draw=mmdRed!75!black, fill=mmdRed!8},
-        dotBlue/.style={circle, fill=mmdBlue!80!black, draw=white, line width=0.5pt, minimum size=5pt, inner sep=0pt},
-        dotGreen/.style={circle, fill=mmdGreen!80!black, draw=white, line width=0.5pt, minimum size=5pt, inner sep=0pt},
-        dotRed/.style={circle, fill=mmdRed!80!black, draw=white, line width=0.5pt, minimum size=5pt, inner sep=0pt}
-    ]
-        \draw[timeline] (0,0) -- (11.6,0);
+%     \begin{tikzpicture}[
+%         x=1cm,
+%         y=1cm,
+%         timeline/.style={line width=1.2pt, -{Latex[length=2.4mm]}, mmdBlue!75!black},
+%         tick/.style={mmdBlue!75!black, line width=0.8pt},
+%         eventBase/.style={
+%             rounded corners=2pt,
+%             line width=0.7pt,
+%             text width=3.0cm,
+%             align=center,
+%             inner sep=4pt,
+%             font=\scriptsize
+%         },
+%         eventBlue/.style={eventBase, draw=mmdBlue!75!black, fill=mmdBlue!8},
+%         eventGreen/.style={eventBase, draw=mmdGreen!75!black, fill=mmdGreen!8},
+%         eventRed/.style={eventBase, draw=mmdRed!75!black, fill=mmdRed!8},
+%         dotBlue/.style={circle, fill=mmdBlue!80!black, draw=white, line width=0.5pt, minimum size=5pt, inner sep=0pt},
+%         dotGreen/.style={circle, fill=mmdGreen!80!black, draw=white, line width=0.5pt, minimum size=5pt, inner sep=0pt},
+%         dotRed/.style={circle, fill=mmdRed!80!black, draw=white, line width=0.5pt, minimum size=5pt, inner sep=0pt}
+%     ]
+%         \draw[timeline] (0,0) -- (11.6,0);
 
-        \foreach \x/\label in {0/{09/2022},2.1/{2023},4.4/{2024},7.1/{2025},9.7/{2026}} {
-            \draw[tick] (\x,0.12) -- (\x,-0.12);
-            \node[font=\scriptsize, text=mmdBlue!80!black] at (\x,-0.42) {\label};
-        }
+%         \foreach \x/\label in {0/{09/2022},2.1/{2023},4.4/{2024},7.1/{2025},9.7/{2026}} {
+%             \draw[tick] (\x,0.12) -- (\x,-0.12);
+%             \node[font=\scriptsize, text=mmdBlue!80!black] at (\x,-0.42) {\label};
+%         }
 
-        \node[dotBlue] at (0,0) {};
-        \node[eventBlue, text width=2.35cm] (phdstart) at (0,1.15)
-            {\bfseries PhD starts\\[-0.02cm]
-             \textcolor{graytext}{UCL, Sep 2022}};
-        \draw[mmdBlue!60!black, line width=0.6pt] (0,0.08) -- (phdstart.south);
+%         \node[dotBlue] at (0,0) {};
+%         \node[eventBlue, text width=2.35cm] (phdstart) at (0,1.15)
+%             {\bfseries PhD starts\\[-0.02cm]
+%              \textcolor{graytext}{UCL, Sep 2022}};
+%         \draw[mmdBlue!60!black, line width=0.6pt] (0,0.08) -- (phdstart.south);
 
-        \node[dotGreen] at (2.6,0) {};
-        \node[eventGreen] (integration) at (2.6,-1.10)
-            {\bfseries Kernel-based\\
-             numerical integration};
-        \draw[mmdGreen!60!black, line width=0.6pt] (2.6,-0.08) -- (integration.north);
+%         \node[dotGreen] at (2.6,0) {};
+%         \node[eventGreen] (integration) at (2.6,-1.10)
+%             {\bfseries Kernel-based\\
+%              numerical integration};
+%         \draw[mmdGreen!60!black, line width=0.6pt] (2.6,-0.08) -- (integration.north);
 
-        \node[dotBlue] at (5.7,0) {};
-        \node[eventBlue] (sampling) at (5.7,1.28)
-            {\bfseries Sampling / Generative\\
-             modelling via MMD flows};
-        \draw[mmdBlue!60!black, line width=0.6pt] (5.7,0.08) -- (sampling.south);
+%         \node[dotBlue] at (5.7,0) {};
+%         \node[eventBlue] (sampling) at (5.7,1.28)
+%             {\bfseries Sampling / Generative\\
+%              modelling via MMD flows};
+%         \draw[mmdBlue!60!black, line width=0.6pt] (5.7,0.08) -- (sampling.south);
 
-        \node[dotRed] at (8.8,0) {};
-        \node[eventRed] (inference) at (8.8,-1.32)
-            {\bfseries Minimum MMD estimators\\
-             for inference};
-        \draw[mmdRed!60!black, line width=0.6pt] (8.8,-0.08) -- (inference.north);
+%         \node[dotRed] at (8.8,0) {};
+%         \node[eventRed] (inference) at (8.8,-1.32)
+%             {\bfseries Minimum MMD estimators\\
+%              for inference};
+%         \draw[mmdRed!60!black, line width=0.6pt] (8.8,-0.08) -- (inference.north);
 
-        \node[font=\scriptsize\bfseries, text=mmdBlue!80!black, align=center] at (11.25,0.48)
-            {Today};
+%         \node[font=\scriptsize\bfseries, text=mmdBlue!80!black, align=center] at (11.25,0.48)
+%             {Today};
 
-        \draw[
-            decorate,
-            decoration={brace, mirror, amplitude=8pt},
-            line width=1.1pt,
-            mmdBlue!80!black
-        ] (1.25,-1.95) -- (10.15,-1.95)
-            node[midway, yshift=-0.62cm, font=\large\bfseries, text=mmdBlue!85!black]
-            {Minimization of Maximum Mean Discrepancy (MMD)};
-    \end{tikzpicture}
-\end{frame}
+%         \draw[
+%             decorate,
+%             decoration={brace, mirror, amplitude=8pt},
+%             line width=1.1pt,
+%             mmdBlue!80!black
+%         ] (1.25,-1.95) -- (10.15,-1.95)
+%             node[midway, yshift=-0.62cm, font=\large\bfseries, text=mmdBlue!85!black]
+%             {Minimization of Maximum Mean Discrepancy (MMD)};
+%     \end{tikzpicture}
+% \end{frame}
 
 \begin{frame}{Background: what is MMD?}
     \begin{columns}[c]
@@ -567,7 +565,7 @@
                 \widehat{I}_{\mathrm{NKQ}}
                 =
                 \sum_{t=1}^{T}
-                w_t^{\Theta} f\left(\hat{J}^{\mathrm{KQ}}(\theta_t)\right)
+                w_t^{\Theta} f\left(\hat{J}_{\mathrm{KQ}}(\theta_t)\right)
             \]
             \vspace{-0.10cm}
         \end{minipage}}
@@ -575,7 +573,7 @@
 
     \vspace{0.15cm}
     \begin{tabular}{@{}c@{\hspace{0.24cm}}c@{}}
-        {\bfseries Cost to achieve error $|I-\widehat{I}|\leq\Delta$:}
+        {\bfseries Samples to achieve error $|I-\widehat{I}|\leq\Delta$:}
         &
         \resizebox{0.56\linewidth}{!}{%
         \begin{tabular}{@{}c@{\hspace{0.45cm}}c@{}}
@@ -836,7 +834,7 @@
         \item For any $i\in\{1, \ldots, n\}$:  
     \begin{align*}
         \nabla_{x_i} \operatorname{MMD}^2\left(\mu, \frac{1}{n} \sum_{j=1}^n \delta_{x_j}\right)=0 
-        \Longleftrightarrow \frac{1}{n} \sum_{j=1}^n \nabla_1 k\left(x_i, x_j\right)-\int \nabla_1 k\left(x_i, y\right) \mathrm{d} \mu(y)=0. 
+        \Longrightarrow \frac{1}{n} \sum_{j=1}^n \nabla_1 k\left(x_i, x_j\right)-\int \nabla_1 k\left(x_i, y\right) \mathrm{d} \mu(y)=0. 
     \end{align*}
         \item Exact integration on $x \mapsto \nabla_1 k\left(x_i, x\right)$.
     \end{itemize}
@@ -1108,7 +1106,7 @@
                 \Pb_{\theta_{t+1}} = (T_{\theta_t - \gamma \Delta \theta_t})_\# \rho .
             \]
             \item Choose $\Pb_{\theta_{t+1}}$ closest to the MMD flow iterate $\Pb_{t+1}$.
-            \item $\lim_{t\to\infty} \mmd(\Pb_{\theta_t}, \Qb) = \min_{\theta} \mmd_{\ell}(\Pb_{\theta}, \Qb)$. 
+            \item $\lim_{t\to\infty} \mmd(\Pb_{\theta_t}, \Qb) = \min_{\theta} \mmd(\Pb_{\theta}, \Qb)$. 
         \end{itemize}
 
         \column{0.33\textwidth}
@@ -1177,7 +1175,7 @@
         {\footnotesize\bfseries Neural Networks for NPIV: Optimization and Generalization~\textcolor{mmdBlue!80!black}{(Arxiv)}}\par\vspace{-0.08cm}
         {\tiny\textcolor{graytext}{\underline{Z. Chen}, A. Nitanda, A. Gretton, T. Suzuki}}\par\vspace{0.02cm}
         {\footnotesize\bfseries NPIV with Observed Covariates~\textcolor{mmdBlue!80!black}{(Arxiv)}}\par\vspace{-0.08cm}
-        {\tiny\textcolor{graytext}{Z. Shen, \underline{Z. Chen}, D. Meunier, I. Steinwart, A. Gretton, Z. Li}}
+        {\tiny\textcolor{graytext}{Z. Shen*, \underline{Z. Chen}*, D. Meunier, I. Steinwart, A. Gretton, Z. Li}}
     \end{minipage}}}
 \end{frame}
 
