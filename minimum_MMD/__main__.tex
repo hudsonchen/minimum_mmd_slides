@@ -561,6 +561,40 @@
         \begin{align*}
             \hat{I} = \sum_{i=1}^n w_i f(x_i).
         \end{align*}
+    \end{itemize}
+    \begingroup
+    \setbeamercolor{itemize item}{fg=black!25}
+    \setbeamercolor{normal text}{fg=black!25}
+    \color{black!25}
+    \begin{itemize}
+        \item \textcolor{black!25}{When $w_1=\cdots=w_n=1/n$, this is Monte Carlo. $\hat{I}_{MC} = \frac{1}{n}\sum_{i=1}^n f(x_i)$.}
+        \begin{align*}
+            \color{black!25}\E\left[|\hat{I}_{MC} - I|\right] = \mathcal{O}(n^{-1/2}).
+        \end{align*}
+        \item \textcolor{black!25}{Or equivalently, to obtain an $\epsilon$-accurate estimate, we need $n = \mathcal{O}(\epsilon^{-2})$ samples.}
+    \end{itemize}
+    \setbeamercolor{block title example}{fg=black!25,bg=black!5}
+    \setbeamercolor{block body example}{fg=black!25,bg=black!2}
+    \setbeamercolor{answer box}{fg=black!25,bg=black!2}
+    \color{black!25}
+    \begin{exampleblock}{}
+        \centering
+        \textbf{Question:} Can we do better than $\mathcal{O}(n^{-1/2})$?
+    \end{exampleblock}
+    \begin{answerblock}{}
+    \centering \textbf{Answer:} Find better weights $w_1,\ldots,w_n$.
+    \end{answerblock}
+    \endgroup
+\end{frame}
+
+\begin{frame}{Part I: Numerical Integration}
+    \begin{itemize}
+        \item Given a function $f$ and a distribution $\Pb$, how to compute $\int f(x) \dd \Pb(x)$?
+        \item Given a set of points $\{x_i\}_{i=1}^n$ and function evaluations $\{f(x_i)\}_{i=1}^n$.
+        \item Quadrature rule:
+        \begin{align*}
+            \hat{I} = \sum_{i=1}^n w_i f(x_i).
+        \end{align*}
         \item When $w_1=\cdots=w_n=1/n$, this is Monte Carlo. $\hat{I}_{MC} = \frac{1}{n}\sum_{i=1}^n f(x_i)$.
         \begin{align*}
             \E\left[|\hat{I}_{MC} - I|\right] = \mathcal{O}(n^{-1/2}).
