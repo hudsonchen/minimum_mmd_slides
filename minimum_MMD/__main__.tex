@@ -157,7 +157,8 @@
             \begin{minipage}[t][0.34\textheight][t]{0.88\linewidth}
                 \centering
                 {\Large \mmdicon{mmdBlue!80!black}{$\sim$}}\\[0.08cm]
-                {\bfseries Sampling / generative modelling}\\[0.12cm]
+                {\bfseries Sampling}\\[-0.02cm]
+                {\bfseries generative modelling}\\[0.22cm]
                 \includegraphics[width=\linewidth]{../plotting/figures/sampling_generative_illustration.pdf}
             \end{minipage}
         }
@@ -410,7 +411,7 @@
         \end{align*}
     \end{thm*}
     \begin{itemize}
-        \item \textcolor{black!25}{MMD is a probability divergence ($\mathrm{MMD}(\Pb, \Qb)=0 \iff \Pb=\Qb$) if $k$ is characteristic (Gaussian)~\citep{sriperumbudur2011universality}.}
+        \item \textcolor{black!25}{MMD is a probability divergence ($\mathrm{MMD}(\Pb, \Qb)=0 \iff \Pb=\Qb$) if $k$ is characteristic (Gaussian)~{\scriptsize\oldcitep{sriperumbudur2011universality}}.}
     \end{itemize}
     \endgroup
 \end{frame}
@@ -503,7 +504,8 @@
             \begin{minipage}[t][0.40\textheight][t]{0.88\linewidth}
                 \centering
                 {\Large \mmdicon{mmdBlue!80!black}{$\sim$}}\\[0.08cm]
-                {\bfseries Sampling / generative modelling}\\[0.12cm]
+                {\bfseries Sampling}\\[-0.02cm]
+                {\bfseries generative modelling}\\[0.22cm]
                 \includegraphics[width=\linewidth]{../plotting/figures/sampling_generative_illustration.pdf}
             \end{minipage}
         }
@@ -976,6 +978,32 @@
         \end{itemize}
     \end{itemize}
     \vspace{0.25cm}
+    \begingroup
+    \color{black!25}
+    \centering
+    \begin{tikzpicture}
+        \node[inner sep=0pt] (samplingpreview) {\includegraphics[width=0.85\linewidth]{../plotting/figures/illustration_sampling.pdf}};
+        \fill[white, opacity=0.72] (samplingpreview.south west) rectangle (samplingpreview.north east);
+    \end{tikzpicture}\\[0.12cm]
+    \begin{itemize}
+        \setbeamercolor{itemize item}{fg=black!25}
+        \item \textcolor{black!25}{MMD flow generates more uniform samples.}
+    \end{itemize}
+    \endgroup
+\end{frame}
+
+\begin{frame}{Part II: Sampling / Generative modelling}
+    \begin{itemize}
+        \item Unsurprisingly, we use MMD as the divergence.
+    \begin{talign*}
+        \arg\min_{\Pb \in \calP(\R^d)} \mmd^2(\Pb, \Qb) . 
+    \end{talign*}
+        \item A (Wasserstein) gradient descent of $\mmd^2(\Pb, \Qb)$ gives a sequence of distributions: $\Pb_0, \Pb_1, \ldots, \Pb_t$~\citep{arbel2019maximum}.
+        \begin{itemize}
+            \item In the limit, $\Pb_t$ converges to $\Qb$ and $\mmd(\Pb_t, \Qb) \to 0$ (or not?). 
+        \end{itemize}
+    \end{itemize}
+    \vspace{0.25cm}
     \centering \includegraphics[width=0.85\linewidth]{../plotting/figures/illustration_sampling.pdf}\\[0.12cm]
     \begin{itemize}
         \item MMD flow generates more \red{uniform} samples.
@@ -1071,6 +1099,10 @@
     \end{align*}
         \item Exact integration on $x \mapsto \nabla_1 k\left(x_i, x\right)$.
     \end{itemize}
+    \begingroup
+    \setbeamercolor{block title example}{fg=black!25,bg=black!5}
+    \setbeamercolor{block body example}{fg=black!25,bg=black!2}
+    \color{black!25}
     \begin{exampleblock}{}
         \centering \textbf{Exact integration subspace:} 
         \vspace{-0.20cm}
@@ -1079,6 +1111,7 @@
         \nabla_1 k(x_i,\cdot) : i\in\{1, \ldots, n\}. \Bigr\} \subset \mathcal{H}.
         \end{align*}
     \end{exampleblock}
+    \endgroup
     \begingroup
     \setbeamercolor{itemize item}{fg=black!25}
     \setbeamercolor{normal text}{fg=black!25}
