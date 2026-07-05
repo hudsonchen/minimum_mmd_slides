@@ -71,7 +71,7 @@
 
 % Render slide citations as compact grey alphabetic labels.
 \renewcommand{\citep}[1]{{\scriptsize\textcolor{graytext}{\oldcitep{#1}}}}
-\renewcommand{\citet}[1]{{\scriptsize\textcolor{graytext}{\oldcitet{#1}}}}
+\renewcommand{\citet}[1]{{\scriptsize\textcolor{graytext}{\oldcitep{#1}}}}
 \renewcommand{\cite}[1]{{\scriptsize\textcolor{graytext}{\oldcitep{#1}}}}
 \newcommand{\red}[1]{\textcolor{red}{#1}}
 \newcommand{\green}[1]{\textcolor{green!60!black}{#1}}
@@ -1051,7 +1051,7 @@
     \centering \includegraphics[width=0.80\linewidth]{../plotting/figures/generative_reverse_noising_celeba.pdf}\\[0.12cm]
 
     \begin{itemize}
-        \item MMD flow does not outperform diffusion-based generative models~\citep{galashov2024deep}.
+        \item MMD flow does not outperform diffusion-based generative models~\citep{galashov2024deep,altekruger2023neural,hertrich2024wasserstein,hertrich2023generative,hagemann2024posterior,belhadji2025weighted,belhadji2026discretize}.
         \item A novel framework of generative modelling \& sampling.
     \end{itemize}
 \end{frame}
@@ -1073,6 +1073,7 @@
         \begin{itemize}
             \item When $\pi$ is `Gaussian-like'. 
         \end{itemize}
+        \item Other work on convergence of MMD flow~\citep{chizat2026quantitative,boufadene2023global}. 
     \end{itemize}
 \end{frame}
 
@@ -1379,7 +1380,7 @@
 
 \begin{frame}{Part III: Statistical inference}
     \begin{itemize}
-        \item Minimum MMD estimator~\citep{briol2019statistical,cherief2022finite}
+        \item Minimum MMD estimator~\citep{briol2019statistical,cherief2022finite,cherief2020mmd,alquier2025package}
         \begin{align*}
             \theta_{\mathrm{MMD}}
             &= \arg\min_{\theta\in\Theta} \mathrm{MMD}^2(\Pb_\theta, \Qb) \\
@@ -1390,7 +1391,10 @@
             + \mathrm{const}
             \Big\}.
         \end{align*}
+    \end{itemize}
 
+    \begin{itemize}
+        \item Applications: \citet{key2025composite,schrab2023mmd,bruck2025distribution,fazeli2023semi,alquier2024universal,alquier2026timeseries,dellaporta2025decision,dellaporta2022robust,dellaporta2023robust,chen2025total,su2025differentiable,alquier2023estimation,cherief2025parametric,khoo2026minimum}.
     \end{itemize}
 
     \vspace{0.10cm}
@@ -1420,8 +1424,9 @@
     \end{exampleblock}
     \begin{columns}[T,onlytextwidth]
         \column{0.66\textwidth}
+        \footnotesize
         \begin{itemize}
-            \setlength\itemsep{0.12cm}
+            \setlength\itemsep{0.06cm}
             \item MMD flow:
             \[
                 \Pb_{t+1}
@@ -1441,10 +1446,10 @@
         \end{itemize}
 
         \column{0.33\textwidth}
-        \begin{minipage}[c][0.64\textheight][c]{\linewidth}
+        \begin{minipage}[c][0.56\textheight][c]{\linewidth}
             \centering
             \includegraphics[
-                width=\linewidth,
+                width=0.92\linewidth,
                 keepaspectratio
             ]{../plotting/figures/illustration_simple.pdf}
         \end{minipage}
@@ -1456,7 +1461,7 @@
     \fcolorbox{mmdBlue!70!black}{mmdBlue!6}{%
     \begin{minipage}[t][0.29\textheight][t]{0.95\linewidth}
         \centering
-        {\bfseries On Optimization of Minimum MMD Estimators~\textcolor{mmdBlue!80!black}{(Arxiv)}}\\[-0.10cm]
+        {\bfseries A Gradient Flow Perspective of Minimum MMD Estimation~\textcolor{mmdBlue!80!black}{(Arxiv)}}\\[-0.10cm]
         {\tiny\textcolor{graytext}{S. S. Kang, L. Sharrock, X. Cheng, F.-X. Briol, \underline{Z. Chen}}}\\[-0.10cm]
 
         \raggedright
