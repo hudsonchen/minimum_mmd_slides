@@ -642,6 +642,101 @@
     \end{tikzpicture}
 
     \vspace{-0.15cm}
+    \begingroup
+    \color{black!35}
+    \begin{columns}[T,onlytextwidth]
+        \column{0.48\textwidth}
+        \fcolorbox{black!15}{black!3}{%
+        \begin{minipage}{0.94\linewidth}
+            \vspace{0.10cm}
+            {\centering\small\bfseries Stage I: inner KQ\par}\vspace{-0.25cm}
+            \[
+                \widehat{J}_{\mathrm{KQ}}(\theta_t)
+                =
+                \sum_{n=1}^{N}
+                w^{\calX}_{n,t} g(x_n^{(t)},\theta_t)
+            \]
+            \vspace{-0.10cm}
+        \end{minipage}}
+
+        \column{0.48\textwidth}
+        \fcolorbox{black!15}{black!3}{%
+        \begin{minipage}{0.94\linewidth}
+            \vspace{0.10cm}
+            {\centering\small\bfseries Stage II: outer KQ\par}\vspace{-0.25cm}
+            \[
+                \widehat{I}_{\mathrm{NKQ}}
+                =
+                \sum_{t=1}^{T}
+                w_t^{\Theta} f\left(\hat{J}_{\mathrm{KQ}}(\theta_t)\right)
+            \]
+            \vspace{-0.10cm}
+        \end{minipage}}
+    \end{columns}
+
+    \vspace{0.15cm}
+    \begin{tabular}{@{}c@{\hspace{0.24cm}}c@{}}
+        {\bfseries Samples to achieve error $|I-\widehat{I}|\leq\Delta$:}
+        &
+        \resizebox{0.56\linewidth}{!}{%
+        \begin{tabular}{@{}c@{\hspace{0.45cm}}c@{}}
+            \toprule
+            \textbf{NMC}: $\mathcal{O}(\Delta^{-4})$ or $\mathcal{O}(\Delta^{-3})$
+            &
+            \textbf{NQMC}: $\mathcal{O}(\Delta^{-2.5})$
+            \\
+            \textbf{MLMC}: $\mathcal{O}(\Delta^{-2})$
+            &
+            \textbf{NKQ}: $\tilde{\mathcal{O}}(\Delta^{-d_{\calX}/s_{\calX}-d_{\Theta}/s_{\Theta}})$
+            \\
+            \bottomrule
+        \end{tabular}}
+    \end{tabular}
+    \endgroup
+\end{frame}
+
+\begin{frame}{Part I: Numerical Integration}
+    \centering
+    \begin{itemize}
+        \item Nested expectation: $\displaystyle
+        I := \E_{\theta \sim \Qb}
+        \left[
+            f\left(\E_{X \sim \Pb_\theta}[g(X,\theta)]\right)
+        \right]$
+    \end{itemize}
+        
+    \vspace{0.15cm}
+    \begin{tikzpicture}[
+        scale=0.92,
+        transform shape,
+        outer/.style={circle, draw=mmdBlue!80!black, fill=mmdBlue!10, minimum size=6.5mm, font=\small},
+        inner/.style={rounded corners=2pt, draw=mmdGreen!70!black, fill=mmdGreen!10, minimum width=2.35cm, minimum height=0.58cm, align=center, font=\small},
+        evalbox/.style={rounded corners=2pt, draw=mmdRed!70!black, fill=mmdRed!8, minimum width=2.35cm, minimum height=0.58cm, align=center, font=\small},
+        conn/.style={-{Latex[length=1.8mm]}, line width=0.7pt, mmdBlue!75!black},
+        rowlabel/.style={font=\small\bfseries, text=mmdBlue!80!black, align=right, anchor=east}
+    ]
+        \node[rowlabel] at (-1.45,0.90) {outer samples};
+        \node[outer] (th1) at (0,0.90) {$\theta_1$};
+        \node[outer] (th2) at (2.50,0.90) {$\theta_2$};
+        \node at (4.00,0.90) {$\cdots$};
+        \node[outer] (thT) at (5.50,0.90) {$\theta_T$};
+
+        \node[rowlabel] at (-1.45,-0.03) {inner samples};
+        \node[inner] (x1) at (0,-0.03) {$x_{1:N}^{(1)} \sim \Pb_{\theta_1}$};
+        \node[inner] (x2) at (2.50,-0.03) {$x_{1:N}^{(2)} \sim \Pb_{\theta_2}$};
+        \node at (4.00,-0.03) {$\cdots$};
+        \node[inner] (xT) at (5.50,-0.03) {$x_{1:N}^{(T)} \sim \Pb_{\theta_T}$};
+
+        \node[rowlabel] at (-1.45,-0.84) {function evaluates};
+        \node[evalbox] (g1) at (0,-0.84) {$g(x,\theta_1)$};
+        \node[evalbox] (g2) at (2.50,-0.84) {$g(x,\theta_2)$};
+        \node at (4.00,-0.84) {$\cdots$};
+        \node[evalbox] (gT) at (5.50,-0.84) {$g(x,\theta_T)$};
+        \node[font=\small\bfseries, text=mmdBlue!80!black] at (2.45,-1.54)
+        {Total simulator evaluations: $N \times T$};
+    \end{tikzpicture}
+
+    \vspace{-0.15cm}
     \begin{columns}[T,onlytextwidth]
         \column{0.48\textwidth}
         \fcolorbox{mmdGreen!70!black}{mmdGreen!10}{%
