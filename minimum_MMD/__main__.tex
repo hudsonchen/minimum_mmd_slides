@@ -651,7 +651,7 @@
             w_{1:n} &= \E_{X \sim \Pb}[k(X, x_{1:n})]
             K(x_{1:n},x_{1:n})^{-1} . 
         \end{align*}
-        \item The kernel quadrature (KQ) rule~\citep{rasmussen2002bayesian,sommariva2006numerical,briol2019probabilistic}: $\hat{I}_{\mathrm{KQ}} = \sum_{i=1}^n w_i f(x_i)$.
+        \item The kernel quadrature (KQ) rule: $\hat{I}_{\mathrm{KQ}} = \sum_{i=1}^n w_i f(x_i)$.~\citep{rasmussen2002bayesian,sommariva2006numerical,briol2019probabilistic}
     \end{itemize}
 \end{frame}
 
@@ -763,7 +763,7 @@
             \\
             \textbf{MLMC}~{\scriptsize\oldcitep{giles2015multilevel}}: $\Delta^{-2}$
             &
-            \textbf{NKQ}~{\scriptsize\oldcitep{chen2025nested}}: $\Delta^{-d_{\calX}/s_{\calX}-d_{\Theta}/s_{\Theta}}$
+            \textbf{NKQ}:  $\Delta^{-d_{\calX}/s_{\calX}-d_{\Theta}/s_{\Theta}}$
             \\
             \bottomrule
         \end{tabular}}
@@ -856,7 +856,7 @@
             \\
             \textbf{MLMC}~\citep{giles2015multilevel}: $\Delta^{-2}$
             &
-            \textbf{NKQ}~\citep{chen2025nested}: $\Delta^{-d_{\calX}/s_{\calX}-d_{\Theta}/s_{\Theta}}$
+            \textbf{NKQ}: $\Delta^{-d_{\calX}/s_{\calX}-d_{\Theta}/s_{\Theta}}$
             \\
             \bottomrule
         \end{tabular}}
@@ -978,7 +978,7 @@
         \textbf{Problem}: How to learn a target probability distribution $\Qb$ on $\R^d$.
     \end{exampleblock}
     \begin{itemize}
-        \item This problem can be written as an \blue{optimization} problem on $\calP(\R^d)$, the space of probability distributions.
+        \item This problem can be written as an \blue{optimization} problem on $\calP(\R^d)$, the space of probability distributions~\citep{ambrosio2005gradient,villani2009optimal,santambrogio2017euclidean}:
         \begin{align*}
             \arg\min_{\Pb \in \calP(\R^d)} D(\Pb, \Qb) . 
         \end{align*}
@@ -1009,7 +1009,7 @@
     \begin{talign*}
         \arg\min_{\Pb \in \calP(\R^d)} \mmd^2(\Pb, \Qb) . 
     \end{talign*}
-        \item A (Wasserstein) gradient descent of $\mmd^2(\Pb, \Qb)$ gives a sequence of distributions: $\Pb_0, \Pb_1, \ldots, \Pb_t$~\citep{arbel2019maximum}.
+        \item A (Wasserstein) gradient descent of $\mmd^2(\Pb, \Qb)$ gives a sequence of distributions: $\Pb_0, \Pb_1, \ldots, \Pb_t$~\citep{arbel2019maximum,korba2021kernel}.
         \begin{itemize}
             \item In the limit, $\Pb_t$ converges to $\Qb$ and $\mmd(\Pb_t, \Qb) \to 0$ (or not?). 
         \end{itemize}
@@ -1035,7 +1035,7 @@
     \begin{talign*}
         \arg\min_{\Pb \in \calP(\R^d)} \mmd^2(\Pb, \Qb) . 
     \end{talign*}
-        \item A (Wasserstein) gradient descent of $\mmd^2(\Pb, \Qb)$ gives a sequence of distributions: $\Pb_0, \Pb_1, \ldots, \Pb_t$~\citep{arbel2019maximum}.
+        \item A (Wasserstein) gradient descent of $\mmd^2(\Pb, \Qb)$ gives a sequence of distributions: $\Pb_0, \Pb_1, \ldots, \Pb_t$~\citep{arbel2019maximum,korba2021kernel}.
         \begin{itemize}
             \item In the limit, $\Pb_t$ converges to $\Qb$ and $\mmd(\Pb_t, \Qb) \to 0$ (or not?). 
         \end{itemize}
