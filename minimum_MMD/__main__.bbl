@@ -8,6 +8,30 @@ Michael Arbel, Anna Korba, Adil Salim, and Arthur Gretton.
   E.~Fox, and R.~Garnett, editors, {\em Advances in Neural Information
   Processing Systems}, volume~32. Curran Associates, Inc., 2019.
 
+\bibitem[BBDG19]{briol2019statistical}
+Francois-Xavier Briol, Alessandro Barp, Andrew~B Duncan, and Mark Girolami.
+\newblock Statistical inference for generative models with maximum mean
+  discrepancy.
+\newblock {\em arXiv preprint arXiv:1906.05944}, 2019.
+
+\bibitem[BCE{\etalchar{+}}23]{bartuska2023double}
+Arved Bartuska, Andr{\'e}~Gustavo Carlon, Luis Espath, Sebastian Krumscheid,
+  and Ra{\'u}l Tempone.
+\newblock Double-loop randomized quasi-{M}onte {C}arlo estimator for nested
+  integration.
+\newblock {\em arXiv preprint arXiv:2302.14119}, 2023.
+
+\bibitem[CAA22]{cherief2022finite}
+Badr-Eddine Ch{'e}rief-Abdellatif and Pierre Alquier.
+\newblock Finite sample properties of parametric mmd estimation: robustness to
+  misspecification and dependence.
+\newblock {\em Bernoulli}, 28(1):181--213, 2022.
+
+\bibitem[CNB25]{chen2025nested}
+Zonghao Chen, Masha Naslidnyk, and Fran{\c{c}}ois-Xavier Briol.
+\newblock Nested expectations with kernel quadrature.
+\newblock {\em arXiv preprint arXiv:2502.18284}, 2025.
+
 \bibitem[GBG25]{galashov2024deep}
 Alexandre Galashov, Valentin~De Bortoli, and Arthur Gretton.
 \newblock Deep {MMD} gradient flow without adversarial training.
@@ -19,6 +43,11 @@ Arthur Gretton, Karsten~M. Borgwardt, Malte~J. Rasch, Bernhard Sch{\"o}lkopf,
   and Alexander Smola.
 \newblock A kernel two-sample test.
 \newblock {\em Journal of Machine Learning Research}, 13(1):723--773, 2012.
+
+\bibitem[Gil15]{giles2015multilevel}
+Michael~B. Giles.
+\newblock Multilevel {M}onte {C}arlo methods.
+\newblock {\em Acta Numerica}, 24:259--328, 2015.
 
 \bibitem[MSR19]{mroueh2019sobolev}
 Youssef Mroueh, Tom Sercu, and Anant Raj.
@@ -36,6 +65,14 @@ Felix Otto.
 \newblock The geometry of dissipative evolution equations: the porous medium
   equation.
 \newblock 2001.
+
+\bibitem[RCY{\etalchar{+}}18]{rainforth}
+Tom Rainforth, Rob Cornish, Hongseok Yang, Andrew Warrington, and Frank Wood.
+\newblock On nesting {M}onte {C}arlo estimators.
+\newblock In Jennifer Dy and Andreas Krause, editors, {\em Proceedings of the
+  35th International Conference on Machine Learning}, volume~80 of {\em
+  Proceedings of Machine Learning Research}, pages 4267--4276. PMLR, 10--15 Jul
+  2018.
 
 \bibitem[SFL11]{sriperumbudur2011universality}
 Bharath~K. Sriperumbudur, Kenji Fukumizu, and Gert R.~G. Lanckriet.

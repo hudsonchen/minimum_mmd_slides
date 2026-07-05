@@ -717,6 +717,7 @@
 
     \vspace{-0.15cm}
     \begingroup
+    \hypersetup{citecolor=black!25}
     \color{black!25}
     \begin{columns}[T,onlytextwidth]
         \column{0.48\textwidth}
@@ -750,18 +751,18 @@
 
     \vspace{0.15cm}
     \begin{tabular}{@{}c@{\hspace{0.24cm}}c@{}}
-        {\bfseries Samples to achieve error $|I-\widehat{I}|\leq\Delta$:}
+        {\bfseries To achieve error $|I-\widehat{I}|\leq\Delta$:}
         &
         \resizebox{0.56\linewidth}{!}{%
         \begin{tabular}{@{}c@{\hspace{0.45cm}}c@{}}
             \toprule
-            \textbf{NMC}: $\mathcal{O}(\Delta^{-4})$ or $\mathcal{O}(\Delta^{-3})$
+            \textbf{NMC}~{\scriptsize\oldcitep{rainforth}}: $\Delta^{-4}$
             &
-            \textbf{NQMC}: $\mathcal{O}(\Delta^{-2.5})$
+            \textbf{NQMC}~{\scriptsize\oldcitep{bartuska2023double}}: $\Delta^{-2.5}$
             \\
-            \textbf{MLMC}: $\mathcal{O}(\Delta^{-2})$
+            \textbf{MLMC}~{\scriptsize\oldcitep{giles2015multilevel}}: $\Delta^{-2}$
             &
-            \textbf{NKQ}: $\tilde{\mathcal{O}}(\Delta^{-d_{\calX}/s_{\calX}-d_{\Theta}/s_{\Theta}})$
+            \textbf{NKQ}~{\scriptsize\oldcitep{chen2025nested}}: $\Delta^{-d_{\calX}/s_{\calX}-d_{\Theta}/s_{\Theta}}$
             \\
             \bottomrule
         \end{tabular}}
@@ -850,11 +851,11 @@
             \toprule
             \textbf{NMC}~\citep{rainforth}: $\Delta^{-4}$ 
             &
-            \textbf{NQMC}: $\Delta^{-2.5}$
+            \textbf{NQMC}~\citep{bartuska2023double}: $\Delta^{-2.5}$
             \\
-            \textbf{MLMC}: $\Delta^{-2}$
+            \textbf{MLMC}~\citep{giles2015multilevel}: $\Delta^{-2}$
             &
-            \textbf{NKQ}: $\Delta^{-d_{\calX}/s_{\calX}-d_{\Theta}/s_{\Theta}}$
+            \textbf{NKQ}~\citep{chen2025nested}: $\Delta^{-d_{\calX}/s_{\calX}-d_{\Theta}/s_{\Theta}}$
             \\
             \bottomrule
         \end{tabular}}
